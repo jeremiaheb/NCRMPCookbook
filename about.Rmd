@@ -2,4 +2,8 @@
 title: "About This Website"
 ---
 
-More about this website.
+https://www.coris.noaa.gov/monitoring/
+
+https://github.com/jeremiaheb/rvc
+
+https://github.com/shgroves/NCRMP_benthics

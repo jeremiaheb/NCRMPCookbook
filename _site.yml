@@ -1,9 +1,15 @@
 name: "NCRMP R Cookbook"
 output_dir: docs
 navbar:
-  title: "My Website"
+  title: "NCRMP R Cookbook"
   left:
     - text: "Home"
       href: index.html
     - text: "About"
       href: about.html
+    - text: "Histograms"
+      href: histograms.html
+    - text: "Bar graphs"
+      href: bargraphs.html
+    - text: "Line graphs"
+      href: linegraphs.html
