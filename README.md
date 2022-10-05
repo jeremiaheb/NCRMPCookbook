@@ -1,4 +1,4 @@
 # NCRMPCookbook
 NCRMP Cookbook template
 
-#edit from RStudio
+https://kenzieknox.github.io/NCRMPCookbook/
