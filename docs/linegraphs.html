@@ -10,14 +10,13 @@
 
 
 
-<meta name="date" content="2022-09-28" />
 
 <title>Line graphs</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -35,8 +34,8 @@
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -47,17 +46,118 @@
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
 
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -85,6 +185,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -142,11 +245,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -313,7 +420,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -323,16 +430,58 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
 </li>
 <li>
   <a href="about.html">About</a>
 </li>
 <li>
-  <a href="histograms.html">Histograms</a>
+  <a href="downloadpkgs.html">
+    <span class="fa fa-download"></span>
+     
+    Download
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-ship"></span>
+     
+    Benthic
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="b-tseries.html">Time series</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-fish"></span>
+     
+    Fish
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="f-tseries.html">Time series</a>
+    </li>
+    <li>
+      <a href="f-freqcomp.html">Frequency comparisson</a>
+    </li>
+    <li>
+      <a href="f-singyr.html">Single year plots</a>
+    </li>
+  </ul>
 </li>
 <li>
-  <a href="bargraphs.html">Bar graphs</a>
+  <a href="histograms.html">Histograms</a>
 </li>
 <li>
   <a href="linegraphs.html">Line graphs</a>
@@ -348,7 +497,7 @@ div.tocify {
 <div id="header">
 
 <div class="btn-group pull-right float-right">
-<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
 <ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
 <li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
 <li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
@@ -358,411 +507,414 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Line graphs</h1>
-<h4 class="date">2022-09-28</h4>
 
 </div>
 
 
 <div id="packages" class="section level2">
 <h2>Packages</h2>
-<p><span style="float:right">Click ‘code’ to view…………………………………………………………………………………………………………………………………..</span></p>
-<pre class="r"><code>## Initialize
-# LIBRARIES 
-library(dplyr)
-library(ncrmp.benthics.analysis)
-library(magrittr)
-library(ggplot2)
-library(gridExtra)
-library(cowplot)
-library(viridis)
-library(rcartocolor)
-library(sp)
-
-# Support functions
-source(&quot;theme_publication.R&quot;)
-
-source(&quot;labeler.R&quot;)</code></pre>
+<p><span style="float:right">Click ‘code’ to
+view…………………………………………………………………………………………………………………………………..</span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Initialize</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># LIBRARIES </span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ncrmp.benthics.analysis)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rcartocolor)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sp)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Support functions</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;theme_publication.R&quot;</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;labeler.R&quot;</span>)</span></code></pre></div>
 </div>
 <div id="load-data" class="section level2">
 <h2>Load data</h2>
-<p><span style="float:right">Click ‘code’ to view…………………………………………………………………………………………………………………………………..</span></p>
-<pre class="r"><code># YEAR DEPENDENT Objects (update as appropriate) 
-
-## Variables
-
-samp_year &lt;- max(ncrmp.benthics.analysis::USVI_2021_NTOT$YEAR)
-current_year &lt;- 2022
-
-## Tables/Data frames
-
-### Cover
-
-STTSTJ_Cvr &lt;- NCRMP_STTSTJ_2013_21_cover_region
-STX_Cvr &lt;- NCRMP_STX_2015_21_cover_region
-PR_Cvr &lt;- NCRMP_PRICO_2014_21_cover_region
-
-# Density 
-
-STTSTJ_den &lt;- NCRMP_STTSTJ_2013_21_density_region
-STX_den &lt;- NCRMP_STX_2015_21_density_region
-PR_den &lt;- NCRMP_PRICO_2014_21_density_region
-
-# Old Mortality
-
-STTSTJ_om &lt;- NCRMP_STTSTJ_2013_21_old_mort_region
-STX_om &lt;- NCRMP_STX_2015_21_old_mort_region
-PR_om &lt;- NCRMP_PRICO_2014_21_old_mort_region
-
-# Recent Mortality
-
-STTSTJ_rm &lt;- NCRMP_STTSTJ_2013_21_rec_mort_region
-STX_rm &lt;- NCRMP_STX_2015_21_rec_mort_region
-PR_rm &lt;- NCRMP_PRICO_2014_21_rec_mort_region
-
-
-# Surface Area
-
-STTSTJ_s &lt;- NCRMP_STTSTJ_2013_21_col_size_region
-STX_s &lt;- NCRMP_STX_2015_21_col_size_region
-PR_s &lt;- NCRMP_PRICO_2014_21_col_size_region
-
-
-### Bleaching 
-STTSTJ_ble_prev &lt;- NCRMP_STTSTJ_2013_21_ble_prev_species_region
-STX_ble_prev &lt;- NCRMP_STX_2015_21_ble_prev_species_region
-PR_ble_prev &lt;- NCRMP_PRICO_2014_21_ble_prev_species_region
-
-### Disease
-STTSTJ_dis_prev &lt;- NCRMP_STTSTJ_2013_21_dis_prev_species_region
-STX_dis_prev &lt;- NCRMP_STX_2015_21_dis_prev_species_region
-PR_dis_prev &lt;- NCRMP_PRICO_2014_21_dis_prev_species_region
-
-# Occ Den CV
-
-STTSTJ_Occ &lt;- filter(NCRMP_STTSTJ_Occ_Den_CV ,
-                     YEAR == samp_year)
-
-STX_Occ &lt;- filter(NCRMP_STX_Occ_Den_CV,
-                  YEAR == samp_year)
-
-PR_Occ &lt;- filter(NCRMP_PRICO_Occ_Den_CV,
-                 YEAR == samp_year)
-
-STTSTJ_Occ_20 &lt;- filter(NCRMP_STTSTJ_Occ_Den_CV_20 ,
-                        YEAR == samp_year)%&gt;%
-  dplyr::ungroup()
-STX_Occ_20 &lt;- filter(NCRMP_STX_Occ_Den_CV_20,
-                     YEAR == samp_year)%&gt;%
-  dplyr::ungroup()
-PR_Occ_20 &lt;- filter(NCRMP_PRICO_Occ_Den_CV_20,
-                    YEAR == samp_year) %&gt;%
-  dplyr::ungroup()
-
-# Create a list of the species that have CV less that 20% for all Carib
-spp_cv &lt;- dplyr::bind_rows(STTSTJ_Occ_20 %&gt;% select(YEAR, SPECIES_CD),
-                           STX_Occ_20 %&gt;% select(YEAR, SPECIES_CD),
-                           PR_Occ_20 %&gt;% select(YEAR, SPECIES_CD)) %&gt;%
-  unique(.)
-
-
-Carib_ESA &lt;-NCRMP_Carib_ESA_FOI
-
-# Weighted Means Inputs
-
-# PR_NTOT &lt;- PRICO_2021_NTOT
-# USVI_NTOT &lt;- USVI_2021_NTOT
-# 
-# PR_Coral_Demo &lt;- PRICO_2021_coral_demographics
-# USVI_Coral_Demo &lt;- USVI_2021_coral_demographics
-# 
-# sampling_gridPR &lt;- PRICO_2021_sample_frame_WGS1984 
-# colnames(sampling_gridPR@data)[11] = &quot;SUB_REGION&quot;
-# 
-# PR_sampling_grid &lt;- sampling_gridPR
-# STTSTJ_sampling_grid &lt;- STTSTJ_2021_sample_frame_WGS1984
-# STX_sampling_grid &lt;- STX_2021_sample_frame_WGS1984
-# 
-# PR_sppdens &lt;- NCRMP_PRICO_2014_21_density_species
-# STTSTJ_sppdens &lt;- NCRMP_STTSTJ_2013_21_density_species
-# STX_sppdens &lt;- NCRMP_STX_2015_21_density_species
-
-# Yearly Site Prevalence
-
-# STTSTJ_bd &lt;- NCRMP_STTSTJ_2013_21_ble_prev_species_region 
-# STX_bd &lt;- NCRMP_STX_2015_21_dis_ble_prev_species
-# PR_bd &lt;- NCRMP_PRICO_2014_21_dis_prev_site</code></pre>
+<p><span style="float:right">Click ‘code’ to
+view…………………………………………………………………………………………………………………………………..</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YEAR DEPENDENT Objects (update as appropriate) </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Variables</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>samp_year <span class="ot">&lt;-</span> <span class="fu">max</span>(ncrmp.benthics.analysis<span class="sc">::</span>USVI_2021_NTOT<span class="sc">$</span>YEAR)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>current_year <span class="ot">&lt;-</span> <span class="dv">2022</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Tables/Data frames</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Cover</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>STTSTJ_Cvr <span class="ot">&lt;-</span> NCRMP_STTSTJ_2013_21_cover_region</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>STX_Cvr <span class="ot">&lt;-</span> NCRMP_STX_2015_21_cover_region</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>PR_Cvr <span class="ot">&lt;-</span> NCRMP_PRICO_2014_21_cover_region</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Density </span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>STTSTJ_den <span class="ot">&lt;-</span> NCRMP_STTSTJ_2013_21_density_region</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>STX_den <span class="ot">&lt;-</span> NCRMP_STX_2015_21_density_region</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>PR_den <span class="ot">&lt;-</span> NCRMP_PRICO_2014_21_density_region</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Old Mortality</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>STTSTJ_om <span class="ot">&lt;-</span> NCRMP_STTSTJ_2013_21_old_mort_region</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>STX_om <span class="ot">&lt;-</span> NCRMP_STX_2015_21_old_mort_region</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>PR_om <span class="ot">&lt;-</span> NCRMP_PRICO_2014_21_old_mort_region</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Recent Mortality</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>STTSTJ_rm <span class="ot">&lt;-</span> NCRMP_STTSTJ_2013_21_rec_mort_region</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>STX_rm <span class="ot">&lt;-</span> NCRMP_STX_2015_21_rec_mort_region</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>PR_rm <span class="ot">&lt;-</span> NCRMP_PRICO_2014_21_rec_mort_region</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Surface Area</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>STTSTJ_s <span class="ot">&lt;-</span> NCRMP_STTSTJ_2013_21_col_size_region</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>STX_s <span class="ot">&lt;-</span> NCRMP_STX_2015_21_col_size_region</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>PR_s <span class="ot">&lt;-</span> NCRMP_PRICO_2014_21_col_size_region</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="do">### Bleaching </span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>STTSTJ_ble_prev <span class="ot">&lt;-</span> NCRMP_STTSTJ_2013_21_ble_prev_species_region</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>STX_ble_prev <span class="ot">&lt;-</span> NCRMP_STX_2015_21_ble_prev_species_region</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>PR_ble_prev <span class="ot">&lt;-</span> NCRMP_PRICO_2014_21_ble_prev_species_region</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="do">### Disease</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>STTSTJ_dis_prev <span class="ot">&lt;-</span> NCRMP_STTSTJ_2013_21_dis_prev_species_region</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>STX_dis_prev <span class="ot">&lt;-</span> NCRMP_STX_2015_21_dis_prev_species_region</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>PR_dis_prev <span class="ot">&lt;-</span> NCRMP_PRICO_2014_21_dis_prev_species_region</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Occ Den CV</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>STTSTJ_Occ <span class="ot">&lt;-</span> <span class="fu">filter</span>(NCRMP_STTSTJ_Occ_Den_CV ,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>                     YEAR <span class="sc">==</span> samp_year)</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>STX_Occ <span class="ot">&lt;-</span> <span class="fu">filter</span>(NCRMP_STX_Occ_Den_CV,</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>                  YEAR <span class="sc">==</span> samp_year)</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>PR_Occ <span class="ot">&lt;-</span> <span class="fu">filter</span>(NCRMP_PRICO_Occ_Den_CV,</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>                 YEAR <span class="sc">==</span> samp_year)</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>STTSTJ_Occ_20 <span class="ot">&lt;-</span> <span class="fu">filter</span>(NCRMP_STTSTJ_Occ_Den_CV_20 ,</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>                        YEAR <span class="sc">==</span> samp_year)<span class="sc">%&gt;%</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>STX_Occ_20 <span class="ot">&lt;-</span> <span class="fu">filter</span>(NCRMP_STX_Occ_Den_CV_20,</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>                     YEAR <span class="sc">==</span> samp_year)<span class="sc">%&gt;%</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>PR_Occ_20 <span class="ot">&lt;-</span> <span class="fu">filter</span>(NCRMP_PRICO_Occ_Den_CV_20,</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>                    YEAR <span class="sc">==</span> samp_year) <span class="sc">%&gt;%</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list of the species that have CV less that 20% for all Carib</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>spp_cv <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(STTSTJ_Occ_20 <span class="sc">%&gt;%</span> <span class="fu">select</span>(YEAR, SPECIES_CD),</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>                           STX_Occ_20 <span class="sc">%&gt;%</span> <span class="fu">select</span>(YEAR, SPECIES_CD),</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>                           PR_Occ_20 <span class="sc">%&gt;%</span> <span class="fu">select</span>(YEAR, SPECIES_CD)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>(.)</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>Carib_ESA <span class="ot">&lt;-</span>NCRMP_Carib_ESA_FOI</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="co"># Weighted Means Inputs</span></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="co"># PR_NTOT &lt;- PRICO_2021_NTOT</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="co"># USVI_NTOT &lt;- USVI_2021_NTOT</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="co"># PR_Coral_Demo &lt;- PRICO_2021_coral_demographics</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="co"># USVI_Coral_Demo &lt;- USVI_2021_coral_demographics</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="co"># sampling_gridPR &lt;- PRICO_2021_sample_frame_WGS1984 </span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="co"># colnames(sampling_gridPR@data)[11] = &quot;SUB_REGION&quot;</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a><span class="co"># PR_sampling_grid &lt;- sampling_gridPR</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="co"># STTSTJ_sampling_grid &lt;- STTSTJ_2021_sample_frame_WGS1984</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="co"># STX_sampling_grid &lt;- STX_2021_sample_frame_WGS1984</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a><span class="co"># PR_sppdens &lt;- NCRMP_PRICO_2014_21_density_species</span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="co"># STTSTJ_sppdens &lt;- NCRMP_STTSTJ_2013_21_density_species</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="co"># STX_sppdens &lt;- NCRMP_STX_2015_21_density_species</span></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Yearly Site Prevalence</span></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="co"># STTSTJ_bd &lt;- NCRMP_STTSTJ_2013_21_ble_prev_species_region </span></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="co"># STX_bd &lt;- NCRMP_STX_2015_21_dis_ble_prev_species</span></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a><span class="co"># PR_bd &lt;- NCRMP_PRICO_2014_21_dis_prev_site</span></span></code></pre></div>
 </div>
 <div id="create-functions-and-variables" class="section level2">
 <h2>Create functions and variables</h2>
-<p><span style="float:right">Click ‘code’ to view functions……………………………………………………………………………………………………………………….</span></p>
-<pre class="r"><code># FUNCTIONS
-
-# Pull avCvr function
-# Input is relevant region df, cover group (ex. NCRMP_PRICO_2014_19_cover_region, &quot;Hard Corals&quot;)
-# Output is avCvr for most recent year in df
-
-pull_avCvr &lt;- function (df, grouping) {
-  df |&gt; 
-    filter(cover_group == toupper(grouping) &amp; YEAR == max(YEAR)) |&gt;
-    pull(avCvr) |&gt; 
-    round(1) 
-}
-
-# Pull SE function
-# Input is relevant region df, cover group (ex. NCRMP_PRICO_2014_19_cover_region, &quot;Hard Corals&quot;)
-# Output is SE for most recent year in df
-pull_se &lt;- function(df, grouping) {
-  df |&gt; 
-    filter(cover_group == toupper(grouping) &amp; YEAR == max(YEAR)) |&gt;
-    pull(SE) |&gt; 
-    round(2)
-}
-
-
-#Pull  Density &amp; Mort. averages
-
-pull_demo_av &lt;- function (df) {
-  df |&gt; 
-    filter(YEAR == max(YEAR)) |&gt;
-    pull(3) |&gt; 
-    round(1) 
-}
-
-# Pull Density &amp; Mort. SE
-pull_demo_se &lt;- function(df) {
-  df |&gt; 
-    filter(YEAR == max(YEAR)) |&gt;
-    pull(SE) |&gt; 
-    round(2)
-}
-
-
-#Pull  Size averages
-
-pull_size_av &lt;- function (df) {
-  df |&gt; 
-    filter(YEAR == max(YEAR)) |&gt;
-    pull(avCm3) |&gt; 
-    round(1) 
-}
-
-# Pull Size SE
-pull_size_se &lt;- function(df) {
-  df |&gt; 
-    filter(YEAR == max(YEAR)) |&gt;
-    pull(SE_cm3) |&gt; 
-    round(2)
-}
-
-# Pull Top 3 Coral Bleach
-pull_ble_prev &lt;- function (df) { 
-  df |&gt; 
-    filter(YEAR == max(YEAR)) |&gt; 
-    arrange(desc(avBlePrev)) |&gt;
-    slice(1:3)
-}
-
-# Pull Top 3 Coral Disease
-pull_dis_prev &lt;- function (df) { 
-  df |&gt; 
-    filter(YEAR == max(YEAR)) |&gt; 
-    arrange(desc(avDisPrev)) |&gt;
-    slice(1:3)
-}
-
-# Pull Species FOI
-
-pull_foi &lt;- function(x, y) {
-  Carib_ESA |&gt; 
-    filter(species == x &amp; region2 == y) |&gt; 
-    pull(foi) * 100 -&gt; foi.x
-  
-  ifelse(foi.x &gt;= 10, round(foi.x,0),
-         ifelse(foi.x&gt;1, round(foi.x,1),
-                round(foi.x, 2)))
-  
-}
-
-
-# pull text
-pull_text &lt;- function(x) {
-  stringr::str_c(
-    &quot;The&quot;, str_replace(
-      
-    )
-  )
-}</code></pre>
-<p><span style="float:right">Click ‘code’ to view variables……………………………………………………………………………………………………………………….</span></p>
-<pre class="r"><code># BENTHIC VARIABLES
-
-## Hard Corals Cover
-
-### Puerto Rico Hard Coral avCvr
-pr_hc_avCvr &lt;- pull_avCvr(PR_Cvr, &quot;Hard Corals&quot;)
-### Puerto Rico Hard Coral SE
-pr_hc_se &lt;- pull_se(PR_Cvr, &quot;Hard Corals&quot;)
-### St. Thomas/John Hard Coral avCvr
-sttstj_hc_avCvr &lt;- pull_avCvr(STTSTJ_Cvr, &quot;Hard Corals&quot;)
-### St. Thomas/John Hard Coral SE
-sttstj_hc_se &lt;- pull_se(STTSTJ_Cvr, &quot;Hard Corals&quot;)
-### St. Croix Hard Coral avCvr
-stx_hc_avCvr &lt;- pull_avCvr(STX_Cvr, &quot;Hard Corals&quot;)
-### St. Croix Hard Coral SE
-stx_hc_se &lt;- pull_se(STX_Cvr, &quot;Hard Corals&quot;)
-
-
-## Macroalgae Cover
-
-### Puerto Rico Macroalgae avCvr
-pr_macroal_avCvr &lt;- pull_avCvr(PR_Cvr, &quot;Macroalgae&quot;)
-### Puerto Rico Macroalgae SE
-pr_macroal_se &lt;- pull_se(PR_Cvr, &quot;Macroalgae&quot;)
-### St. Thomas/John Macroalgae avCvr
-sttstj_macroal_avCvr &lt;- pull_avCvr(STTSTJ_Cvr, &quot;Macroalgae&quot;)
-### St. Thomas/John Macroalgae SE
-sttstj_macroal_se &lt;- pull_se(STTSTJ_Cvr, &quot;Macroalgae&quot;)
-### St. Croix Macroalgae avCvr
-stx_macroal_avCvr &lt;- pull_avCvr(STX_Cvr, &quot;Macroalgae&quot;)
-### St. Croix Macroalgae SE
-stx_macroal_se &lt;- pull_se(STX_Cvr, &quot;Macroalgae&quot;)
-
-
-## Bleaching
-sttstj_ble_top &lt;- pull_ble_prev(STTSTJ_ble_prev)
-stx_ble_top &lt;- pull_ble_prev(STX_ble_prev)
-pr_ble_top &lt;- pull_ble_prev(PR_ble_prev)
-
-## Disease
-sttstj_dis_top &lt;- pull_dis_prev(STTSTJ_dis_prev)
-stx_dis_top &lt;- pull_dis_prev(STX_dis_prev)
-pr_dis_top &lt;- pull_dis_prev(PR_dis_prev)
-
-## Demographics
-
-### Combined Occ Table
-rbind(STTSTJ_Occ, STX_Occ) |&gt; 
-  rbind(PR_Occ) -&gt; All_Occ
-
-### Top 6 Occ 
-All_Occ |&gt;
-  group_by(SPECIES_CD) |&gt; 
-  summarise(max_occ = max(occurrence)) |&gt; 
-  arrange(desc(max_occ)) |&gt; 
-  slice(1:6)-&gt;top_occ
-
-### ESA
-Carib_ESA |&gt; 
-  filter(region2 == &quot;USVI&quot;) -&gt; usvi_esa
-
-Carib_ESA |&gt; 
-  filter(region2 == &quot;PR&quot;)-&gt; pr_esa
-
-pr_esa |&gt;  
-  filter(species == &quot;OANN&quot; |species == &quot;OFRA&quot;|species == &quot;OFAV&quot; ) -&gt; pr_esa_orb
-
-### Density
-pull_avDen &lt;- function (df) {
-  df |&gt; 
-    filter(YEAR == max(YEAR)) |&gt;
-    pull(avDen) |&gt; 
-    round(1) 
-}
-
-### STTSTJ density, mortality
-sttstj_avDen &lt;- pull_demo_av(STTSTJ_den)
-sttstj_avDen_se &lt;- pull_demo_se(STTSTJ_den)
-
-sttstj_avOM &lt;- pull_demo_av(STTSTJ_om)
-sttstj_avOM_se &lt;- pull_demo_se(STTSTJ_om)
-
-sttstj_avRM &lt;- pull_demo_av(STTSTJ_rm)
-sttstj_avRM_se &lt;- pull_demo_se(STTSTJ_rm)
-
-### and size
-sttstj_avSize &lt;- pull_size_av(STTSTJ_s)
-sttstj_avSize_se &lt;- pull_size_se(STTSTJ_s)
-
-
-### STX density, mortality
-stx_avDen &lt;- pull_demo_av(STX_den)
-stx_avDen_se &lt;- pull_demo_se(STX_den)
-
-stx_avOM &lt;- pull_demo_av(STX_om)
-stx_avOM_se &lt;- pull_demo_se(STX_om)
-
-stx_avRM &lt;- pull_demo_av(STX_rm)
-stx_avRM_se &lt;- pull_demo_se(STX_rm)
-
-### and size
-stx_avSize &lt;- pull_size_av(STX_s)
-stx_avSize_se &lt;- pull_size_se(STX_s)
-
-
-### PRICO density, mortality
-pr_avDen &lt;- pull_demo_av(PR_den)
-pr_avDen_se &lt;- pull_demo_se(PR_den)
-
-pr_avOM &lt;- pull_demo_av(PR_om)
-pr_avOM_se &lt;- pull_demo_se(PR_om)
-
-pr_avRM &lt;- pull_demo_av(PR_rm)
-pr_avRM_se &lt;- pull_demo_se(PR_rm)
-
-### and size
-pr_avSize &lt;- pull_size_av(PR_s)
-pr_avSize_se &lt;- pull_size_se(PR_s)</code></pre>
+<p><span style="float:right">Click ‘code’ to view
+functions……………………………………………………………………………………………………………………….</span></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># FUNCTIONS</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull avCvr function</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Input is relevant region df, cover group (ex. NCRMP_PRICO_2014_19_cover_region, &quot;Hard Corals&quot;)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Output is avCvr for most recent year in df</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>pull_avCvr <span class="ot">&lt;-</span> <span class="cf">function</span> (df, grouping) {</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(cover_group <span class="sc">==</span> <span class="fu">toupper</span>(grouping) <span class="sc">&amp;</span> YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(avCvr) <span class="sc">|&gt;</span> </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">1</span>) </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull SE function</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Input is relevant region df, cover group (ex. NCRMP_PRICO_2014_19_cover_region, &quot;Hard Corals&quot;)</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Output is SE for most recent year in df</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>pull_se <span class="ot">&lt;-</span> <span class="cf">function</span>(df, grouping) {</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(cover_group <span class="sc">==</span> <span class="fu">toupper</span>(grouping) <span class="sc">&amp;</span> YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(SE) <span class="sc">|&gt;</span> </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">#Pull  Density &amp; Mort. averages</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>pull_demo_av <span class="ot">&lt;-</span> <span class="cf">function</span> (df) {</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(<span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">1</span>) </span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull Density &amp; Mort. SE</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>pull_demo_se <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(SE) <span class="sc">|&gt;</span> </span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="co">#Pull  Size averages</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>pull_size_av <span class="ot">&lt;-</span> <span class="cf">function</span> (df) {</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(avCm3) <span class="sc">|&gt;</span> </span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">1</span>) </span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull Size SE</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>pull_size_se <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(SE_cm3) <span class="sc">|&gt;</span> </span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull Top 3 Coral Bleach</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>pull_ble_prev <span class="ot">&lt;-</span> <span class="cf">function</span> (df) { </span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(avBlePrev)) <span class="sc">|&gt;</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull Top 3 Coral Disease</span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>pull_dis_prev <span class="ot">&lt;-</span> <span class="cf">function</span> (df) { </span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(avDisPrev)) <span class="sc">|&gt;</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull Species FOI</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>pull_foi <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>  Carib_ESA <span class="sc">|&gt;</span> </span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(species <span class="sc">==</span> x <span class="sc">&amp;</span> region2 <span class="sc">==</span> y) <span class="sc">|&gt;</span> </span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(foi) <span class="sc">*</span> <span class="dv">100</span> <span class="ot">-&gt;</span> foi.x</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(foi.x <span class="sc">&gt;=</span> <span class="dv">10</span>, <span class="fu">round</span>(foi.x,<span class="dv">0</span>),</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>         <span class="fu">ifelse</span>(foi.x<span class="sc">&gt;</span><span class="dv">1</span>, <span class="fu">round</span>(foi.x,<span class="dv">1</span>),</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>                <span class="fu">round</span>(foi.x, <span class="dv">2</span>)))</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="co"># pull text</span></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>pull_text <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>  stringr<span class="sc">::</span><span class="fu">str_c</span>(</span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;The&quot;</span>, <span class="fu">str_replace</span>(</span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><span style="float:right">Click ‘code’ to view
+variables……………………………………………………………………………………………………………………….</span></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># BENTHIC VARIABLES</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Hard Corals Cover</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">### Puerto Rico Hard Coral avCvr</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>pr_hc_avCvr <span class="ot">&lt;-</span> <span class="fu">pull_avCvr</span>(PR_Cvr, <span class="st">&quot;Hard Corals&quot;</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="do">### Puerto Rico Hard Coral SE</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>pr_hc_se <span class="ot">&lt;-</span> <span class="fu">pull_se</span>(PR_Cvr, <span class="st">&quot;Hard Corals&quot;</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Thomas/John Hard Coral avCvr</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>sttstj_hc_avCvr <span class="ot">&lt;-</span> <span class="fu">pull_avCvr</span>(STTSTJ_Cvr, <span class="st">&quot;Hard Corals&quot;</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Thomas/John Hard Coral SE</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>sttstj_hc_se <span class="ot">&lt;-</span> <span class="fu">pull_se</span>(STTSTJ_Cvr, <span class="st">&quot;Hard Corals&quot;</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Croix Hard Coral avCvr</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>stx_hc_avCvr <span class="ot">&lt;-</span> <span class="fu">pull_avCvr</span>(STX_Cvr, <span class="st">&quot;Hard Corals&quot;</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Croix Hard Coral SE</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>stx_hc_se <span class="ot">&lt;-</span> <span class="fu">pull_se</span>(STX_Cvr, <span class="st">&quot;Hard Corals&quot;</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Macroalgae Cover</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="do">### Puerto Rico Macroalgae avCvr</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>pr_macroal_avCvr <span class="ot">&lt;-</span> <span class="fu">pull_avCvr</span>(PR_Cvr, <span class="st">&quot;Macroalgae&quot;</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="do">### Puerto Rico Macroalgae SE</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>pr_macroal_se <span class="ot">&lt;-</span> <span class="fu">pull_se</span>(PR_Cvr, <span class="st">&quot;Macroalgae&quot;</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Thomas/John Macroalgae avCvr</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>sttstj_macroal_avCvr <span class="ot">&lt;-</span> <span class="fu">pull_avCvr</span>(STTSTJ_Cvr, <span class="st">&quot;Macroalgae&quot;</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Thomas/John Macroalgae SE</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>sttstj_macroal_se <span class="ot">&lt;-</span> <span class="fu">pull_se</span>(STTSTJ_Cvr, <span class="st">&quot;Macroalgae&quot;</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Croix Macroalgae avCvr</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>stx_macroal_avCvr <span class="ot">&lt;-</span> <span class="fu">pull_avCvr</span>(STX_Cvr, <span class="st">&quot;Macroalgae&quot;</span>)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Croix Macroalgae SE</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>stx_macroal_se <span class="ot">&lt;-</span> <span class="fu">pull_se</span>(STX_Cvr, <span class="st">&quot;Macroalgae&quot;</span>)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="do">## Bleaching</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>sttstj_ble_top <span class="ot">&lt;-</span> <span class="fu">pull_ble_prev</span>(STTSTJ_ble_prev)</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>stx_ble_top <span class="ot">&lt;-</span> <span class="fu">pull_ble_prev</span>(STX_ble_prev)</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>pr_ble_top <span class="ot">&lt;-</span> <span class="fu">pull_ble_prev</span>(PR_ble_prev)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="do">## Disease</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>sttstj_dis_top <span class="ot">&lt;-</span> <span class="fu">pull_dis_prev</span>(STTSTJ_dis_prev)</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>stx_dis_top <span class="ot">&lt;-</span> <span class="fu">pull_dis_prev</span>(STX_dis_prev)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>pr_dis_top <span class="ot">&lt;-</span> <span class="fu">pull_dis_prev</span>(PR_dis_prev)</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="do">## Demographics</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="do">### Combined Occ Table</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(STTSTJ_Occ, STX_Occ) <span class="sc">|&gt;</span> </span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(PR_Occ) <span class="ot">-&gt;</span> All_Occ</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="do">### Top 6 Occ </span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>All_Occ <span class="sc">|&gt;</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(SPECIES_CD) <span class="sc">|&gt;</span> </span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">max_occ =</span> <span class="fu">max</span>(occurrence)) <span class="sc">|&gt;</span> </span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(max_occ)) <span class="sc">|&gt;</span> </span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)<span class="ot">-&gt;</span>top_occ</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="do">### ESA</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>Carib_ESA <span class="sc">|&gt;</span> </span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region2 <span class="sc">==</span> <span class="st">&quot;USVI&quot;</span>) <span class="ot">-&gt;</span> usvi_esa</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>Carib_ESA <span class="sc">|&gt;</span> </span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region2 <span class="sc">==</span> <span class="st">&quot;PR&quot;</span>)<span class="ot">-&gt;</span> pr_esa</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>pr_esa <span class="sc">|&gt;</span>  </span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;OANN&quot;</span> <span class="sc">|</span>species <span class="sc">==</span> <span class="st">&quot;OFRA&quot;</span><span class="sc">|</span>species <span class="sc">==</span> <span class="st">&quot;OFAV&quot;</span> ) <span class="ot">-&gt;</span> pr_esa_orb</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="do">### Density</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>pull_avDen <span class="ot">&lt;-</span> <span class="cf">function</span> (df) {</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(avDen) <span class="sc">|&gt;</span> </span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">1</span>) </span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a><span class="do">### STTSTJ density, mortality</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>sttstj_avDen <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(STTSTJ_den)</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>sttstj_avDen_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(STTSTJ_den)</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>sttstj_avOM <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(STTSTJ_om)</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>sttstj_avOM_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(STTSTJ_om)</span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>sttstj_avRM <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(STTSTJ_rm)</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>sttstj_avRM_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(STTSTJ_rm)</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a><span class="do">### and size</span></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>sttstj_avSize <span class="ot">&lt;-</span> <span class="fu">pull_size_av</span>(STTSTJ_s)</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>sttstj_avSize_se <span class="ot">&lt;-</span> <span class="fu">pull_size_se</span>(STTSTJ_s)</span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a><span class="do">### STX density, mortality</span></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>stx_avDen <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(STX_den)</span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>stx_avDen_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(STX_den)</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>stx_avOM <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(STX_om)</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>stx_avOM_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(STX_om)</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>stx_avRM <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(STX_rm)</span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>stx_avRM_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(STX_rm)</span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a><span class="do">### and size</span></span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>stx_avSize <span class="ot">&lt;-</span> <span class="fu">pull_size_av</span>(STX_s)</span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>stx_avSize_se <span class="ot">&lt;-</span> <span class="fu">pull_size_se</span>(STX_s)</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a><span class="do">### PRICO density, mortality</span></span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>pr_avDen <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(PR_den)</span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>pr_avDen_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(PR_den)</span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>pr_avOM <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(PR_om)</span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>pr_avOM_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(PR_om)</span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>pr_avRM <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(PR_rm)</span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>pr_avRM_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(PR_rm)</span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a><span class="do">### and size</span></span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>pr_avSize <span class="ot">&lt;-</span> <span class="fu">pull_size_av</span>(PR_s)</span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a>pr_avSize_se <span class="ot">&lt;-</span> <span class="fu">pull_size_se</span>(PR_s)</span></code></pre></div>
 </div>
 <div id="plots" class="section level2">
 <h2>Plots</h2>
 <div id="mean-colony-presence" class="section level3">
 <h3>Mean colony presence</h3>
-<pre class="r"><code>Carib.plot.dis &lt;- dplyr::bind_rows(NCRMP_STTSTJ_2013_21_dis_ble_prev_region %&gt;% dplyr::mutate(REGION = &quot;St. Thomas &amp; St. John&quot;),
-                                   NCRMP_STX_2015_21_dis_ble_prev_region %&gt;% dplyr::mutate(REGION = &quot;St. Croix&quot;),
-                                   NCRMP_PRICO_2014_21_dis_ble_prev_region %&gt;% dplyr::mutate(REGION = &quot;Puerto Rico&quot;)) %&gt;%
-  ggplot(aes(x = as.factor(YEAR), 
-             y = avDisPrev,
-             group = REGION,
-             color = REGION)) +
-  #point
-  geom_point(size = 2) +
-  #line 
-  geom_line(size = 2) +
-  #labels based on t-test significance
-  #geom_text(hjust=-.5, vjust=-1.75, size = 7, face = &quot;bold&quot;, color = &quot;black&quot;) +
-  #geom_text(x=2020, y=5, label=&quot;*&quot;) +
-  # SE error bars
-  geom_errorbar(aes(x = as.factor(YEAR), 
-                    ymin = avDisPrev - SE_D, 
-                    ymax = avDisPrev + SE_D), 
-                width = .1) +
-  #set color ramp
-  scale_color_viridis(discrete = TRUE,
-                      option = &quot;D&quot;,
-                      begin = 0,
-                      end = 0.5,
-                      direction = -1) +
-  #scale_y_continuous(limits = c(0, 25)) +
-  labs(x = &quot;Year&quot;, 
-       y = &quot;Disease prevalence (%)&quot;, 
-       title = &quot;US Caribbean&quot;) +
-  ylim(NA, 20) +
-  geom_vline(xintercept = c(&#39;2019&#39;, &#39;2020&#39;), linetype=&quot;dotted&quot;, 
-             color = &quot;red&quot;, face = &quot;bold&quot;) +
-  annotate(&quot;text&quot;, x = &#39;2019&#39;, y = 10, label = &quot;SCTLD\ndetected\nSt. Thomas &amp;\nPuerto Rico&quot;, 
-           size = 5, color = &quot;red&quot;, face = &quot;bold&quot;) +
-  annotate(&quot;text&quot;, x = &#39;2020&#39;, y = 14, label = &quot;SCTLD\ndetected\nSt. Croix &amp; St. John&quot;, 
-           size = 5, color = &quot;red&quot;, face = &quot;bold&quot;) +
-  scale_x_discrete(limit = as.character(c(2013:2021))) +
-  #scale_y_continuous(limits = c(0, NA)) +
-  theme_Publication(base_size = 20)  +
-  theme(legend.key = element_rect(colour = NA),
-        legend.position = &quot;bottom&quot;,
-        legend.direction = &quot;horizontal&quot;,
-        legend.key.size= unit(1, &quot;cm&quot;),
-        legend.margin = margin(0,0,0,0, &quot;cm&quot;),
-        legend.title = element_blank())
-
-Carib.plot.dis</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Carib.plot.dis <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(NCRMP_STTSTJ_2013_21_dis_ble_prev_region <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">REGION =</span> <span class="st">&quot;St. Thomas &amp; St. John&quot;</span>),</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                                   NCRMP_STX_2015_21_dis_ble_prev_region <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">REGION =</span> <span class="st">&quot;St. Croix&quot;</span>),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                                   NCRMP_PRICO_2014_21_dis_ble_prev_region <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">REGION =</span> <span class="st">&quot;Puerto Rico&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(YEAR), </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> avDisPrev,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">group =</span> REGION,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> REGION)) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">#point</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">#line </span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#labels based on t-test significance</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_text(hjust=-.5, vjust=-1.75, size = 7, face = &quot;bold&quot;, color = &quot;black&quot;) +</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_text(x=2020, y=5, label=&quot;*&quot;) +</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># SE error bars</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(YEAR), </span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymin =</span> avDisPrev <span class="sc">-</span> SE_D, </span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax =</span> avDisPrev <span class="sc">+</span> SE_D), </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> .<span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">#set color ramp</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis</span>(<span class="at">discrete =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>                      <span class="at">option =</span> <span class="st">&quot;D&quot;</span>,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>                      <span class="at">begin =</span> <span class="dv">0</span>,</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>                      <span class="at">end =</span> <span class="fl">0.5</span>,</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>                      <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">#scale_y_continuous(limits = c(0, 25)) +</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Year&quot;</span>, </span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Disease prevalence (%)&quot;</span>, </span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">&quot;US Caribbean&quot;</span>) <span class="sc">+</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylim</span>(<span class="cn">NA</span>, <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">c</span>(<span class="st">&#39;2019&#39;</span>, <span class="st">&#39;2020&#39;</span>), <span class="at">linetype=</span><span class="st">&quot;dotted&quot;</span>, </span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>) <span class="sc">+</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x =</span> <span class="st">&#39;2019&#39;</span>, <span class="at">y =</span> <span class="dv">10</span>, <span class="at">label =</span> <span class="st">&quot;SCTLD</span><span class="sc">\n</span><span class="st">detected</span><span class="sc">\n</span><span class="st">St. Thomas &amp;</span><span class="sc">\n</span><span class="st">Puerto Rico&quot;</span>, </span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>) <span class="sc">+</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="at">x =</span> <span class="st">&#39;2020&#39;</span>, <span class="at">y =</span> <span class="dv">14</span>, <span class="at">label =</span> <span class="st">&quot;SCTLD</span><span class="sc">\n</span><span class="st">detected</span><span class="sc">\n</span><span class="st">St. Croix &amp; St. John&quot;</span>, </span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="dv">5</span>, <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>) <span class="sc">+</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">limit =</span> <span class="fu">as.character</span>(<span class="fu">c</span>(<span class="dv">2013</span><span class="sc">:</span><span class="dv">2021</span>))) <span class="sc">+</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>  <span class="co">#scale_y_continuous(limits = c(0, NA)) +</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_Publication</span>(<span class="at">base_size =</span> <span class="dv">20</span>)  <span class="sc">+</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="cn">NA</span>),</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.direction =</span> <span class="st">&quot;horizontal&quot;</span>,</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.key.size=</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">&quot;cm&quot;</span>),</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.margin =</span> <span class="fu">margin</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>, <span class="st">&quot;cm&quot;</span>),</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>Carib.plot.dis</span></code></pre></div>
 <p><img src="linegraphs_files/figure-html/unnamed-chunk-1-1.png" width="1056" /></p>
 </div>
 </div>

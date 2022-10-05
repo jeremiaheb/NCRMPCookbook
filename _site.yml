@@ -5,11 +5,31 @@ navbar:
   left:
     - text: "Home"
       href: index.html
+      icon: fa-home
     - text: "About"
       href: about.html
+    - text: "Download"
+      href: downloadpkgs.html
+      icon: fa-download
+    - text: "Benthic"
+      icon: fa-ship
+      menu:
+      - text: "Time series"
+        href: b-tseries.html
+    - text: "Fish"
+      icon: fa-fish
+      menu:
+      - text: "Time series"
+        href: f-tseries.html
+      - text: "Frequency comparisson"
+        href: f-freqcomp.html
+      - text: "Single year plots"
+        href: f-singyr.html
     - text: "Histograms"
       href: histograms.html
-    - text: "Bar graphs"
-      href: bargraphs.html
     - text: "Line graphs"
       href: linegraphs.html
+output:
+  html_document:
+    theme: sandstone
+    highlight: tango

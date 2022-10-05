@@ -1,5 +1,6 @@
 ---
-title: "My Website"
+title: "National Coral Reef Management Project R Cookbook"
+urlcolor: blue
 ---
 
 Hello, Website!

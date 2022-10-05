@@ -1,0 +1,19 @@
+---
+title: "Single year plots"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Packages
+[Click 'code' to view.....................................................................................................................................................]{style="float:right"}
+
+
+## Load data
+[Click 'code' to view.....................................................................................................................................................]{style="float:right"}

@@ -5,7 +5,6 @@ output:
     toc: true
     toc_float: true
     code_folding: hide
-date: "2022-09-27"
 ---
 
 ```{r setup, include = FALSE}
@@ -815,7 +814,10 @@ analyzed_species <- c(
 ### Size comparison plots {.tabset}
 ```{r, message=FALSE, warning=FALSE}
 b = list()
-b = make_size_plot(STTSTJ_Bins, "size")
+b = make_size_plot(x = STTSTJ_Bins, y = "size")
+#x = DATA
+#y = "size", "length" (parameter)
+#link to rel code
 ```
 
 #### A. cervicornis

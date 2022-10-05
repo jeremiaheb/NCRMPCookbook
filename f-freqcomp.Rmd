@@ -1,0 +1,41 @@
+---
+title: "Frequency comparisson"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Packages
+```{r, message=FALSE,warning=FALSE,class.source = 'fold-show'}
+library(rvc)
+library(tidyverse)
+source("fish_plots/theme_publication.R")
+source("fish_plots/WrapperFunctions.R")
+source("fish_plots/labeler.R")
+source("fish_plots/QL_binned_LengthFreq.R")
+```
+
+## Load data
+```{r data, message=FALSE,warning=FALSE,class.source = 'fold-show'}
+keys11_14 = getRvcData(years = 2011:2014, regions = c("FLA KEYS", "DRY TORT"))
+```
+
+## Plots
+
+### Fork length frequency comparison
+```{r, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+plot_domain_LF_by_year(data = keys11_14, #required 
+                       species = "NIC USTA", #required 
+                       bin_size = 5, #required
+                       vertical_line = NULL, 
+                       title = NULL)
+```
+
+
+

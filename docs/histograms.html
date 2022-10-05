@@ -10,14 +10,13 @@
 
 
 
-<meta name="date" content="2022-09-27" />
 
 <title>Histograms</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -35,8 +34,8 @@
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -47,17 +46,118 @@
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
 
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+.sourceCode .row {
+  width: 100%;
+}
+.sourceCode {
+  overflow-x: auto;
+}
+.code-folding-btn {
+  margin-right: -30px;
+}
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -85,6 +185,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -142,11 +245,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -313,7 +420,7 @@ div.tocify {
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -323,16 +430,58 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
 </li>
 <li>
   <a href="about.html">About</a>
 </li>
 <li>
-  <a href="histograms.html">Histograms</a>
+  <a href="downloadpkgs.html">
+    <span class="fa fa-download"></span>
+     
+    Download
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-ship"></span>
+     
+    Benthic
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="b-tseries.html">Time series</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <span class="fa fa-fish"></span>
+     
+    Fish
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="f-tseries.html">Time series</a>
+    </li>
+    <li>
+      <a href="f-freqcomp.html">Frequency comparisson</a>
+    </li>
+    <li>
+      <a href="f-singyr.html">Single year plots</a>
+    </li>
+  </ul>
 </li>
 <li>
-  <a href="bargraphs.html">Bar graphs</a>
+  <a href="histograms.html">Histograms</a>
 </li>
 <li>
   <a href="linegraphs.html">Line graphs</a>
@@ -348,7 +497,7 @@ div.tocify {
 <div id="header">
 
 <div class="btn-group pull-right float-right">
-<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
 <ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
 <li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
 <li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
@@ -358,763 +507,766 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Histograms</h1>
-<h4 class="date">2022-09-27</h4>
 
 </div>
 
 
 <div id="packages" class="section level2">
 <h2>Packages</h2>
-<p><span style="float:right">Click ‘code’ to view…………………………………………………………………………………………………………………………………..</span></p>
-<pre class="r"><code>## Initialize
-# LIBRARIES 
-library(dplyr)
-library(ncrmp.benthics.analysis)
-library(magrittr)
-library(ggplot2)
-library(gridExtra)
-library(cowplot)
-library(viridis)
-library(rcartocolor)
-library(sp)
-
-# Support functions
-source(&quot;theme_publication.R&quot;)
-
-source(&quot;labeler.R&quot;)</code></pre>
+<p><span style="float:right">Click ‘code’ to
+view…………………………………………………………………………………………………………………………………..</span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Initialize</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># LIBRARIES </span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ncrmp.benthics.analysis)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(viridis)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rcartocolor)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sp)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Support functions</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;theme_publication.R&quot;</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;labeler.R&quot;</span>)</span></code></pre></div>
 </div>
 <div id="load-data" class="section level2">
 <h2>Load data</h2>
-<p><span style="float:right">Click ‘code’ to view…………………………………………………………………………………………………………………………………..</span></p>
-<pre class="r"><code># YEAR DEPENDENT Objects (update as appropriate) 
-
-## Variables
-
-samp_year &lt;- max(ncrmp.benthics.analysis::USVI_2021_NTOT$YEAR)
-current_year &lt;- 2022
-
-## Tables/Data frames
-
-### Cover
-
-STTSTJ_Cvr &lt;- NCRMP_STTSTJ_2013_21_cover_region
-STX_Cvr &lt;- NCRMP_STX_2015_21_cover_region
-PR_Cvr &lt;- NCRMP_PRICO_2014_21_cover_region
-
-# Density 
-
-STTSTJ_den &lt;- NCRMP_STTSTJ_2013_21_density_region
-STX_den &lt;- NCRMP_STX_2015_21_density_region
-PR_den &lt;- NCRMP_PRICO_2014_21_density_region
-
-# Old Mortality
-
-STTSTJ_om &lt;- NCRMP_STTSTJ_2013_21_old_mort_region
-STX_om &lt;- NCRMP_STX_2015_21_old_mort_region
-PR_om &lt;- NCRMP_PRICO_2014_21_old_mort_region
-
-# Recent Mortality
-
-STTSTJ_rm &lt;- NCRMP_STTSTJ_2013_21_rec_mort_region
-STX_rm &lt;- NCRMP_STX_2015_21_rec_mort_region
-PR_rm &lt;- NCRMP_PRICO_2014_21_rec_mort_region
-
-
-# Surface Area
-
-STTSTJ_s &lt;- NCRMP_STTSTJ_2013_21_col_size_region
-STX_s &lt;- NCRMP_STX_2015_21_col_size_region
-PR_s &lt;- NCRMP_PRICO_2014_21_col_size_region
-
-
-### Bleaching 
-STTSTJ_ble_prev &lt;- NCRMP_STTSTJ_2013_21_ble_prev_species_region
-STX_ble_prev &lt;- NCRMP_STX_2015_21_ble_prev_species_region
-PR_ble_prev &lt;- NCRMP_PRICO_2014_21_ble_prev_species_region
-
-### Disease
-STTSTJ_dis_prev &lt;- NCRMP_STTSTJ_2013_21_dis_prev_species_region
-STX_dis_prev &lt;- NCRMP_STX_2015_21_dis_prev_species_region
-PR_dis_prev &lt;- NCRMP_PRICO_2014_21_dis_prev_species_region
-
-# Occ Den CV
-
-STTSTJ_Occ &lt;- filter(NCRMP_STTSTJ_Occ_Den_CV ,
-                     YEAR == samp_year)
-
-STX_Occ &lt;- filter(NCRMP_STX_Occ_Den_CV,
-                  YEAR == samp_year)
-
-PR_Occ &lt;- filter(NCRMP_PRICO_Occ_Den_CV,
-                 YEAR == samp_year)
-
-STTSTJ_Occ_20 &lt;- filter(NCRMP_STTSTJ_Occ_Den_CV_20 ,
-                        YEAR == samp_year)%&gt;%
-  dplyr::ungroup()
-STX_Occ_20 &lt;- filter(NCRMP_STX_Occ_Den_CV_20,
-                     YEAR == samp_year)%&gt;%
-  dplyr::ungroup()
-PR_Occ_20 &lt;- filter(NCRMP_PRICO_Occ_Den_CV_20,
-                    YEAR == samp_year) %&gt;%
-  dplyr::ungroup()
-
-# Create a list of the species that have CV less that 20% for all Carib
-spp_cv &lt;- dplyr::bind_rows(STTSTJ_Occ_20 %&gt;% select(YEAR, SPECIES_CD),
-                           STX_Occ_20 %&gt;% select(YEAR, SPECIES_CD),
-                           PR_Occ_20 %&gt;% select(YEAR, SPECIES_CD)) %&gt;%
-  unique(.)
-
-
-Carib_ESA &lt;-NCRMP_Carib_ESA_FOI
-
-# Weighted Means Inputs
-
-# PR_NTOT &lt;- PRICO_2021_NTOT
-# USVI_NTOT &lt;- USVI_2021_NTOT
-# 
-# PR_Coral_Demo &lt;- PRICO_2021_coral_demographics
-# USVI_Coral_Demo &lt;- USVI_2021_coral_demographics
-# 
-# sampling_gridPR &lt;- PRICO_2021_sample_frame_WGS1984 
-# colnames(sampling_gridPR@data)[11] = &quot;SUB_REGION&quot;
-# 
-# PR_sampling_grid &lt;- sampling_gridPR
-# STTSTJ_sampling_grid &lt;- STTSTJ_2021_sample_frame_WGS1984
-# STX_sampling_grid &lt;- STX_2021_sample_frame_WGS1984
-# 
-# PR_sppdens &lt;- NCRMP_PRICO_2014_21_density_species
-# STTSTJ_sppdens &lt;- NCRMP_STTSTJ_2013_21_density_species
-# STX_sppdens &lt;- NCRMP_STX_2015_21_density_species
-
-# Yearly Site Prevalence
-
-# STTSTJ_bd &lt;- NCRMP_STTSTJ_2013_21_ble_prev_species_region 
-# STX_bd &lt;- NCRMP_STX_2015_21_dis_ble_prev_species
-# PR_bd &lt;- NCRMP_PRICO_2014_21_dis_prev_site</code></pre>
+<p><span style="float:right">Click ‘code’ to
+view…………………………………………………………………………………………………………………………………..</span></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YEAR DEPENDENT Objects (update as appropriate) </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Variables</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>samp_year <span class="ot">&lt;-</span> <span class="fu">max</span>(ncrmp.benthics.analysis<span class="sc">::</span>USVI_2021_NTOT<span class="sc">$</span>YEAR)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>current_year <span class="ot">&lt;-</span> <span class="dv">2022</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Tables/Data frames</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="do">### Cover</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>STTSTJ_Cvr <span class="ot">&lt;-</span> NCRMP_STTSTJ_2013_21_cover_region</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>STX_Cvr <span class="ot">&lt;-</span> NCRMP_STX_2015_21_cover_region</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>PR_Cvr <span class="ot">&lt;-</span> NCRMP_PRICO_2014_21_cover_region</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Density </span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>STTSTJ_den <span class="ot">&lt;-</span> NCRMP_STTSTJ_2013_21_density_region</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>STX_den <span class="ot">&lt;-</span> NCRMP_STX_2015_21_density_region</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>PR_den <span class="ot">&lt;-</span> NCRMP_PRICO_2014_21_density_region</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Old Mortality</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>STTSTJ_om <span class="ot">&lt;-</span> NCRMP_STTSTJ_2013_21_old_mort_region</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>STX_om <span class="ot">&lt;-</span> NCRMP_STX_2015_21_old_mort_region</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>PR_om <span class="ot">&lt;-</span> NCRMP_PRICO_2014_21_old_mort_region</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Recent Mortality</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>STTSTJ_rm <span class="ot">&lt;-</span> NCRMP_STTSTJ_2013_21_rec_mort_region</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>STX_rm <span class="ot">&lt;-</span> NCRMP_STX_2015_21_rec_mort_region</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>PR_rm <span class="ot">&lt;-</span> NCRMP_PRICO_2014_21_rec_mort_region</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Surface Area</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>STTSTJ_s <span class="ot">&lt;-</span> NCRMP_STTSTJ_2013_21_col_size_region</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>STX_s <span class="ot">&lt;-</span> NCRMP_STX_2015_21_col_size_region</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>PR_s <span class="ot">&lt;-</span> NCRMP_PRICO_2014_21_col_size_region</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="do">### Bleaching </span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>STTSTJ_ble_prev <span class="ot">&lt;-</span> NCRMP_STTSTJ_2013_21_ble_prev_species_region</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>STX_ble_prev <span class="ot">&lt;-</span> NCRMP_STX_2015_21_ble_prev_species_region</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>PR_ble_prev <span class="ot">&lt;-</span> NCRMP_PRICO_2014_21_ble_prev_species_region</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="do">### Disease</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>STTSTJ_dis_prev <span class="ot">&lt;-</span> NCRMP_STTSTJ_2013_21_dis_prev_species_region</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>STX_dis_prev <span class="ot">&lt;-</span> NCRMP_STX_2015_21_dis_prev_species_region</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>PR_dis_prev <span class="ot">&lt;-</span> NCRMP_PRICO_2014_21_dis_prev_species_region</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Occ Den CV</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>STTSTJ_Occ <span class="ot">&lt;-</span> <span class="fu">filter</span>(NCRMP_STTSTJ_Occ_Den_CV ,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>                     YEAR <span class="sc">==</span> samp_year)</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>STX_Occ <span class="ot">&lt;-</span> <span class="fu">filter</span>(NCRMP_STX_Occ_Den_CV,</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>                  YEAR <span class="sc">==</span> samp_year)</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>PR_Occ <span class="ot">&lt;-</span> <span class="fu">filter</span>(NCRMP_PRICO_Occ_Den_CV,</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>                 YEAR <span class="sc">==</span> samp_year)</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>STTSTJ_Occ_20 <span class="ot">&lt;-</span> <span class="fu">filter</span>(NCRMP_STTSTJ_Occ_Den_CV_20 ,</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>                        YEAR <span class="sc">==</span> samp_year)<span class="sc">%&gt;%</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>STX_Occ_20 <span class="ot">&lt;-</span> <span class="fu">filter</span>(NCRMP_STX_Occ_Den_CV_20,</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>                     YEAR <span class="sc">==</span> samp_year)<span class="sc">%&gt;%</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>PR_Occ_20 <span class="ot">&lt;-</span> <span class="fu">filter</span>(NCRMP_PRICO_Occ_Den_CV_20,</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>                    YEAR <span class="sc">==</span> samp_year) <span class="sc">%&gt;%</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">ungroup</span>()</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list of the species that have CV less that 20% for all Carib</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>spp_cv <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(STTSTJ_Occ_20 <span class="sc">%&gt;%</span> <span class="fu">select</span>(YEAR, SPECIES_CD),</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>                           STX_Occ_20 <span class="sc">%&gt;%</span> <span class="fu">select</span>(YEAR, SPECIES_CD),</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>                           PR_Occ_20 <span class="sc">%&gt;%</span> <span class="fu">select</span>(YEAR, SPECIES_CD)) <span class="sc">%&gt;%</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>(.)</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>Carib_ESA <span class="ot">&lt;-</span>NCRMP_Carib_ESA_FOI</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="co"># Weighted Means Inputs</span></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a><span class="co"># PR_NTOT &lt;- PRICO_2021_NTOT</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="co"># USVI_NTOT &lt;- USVI_2021_NTOT</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="co"># PR_Coral_Demo &lt;- PRICO_2021_coral_demographics</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="co"># USVI_Coral_Demo &lt;- USVI_2021_coral_demographics</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="co"># sampling_gridPR &lt;- PRICO_2021_sample_frame_WGS1984 </span></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="co"># colnames(sampling_gridPR@data)[11] = &quot;SUB_REGION&quot;</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a><span class="co"># PR_sampling_grid &lt;- sampling_gridPR</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="co"># STTSTJ_sampling_grid &lt;- STTSTJ_2021_sample_frame_WGS1984</span></span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="co"># STX_sampling_grid &lt;- STX_2021_sample_frame_WGS1984</span></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a><span class="co"># PR_sppdens &lt;- NCRMP_PRICO_2014_21_density_species</span></span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a><span class="co"># STTSTJ_sppdens &lt;- NCRMP_STTSTJ_2013_21_density_species</span></span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="co"># STX_sppdens &lt;- NCRMP_STX_2015_21_density_species</span></span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Yearly Site Prevalence</span></span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a><span class="co"># STTSTJ_bd &lt;- NCRMP_STTSTJ_2013_21_ble_prev_species_region </span></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="co"># STX_bd &lt;- NCRMP_STX_2015_21_dis_ble_prev_species</span></span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a><span class="co"># PR_bd &lt;- NCRMP_PRICO_2014_21_dis_prev_site</span></span></code></pre></div>
 </div>
 <div id="create-functions-and-variables" class="section level2">
 <h2>Create functions and variables</h2>
-<p><span style="float:right">Click ‘code’ to view functions……………………………………………………………………………………………………………………….</span></p>
-<pre class="r"><code># FUNCTIONS
-
-# Pull avCvr function
-# Input is relevant region df, cover group (ex. NCRMP_PRICO_2014_19_cover_region, &quot;Hard Corals&quot;)
-# Output is avCvr for most recent year in df
-
-pull_avCvr &lt;- function (df, grouping) {
-  df |&gt; 
-    filter(cover_group == toupper(grouping) &amp; YEAR == max(YEAR)) |&gt;
-    pull(avCvr) |&gt; 
-    round(1) 
-}
-
-# Pull SE function
-# Input is relevant region df, cover group (ex. NCRMP_PRICO_2014_19_cover_region, &quot;Hard Corals&quot;)
-# Output is SE for most recent year in df
-pull_se &lt;- function(df, grouping) {
-  df |&gt; 
-    filter(cover_group == toupper(grouping) &amp; YEAR == max(YEAR)) |&gt;
-    pull(SE) |&gt; 
-    round(2)
-}
-
-
-#Pull  Density &amp; Mort. averages
-
-pull_demo_av &lt;- function (df) {
-  df |&gt; 
-    filter(YEAR == max(YEAR)) |&gt;
-    pull(3) |&gt; 
-    round(1) 
-}
-
-# Pull Density &amp; Mort. SE
-pull_demo_se &lt;- function(df) {
-  df |&gt; 
-    filter(YEAR == max(YEAR)) |&gt;
-    pull(SE) |&gt; 
-    round(2)
-}
-
-
-#Pull  Size averages
-
-pull_size_av &lt;- function (df) {
-  df |&gt; 
-    filter(YEAR == max(YEAR)) |&gt;
-    pull(avCm3) |&gt; 
-    round(1) 
-}
-
-# Pull Size SE
-pull_size_se &lt;- function(df) {
-  df |&gt; 
-    filter(YEAR == max(YEAR)) |&gt;
-    pull(SE_cm3) |&gt; 
-    round(2)
-}
-
-# Pull Top 3 Coral Bleach
-pull_ble_prev &lt;- function (df) { 
-  df |&gt; 
-    filter(YEAR == max(YEAR)) |&gt; 
-    arrange(desc(avBlePrev)) |&gt;
-    slice(1:3)
-}
-
-# Pull Top 3 Coral Disease
-pull_dis_prev &lt;- function (df) { 
-  df |&gt; 
-    filter(YEAR == max(YEAR)) |&gt; 
-    arrange(desc(avDisPrev)) |&gt;
-    slice(1:3)
-}
-
-# Pull Species FOI
-
-pull_foi &lt;- function(x, y) {
-  Carib_ESA |&gt; 
-    filter(species == x &amp; region2 == y) |&gt; 
-    pull(foi) * 100 -&gt; foi.x
-  
-  ifelse(foi.x &gt;= 10, round(foi.x,0),
-         ifelse(foi.x&gt;1, round(foi.x,1),
-                round(foi.x, 2)))
-  
-}
-
-
-# pull text
-pull_text &lt;- function(x) {
-  stringr::str_c(
-    &quot;The&quot;, str_replace(
-      
-    )
-  )
-}</code></pre>
-<p><span style="float:right">Click ‘code’ to view variables……………………………………………………………………………………………………………………….</span></p>
-<pre class="r"><code># BENTHIC VARIABLES
-
-## Hard Corals Cover
-
-### Puerto Rico Hard Coral avCvr
-pr_hc_avCvr &lt;- pull_avCvr(PR_Cvr, &quot;Hard Corals&quot;)
-### Puerto Rico Hard Coral SE
-pr_hc_se &lt;- pull_se(PR_Cvr, &quot;Hard Corals&quot;)
-### St. Thomas/John Hard Coral avCvr
-sttstj_hc_avCvr &lt;- pull_avCvr(STTSTJ_Cvr, &quot;Hard Corals&quot;)
-### St. Thomas/John Hard Coral SE
-sttstj_hc_se &lt;- pull_se(STTSTJ_Cvr, &quot;Hard Corals&quot;)
-### St. Croix Hard Coral avCvr
-stx_hc_avCvr &lt;- pull_avCvr(STX_Cvr, &quot;Hard Corals&quot;)
-### St. Croix Hard Coral SE
-stx_hc_se &lt;- pull_se(STX_Cvr, &quot;Hard Corals&quot;)
-
-
-## Macroalgae Cover
-
-### Puerto Rico Macroalgae avCvr
-pr_macroal_avCvr &lt;- pull_avCvr(PR_Cvr, &quot;Macroalgae&quot;)
-### Puerto Rico Macroalgae SE
-pr_macroal_se &lt;- pull_se(PR_Cvr, &quot;Macroalgae&quot;)
-### St. Thomas/John Macroalgae avCvr
-sttstj_macroal_avCvr &lt;- pull_avCvr(STTSTJ_Cvr, &quot;Macroalgae&quot;)
-### St. Thomas/John Macroalgae SE
-sttstj_macroal_se &lt;- pull_se(STTSTJ_Cvr, &quot;Macroalgae&quot;)
-### St. Croix Macroalgae avCvr
-stx_macroal_avCvr &lt;- pull_avCvr(STX_Cvr, &quot;Macroalgae&quot;)
-### St. Croix Macroalgae SE
-stx_macroal_se &lt;- pull_se(STX_Cvr, &quot;Macroalgae&quot;)
-
-
-## Bleaching
-sttstj_ble_top &lt;- pull_ble_prev(STTSTJ_ble_prev)
-stx_ble_top &lt;- pull_ble_prev(STX_ble_prev)
-pr_ble_top &lt;- pull_ble_prev(PR_ble_prev)
-
-## Disease
-sttstj_dis_top &lt;- pull_dis_prev(STTSTJ_dis_prev)
-stx_dis_top &lt;- pull_dis_prev(STX_dis_prev)
-pr_dis_top &lt;- pull_dis_prev(PR_dis_prev)
-
-## Demographics
-
-### Combined Occ Table
-rbind(STTSTJ_Occ, STX_Occ) |&gt; 
-  rbind(PR_Occ) -&gt; All_Occ
-
-### Top 6 Occ 
-All_Occ |&gt;
-  group_by(SPECIES_CD) |&gt; 
-  summarise(max_occ = max(occurrence)) |&gt; 
-  arrange(desc(max_occ)) |&gt; 
-  slice(1:6)-&gt;top_occ
-
-### ESA
-Carib_ESA |&gt; 
-  filter(region2 == &quot;USVI&quot;) -&gt; usvi_esa
-
-Carib_ESA |&gt; 
-  filter(region2 == &quot;PR&quot;)-&gt; pr_esa
-
-pr_esa |&gt;  
-  filter(species == &quot;OANN&quot; |species == &quot;OFRA&quot;|species == &quot;OFAV&quot; ) -&gt; pr_esa_orb
-
-### Density
-pull_avDen &lt;- function (df) {
-  df |&gt; 
-    filter(YEAR == max(YEAR)) |&gt;
-    pull(avDen) |&gt; 
-    round(1) 
-}
-
-### STTSTJ density, mortality
-sttstj_avDen &lt;- pull_demo_av(STTSTJ_den)
-sttstj_avDen_se &lt;- pull_demo_se(STTSTJ_den)
-
-sttstj_avOM &lt;- pull_demo_av(STTSTJ_om)
-sttstj_avOM_se &lt;- pull_demo_se(STTSTJ_om)
-
-sttstj_avRM &lt;- pull_demo_av(STTSTJ_rm)
-sttstj_avRM_se &lt;- pull_demo_se(STTSTJ_rm)
-
-### and size
-sttstj_avSize &lt;- pull_size_av(STTSTJ_s)
-sttstj_avSize_se &lt;- pull_size_se(STTSTJ_s)
-
-
-### STX density, mortality
-stx_avDen &lt;- pull_demo_av(STX_den)
-stx_avDen_se &lt;- pull_demo_se(STX_den)
-
-stx_avOM &lt;- pull_demo_av(STX_om)
-stx_avOM_se &lt;- pull_demo_se(STX_om)
-
-stx_avRM &lt;- pull_demo_av(STX_rm)
-stx_avRM_se &lt;- pull_demo_se(STX_rm)
-
-### and size
-stx_avSize &lt;- pull_size_av(STX_s)
-stx_avSize_se &lt;- pull_size_se(STX_s)
-
-
-### PRICO density, mortality
-pr_avDen &lt;- pull_demo_av(PR_den)
-pr_avDen_se &lt;- pull_demo_se(PR_den)
-
-pr_avOM &lt;- pull_demo_av(PR_om)
-pr_avOM_se &lt;- pull_demo_se(PR_om)
-
-pr_avRM &lt;- pull_demo_av(PR_rm)
-pr_avRM_se &lt;- pull_demo_se(PR_rm)
-
-### and size
-pr_avSize &lt;- pull_size_av(PR_s)
-pr_avSize_se &lt;- pull_size_se(PR_s)</code></pre>
+<p><span style="float:right">Click ‘code’ to view
+functions……………………………………………………………………………………………………………………….</span></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># FUNCTIONS</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull avCvr function</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Input is relevant region df, cover group (ex. NCRMP_PRICO_2014_19_cover_region, &quot;Hard Corals&quot;)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Output is avCvr for most recent year in df</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>pull_avCvr <span class="ot">&lt;-</span> <span class="cf">function</span> (df, grouping) {</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(cover_group <span class="sc">==</span> <span class="fu">toupper</span>(grouping) <span class="sc">&amp;</span> YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(avCvr) <span class="sc">|&gt;</span> </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">1</span>) </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull SE function</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Input is relevant region df, cover group (ex. NCRMP_PRICO_2014_19_cover_region, &quot;Hard Corals&quot;)</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Output is SE for most recent year in df</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>pull_se <span class="ot">&lt;-</span> <span class="cf">function</span>(df, grouping) {</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(cover_group <span class="sc">==</span> <span class="fu">toupper</span>(grouping) <span class="sc">&amp;</span> YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(SE) <span class="sc">|&gt;</span> </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="co">#Pull  Density &amp; Mort. averages</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>pull_demo_av <span class="ot">&lt;-</span> <span class="cf">function</span> (df) {</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(<span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">1</span>) </span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull Density &amp; Mort. SE</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>pull_demo_se <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(SE) <span class="sc">|&gt;</span> </span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="co">#Pull  Size averages</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>pull_size_av <span class="ot">&lt;-</span> <span class="cf">function</span> (df) {</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(avCm3) <span class="sc">|&gt;</span> </span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">1</span>) </span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull Size SE</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>pull_size_se <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(SE_cm3) <span class="sc">|&gt;</span> </span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull Top 3 Coral Bleach</span></span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a>pull_ble_prev <span class="ot">&lt;-</span> <span class="cf">function</span> (df) { </span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(avBlePrev)) <span class="sc">|&gt;</span></span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull Top 3 Coral Disease</span></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a>pull_dis_prev <span class="ot">&lt;-</span> <span class="cf">function</span> (df) { </span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(avDisPrev)) <span class="sc">|&gt;</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>    <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull Species FOI</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>pull_foi <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a>  Carib_ESA <span class="sc">|&gt;</span> </span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(species <span class="sc">==</span> x <span class="sc">&amp;</span> region2 <span class="sc">==</span> y) <span class="sc">|&gt;</span> </span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(foi) <span class="sc">*</span> <span class="dv">100</span> <span class="ot">-&gt;</span> foi.x</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(foi.x <span class="sc">&gt;=</span> <span class="dv">10</span>, <span class="fu">round</span>(foi.x,<span class="dv">0</span>),</span>
+<span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>         <span class="fu">ifelse</span>(foi.x<span class="sc">&gt;</span><span class="dv">1</span>, <span class="fu">round</span>(foi.x,<span class="dv">1</span>),</span>
+<span id="cb3-85"><a href="#cb3-85" aria-hidden="true" tabindex="-1"></a>                <span class="fu">round</span>(foi.x, <span class="dv">2</span>)))</span>
+<span id="cb3-86"><a href="#cb3-86" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-87"><a href="#cb3-87" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-88"><a href="#cb3-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-89"><a href="#cb3-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-90"><a href="#cb3-90" aria-hidden="true" tabindex="-1"></a><span class="co"># pull text</span></span>
+<span id="cb3-91"><a href="#cb3-91" aria-hidden="true" tabindex="-1"></a>pull_text <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb3-92"><a href="#cb3-92" aria-hidden="true" tabindex="-1"></a>  stringr<span class="sc">::</span><span class="fu">str_c</span>(</span>
+<span id="cb3-93"><a href="#cb3-93" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;The&quot;</span>, <span class="fu">str_replace</span>(</span>
+<span id="cb3-94"><a href="#cb3-94" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb3-95"><a href="#cb3-95" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-96"><a href="#cb3-96" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-97"><a href="#cb3-97" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><span style="float:right">Click ‘code’ to view
+variables……………………………………………………………………………………………………………………….</span></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># BENTHIC VARIABLES</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Hard Corals Cover</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">### Puerto Rico Hard Coral avCvr</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>pr_hc_avCvr <span class="ot">&lt;-</span> <span class="fu">pull_avCvr</span>(PR_Cvr, <span class="st">&quot;Hard Corals&quot;</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="do">### Puerto Rico Hard Coral SE</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>pr_hc_se <span class="ot">&lt;-</span> <span class="fu">pull_se</span>(PR_Cvr, <span class="st">&quot;Hard Corals&quot;</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Thomas/John Hard Coral avCvr</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>sttstj_hc_avCvr <span class="ot">&lt;-</span> <span class="fu">pull_avCvr</span>(STTSTJ_Cvr, <span class="st">&quot;Hard Corals&quot;</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Thomas/John Hard Coral SE</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>sttstj_hc_se <span class="ot">&lt;-</span> <span class="fu">pull_se</span>(STTSTJ_Cvr, <span class="st">&quot;Hard Corals&quot;</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Croix Hard Coral avCvr</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>stx_hc_avCvr <span class="ot">&lt;-</span> <span class="fu">pull_avCvr</span>(STX_Cvr, <span class="st">&quot;Hard Corals&quot;</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Croix Hard Coral SE</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>stx_hc_se <span class="ot">&lt;-</span> <span class="fu">pull_se</span>(STX_Cvr, <span class="st">&quot;Hard Corals&quot;</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Macroalgae Cover</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="do">### Puerto Rico Macroalgae avCvr</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>pr_macroal_avCvr <span class="ot">&lt;-</span> <span class="fu">pull_avCvr</span>(PR_Cvr, <span class="st">&quot;Macroalgae&quot;</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="do">### Puerto Rico Macroalgae SE</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>pr_macroal_se <span class="ot">&lt;-</span> <span class="fu">pull_se</span>(PR_Cvr, <span class="st">&quot;Macroalgae&quot;</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Thomas/John Macroalgae avCvr</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>sttstj_macroal_avCvr <span class="ot">&lt;-</span> <span class="fu">pull_avCvr</span>(STTSTJ_Cvr, <span class="st">&quot;Macroalgae&quot;</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Thomas/John Macroalgae SE</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>sttstj_macroal_se <span class="ot">&lt;-</span> <span class="fu">pull_se</span>(STTSTJ_Cvr, <span class="st">&quot;Macroalgae&quot;</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Croix Macroalgae avCvr</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>stx_macroal_avCvr <span class="ot">&lt;-</span> <span class="fu">pull_avCvr</span>(STX_Cvr, <span class="st">&quot;Macroalgae&quot;</span>)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="do">### St. Croix Macroalgae SE</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>stx_macroal_se <span class="ot">&lt;-</span> <span class="fu">pull_se</span>(STX_Cvr, <span class="st">&quot;Macroalgae&quot;</span>)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="do">## Bleaching</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>sttstj_ble_top <span class="ot">&lt;-</span> <span class="fu">pull_ble_prev</span>(STTSTJ_ble_prev)</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>stx_ble_top <span class="ot">&lt;-</span> <span class="fu">pull_ble_prev</span>(STX_ble_prev)</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>pr_ble_top <span class="ot">&lt;-</span> <span class="fu">pull_ble_prev</span>(PR_ble_prev)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="do">## Disease</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>sttstj_dis_top <span class="ot">&lt;-</span> <span class="fu">pull_dis_prev</span>(STTSTJ_dis_prev)</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>stx_dis_top <span class="ot">&lt;-</span> <span class="fu">pull_dis_prev</span>(STX_dis_prev)</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>pr_dis_top <span class="ot">&lt;-</span> <span class="fu">pull_dis_prev</span>(PR_dis_prev)</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="do">## Demographics</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="do">### Combined Occ Table</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(STTSTJ_Occ, STX_Occ) <span class="sc">|&gt;</span> </span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(PR_Occ) <span class="ot">-&gt;</span> All_Occ</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="do">### Top 6 Occ </span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>All_Occ <span class="sc">|&gt;</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(SPECIES_CD) <span class="sc">|&gt;</span> </span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">max_occ =</span> <span class="fu">max</span>(occurrence)) <span class="sc">|&gt;</span> </span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(max_occ)) <span class="sc">|&gt;</span> </span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)<span class="ot">-&gt;</span>top_occ</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="do">### ESA</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>Carib_ESA <span class="sc">|&gt;</span> </span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region2 <span class="sc">==</span> <span class="st">&quot;USVI&quot;</span>) <span class="ot">-&gt;</span> usvi_esa</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>Carib_ESA <span class="sc">|&gt;</span> </span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region2 <span class="sc">==</span> <span class="st">&quot;PR&quot;</span>)<span class="ot">-&gt;</span> pr_esa</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>pr_esa <span class="sc">|&gt;</span>  </span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&quot;OANN&quot;</span> <span class="sc">|</span>species <span class="sc">==</span> <span class="st">&quot;OFRA&quot;</span><span class="sc">|</span>species <span class="sc">==</span> <span class="st">&quot;OFAV&quot;</span> ) <span class="ot">-&gt;</span> pr_esa_orb</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="do">### Density</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>pull_avDen <span class="ot">&lt;-</span> <span class="cf">function</span> (df) {</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span> </span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(YEAR <span class="sc">==</span> <span class="fu">max</span>(YEAR)) <span class="sc">|&gt;</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(avDen) <span class="sc">|&gt;</span> </span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">1</span>) </span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a><span class="do">### STTSTJ density, mortality</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>sttstj_avDen <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(STTSTJ_den)</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>sttstj_avDen_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(STTSTJ_den)</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>sttstj_avOM <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(STTSTJ_om)</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>sttstj_avOM_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(STTSTJ_om)</span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>sttstj_avRM <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(STTSTJ_rm)</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>sttstj_avRM_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(STTSTJ_rm)</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a><span class="do">### and size</span></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>sttstj_avSize <span class="ot">&lt;-</span> <span class="fu">pull_size_av</span>(STTSTJ_s)</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>sttstj_avSize_se <span class="ot">&lt;-</span> <span class="fu">pull_size_se</span>(STTSTJ_s)</span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a><span class="do">### STX density, mortality</span></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>stx_avDen <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(STX_den)</span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>stx_avDen_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(STX_den)</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>stx_avOM <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(STX_om)</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>stx_avOM_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(STX_om)</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>stx_avRM <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(STX_rm)</span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>stx_avRM_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(STX_rm)</span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a><span class="do">### and size</span></span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>stx_avSize <span class="ot">&lt;-</span> <span class="fu">pull_size_av</span>(STX_s)</span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>stx_avSize_se <span class="ot">&lt;-</span> <span class="fu">pull_size_se</span>(STX_s)</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a><span class="do">### PRICO density, mortality</span></span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>pr_avDen <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(PR_den)</span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>pr_avDen_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(PR_den)</span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>pr_avOM <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(PR_om)</span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>pr_avOM_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(PR_om)</span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>pr_avRM <span class="ot">&lt;-</span> <span class="fu">pull_demo_av</span>(PR_rm)</span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>pr_avRM_se <span class="ot">&lt;-</span> <span class="fu">pull_demo_se</span>(PR_rm)</span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a><span class="do">### and size</span></span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a>pr_avSize <span class="ot">&lt;-</span> <span class="fu">pull_size_av</span>(PR_s)</span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a>pr_avSize_se <span class="ot">&lt;-</span> <span class="fu">pull_size_se</span>(PR_s)</span></code></pre></div>
 </div>
 <div id="plots" class="section level2">
 <h2>Plots</h2>
 <div id="length-comparisson-plots" class="section level3 tabset">
 <h3 class="tabset">Length comparisson plots</h3>
-<pre class="r"><code>NCRMP_make_size_bins_2 &lt;- function(region, project = &quot;NCRMP&quot;, years,
-                                   size_bin_count = 10, length_bin_count = 10,
-                                   species_filter = NULL) {
-  
-  analyzed_species &lt;- c(
-    &quot;ACR CERV&quot;, #A. cervicornis
-    &quot;ACR PALM&quot;, #A. palmata
-    &quot;ORB ANNU&quot;, #O. annularis
-    &quot;ORB FRAN&quot;, #O. franksi
-    &quot;ORB FAVE&quot;, #O. faveolata
-    &quot;MEA MEAN&quot;, #M. meandrites
-    &quot;DEN CYLI&quot;, #D. cylindrus
-    &quot;PSE STRI&quot;, #A. cervicornis
-    &quot;DIP LABI&quot;, #D. labyrinthiformis
-    &quot;COL NATA&quot;, #C. natans
-    &quot;SID SIDE&quot;, #S. siderea
-    &quot;POR ASTE&quot;, #P. astreoides
-    &quot;MON CAVE&quot;, #M. cavernosa
-    &quot;AGA AGAR&quot;, #A. agaricites
-    &quot;STE INTE&quot; #S. inercepta
-  )
-  
-  
-  
-  #p - a constant for 3d surface area calculation
-  p = 1.6
-  
-  #pull the demo data using the NCRMP function
-  #outputs a list of two dfs: dat_1stage and dat_2stage
-  demos &lt;- load_NCRMP_DRM_demo_data(project = project, region = region)
-  
-  if (region == &quot;SEFCRI&quot; ) {
-    #SEFCRI dat_1stage has one extra column for MEAN_RUG that is not needed
-    demos &lt;- dplyr::bind_rows(demos$dat_1stage, demos$dat_2stage) %&gt;%
-      #filter by year
-      dplyr::filter(YEAR %in% years, !is.na(SPECIES_NAME))
-  }
-  
-  if (region == &quot;Tortugas&quot;) {
-    #Tortugas requires dat_1stage and dat_2stage to be comined
-    demos &lt;- dplyr::bind_rows(demos$dat_1stage, demos$dat_2stage) %&gt;%
-      #filter by year
-      dplyr::filter(YEAR %in% years)
-  }
-  
-  if (region %in% c(&quot;FLK&quot;, &quot;PRICO&quot;, &quot;STTSTJ&quot;, &quot;STX&quot;)) {
-    #Florida Keys only has dat_1stage needed
-    demos &lt;- demos$dat_1stage %&gt;%
-      dplyr::filter(YEAR %in% years)
-  }
-  
-  if (!is.null(species_filter)) {
-    
-    demos &lt;- demos %&gt;%
-      dplyr::filter(SPECIES_CD %in% species_filter)
-  }
-  
-  #3D Surface Area Calculation
-  size_3d_demos &lt;- demos %&gt;%
-    #calculate the 3d surface area
-    dplyr::mutate(size_3d =
-                    (4*pi*(((((MAX_DIAMETER/2)*(PERP_DIAMETER/2)) +
-                               ((MAX_DIAMETER/2)*(HEIGHT/2)) +
-                               ((MAX_DIAMETER/2*(HEIGHT/2))))/3)^1/p)/2) -
-                    ((4*pi*(((((MAX_DIAMETER/2)*(PERP_DIAMETER/2)) +
-                                ((MAX_DIAMETER/2)*(HEIGHT/2)) +
-                                ((MAX_DIAMETER/2*(HEIGHT/2))))/3)^1/p)/2)*
-                       (OLD_MORT+RECENT_MORT)/100),
-                  YEAR = as.factor(as.character(YEAR))) %&gt;%
-    #Filter out where 3d surface area cannot be calculated
-    dplyr::filter(!is.na(MAX_DIAMETER), !is.na(STRAT), !is.na(PERP_DIAMETER),
-                  !is.na(size_3d)) %&gt;%
-    #Calculate the Ranges and the Bin Width by...
-    #...grouping by the species (all years combined),
-    dplyr::group_by(SPECIES_NAME) %&gt;%
-    #...calculating the number of bins as the lesser of...
-    #... the user input size bin count OR
-    #... the calculation from Rice&#39;s rule i.e 2 * cube root(# of obs)
-    dplyr::mutate(n_bins = min(size_bin_count,floor((dplyr::n() ^(1/3)) * 2)),
-                  #calculate max and min of size
-                  max = max(size_3d),
-                  min = min(size_3d),
-                  #calculate bin_width = the bin range divided by n_bins
-                  bin_width =
-                    (max - min)/n_bins) %&gt;%
-    #ungroup
-    dplyr::ungroup()%&gt;%
-    #mutate to calculate what bin each observation would fall under
-    dplyr::mutate(
-      bin_num = dplyr::if_else(
-        #if size = max size...
-        size_3d == max,
-        #...then the bin number is equal to the number of bins
-        n_bins,
-        #otherwise it is equal to...
-        #the difference between the size and the min size...
-        #divided by the bin width...
-        #rounded down to the nearest integer plus 1
-        floor((size_3d - min)/bin_width) + 1),
-      bin_name = paste(
-        round(min + (bin_width * (bin_num-1)),2),
-        &quot;-&quot;,
-        round(bin_width +
-                min + (bin_width * (bin_num-1)),2)
-      )
-    )%&gt;%
-    #summarize findings by bin count
-    dplyr::group_by(SPECIES_NAME, SPECIES_CD, REGION, YEAR, PRIMARY_SAMPLE_UNIT,
-                    STRAT, PROT, bin_num, bin_name, n_bins, bin_width, min) %&gt;%
-    dplyr::summarise(bin_tally = n(), .groups = &quot;keep&quot;) %&gt;%
-    dplyr::arrange(SPECIES_CD, YEAR, PRIMARY_SAMPLE_UNIT, STRAT, PROT,
-                   bin_num)
-  
-  
-  #Length Calculation
-  length_demos &lt;- demos %&gt;%
-    #Year as factor (no calc needed as length = MAX_DIAMETER)
-    dplyr::mutate(YEAR = as.factor(as.character(YEAR))) %&gt;%
-    #Filter out where MAX_DIAMETER does not exist
-    #and where STRAT does not exist
-    dplyr::filter(!is.na(MAX_DIAMETER), !is.na(STRAT), MAX_DIAMETER &gt;= 4) %&gt;%
-    #Calculate the Ranges and the Bin Width by...
-    #...grouping by the species (all years combined),
-    dplyr::group_by(SPECIES_NAME) %&gt;%
-    #...calculating the number of bins as the lesser of...
-    #... the user input length bin count OR
-    #... the calculation from Rice&#39;s rule i.e 2 * cube root(# of obs)
-    dplyr::mutate(n_bins = min(length_bin_count,floor((dplyr::n() ^(1/3)) * 2)),
-                  #calculate max and min of length
-                  max = max(MAX_DIAMETER),
-                  min = 4,
-                  #calculate bin_width = the bin range divided by n_bins
-                  bin_width =
-                    (max - min)/n_bins,
-                  # Convert bin width to muliples of 5 or 10
-                  bin_width = dplyr::case_when(bin_width &lt;= 5 ~ 5,
-                                               bin_width &gt; 5 &amp;&amp; bin_width &lt; 11 ~ 10,
-                                               bin_width &gt;= 11 ~ 20)) %&gt;%
-    #ungroup
-    dplyr::ungroup()%&gt;%
-    #mutate to calculate what bin each observation would fall under
-    dplyr::mutate(
-      bin_num = dplyr::if_else(
-        #if length = max length...
-        MAX_DIAMETER == max,
-        #...then the bin number is equal to the number of bins
-        n_bins,
-        #otherwise it is equal to...
-        #the difference between the size and the min size...
-        #divided by the bin width...
-        #rounded down to the nearest integer plus 1
-        floor((MAX_DIAMETER - min)/bin_width) + 1),
-      bin_low = dplyr::if_else(
-        bin_num == 1, 4, round(min + (bin_width * (bin_num-1))+2,2)),
-      
-      bin_high = round(bin_width +min + (bin_width * (bin_num-1))+1,2),
-      bin_name = paste(bin_low, bin_high, sep = &quot;-&quot;)) %&gt;%
-    #summarize findings by bin count
-    dplyr::group_by(SPECIES_NAME, SPECIES_CD, REGION, YEAR, PRIMARY_SAMPLE_UNIT,
-                    STRAT, PROT, bin_num, bin_name, n_bins, bin_width, min) %&gt;%
-    dplyr::summarise(bin_tally = n(), .groups = &quot;keep&quot;) %&gt;%
-    dplyr::arrange(SPECIES_NAME, YEAR, PRIMARY_SAMPLE_UNIT, STRAT, PROT,
-                   bin_num)
-  
-  #CALCULATE ESTIMATES
-  
-  #Estimates for 3D Surface Area
-  size_estimates &lt;- size_3d_demos %&gt;%
-    dplyr::mutate(
-      ANALYSIS_STRATUM = dplyr::if_else(
-        region == &quot;FLK&quot; | region == &quot;Tortugas&quot; | region == &quot;SEFCRI&quot;,
-        paste(STRAT, &quot;/ PROT =&quot;, PROT, sep = &quot; &quot;), as.character(STRAT))
-    ) %&gt;%
-    dplyr::group_by(REGION, YEAR, ANALYSIS_STRATUM, SPECIES_NAME,
-                    SPECIES_CD, bin_num, bin_name) %&gt;%
-    dplyr::summarise(# compute average bin_tally
-      avtally = mean(bin_tally),
-      # compute stratum variance
-      svar = var(bin_tally),
-      # calculate N
-      n_sites = length(unique(PRIMARY_SAMPLE_UNIT)),
-      .groups = &quot;keep&quot;) %&gt;%
-    # convert 0 for stratum variance so that the sqrt is a small # but not a 0
-    dplyr::mutate(svar = dplyr::case_when(svar == 0 ~ 0.00000001,
-                                          TRUE ~ svar)) %&gt;%
-    dplyr::mutate(Var=svar/n_sites, #variance of mean bin_tally in stratum
-                  std = sqrt(svar), # std dev of bin_tally in stratum
-                  SE=sqrt(Var), #SE of the mean bin_tally stratum
-                  CV_perc=(SE/avtally)*100)
-  
-  #Estimates for Length
-  length_estimates &lt;- length_demos %&gt;%
-    dplyr::mutate(
-      ANALYSIS_STRATUM = dplyr::if_else(
-        region == &quot;FLK&quot; | region == &quot;Tortugas&quot; | region == &quot;SEFCRI&quot;,
-        paste(STRAT, &quot;/ PROT =&quot;, PROT, sep = &quot; &quot;), as.character(STRAT))
-    ) %&gt;%
-    dplyr::group_by(REGION, YEAR, ANALYSIS_STRATUM, SPECIES_NAME, SPECIES_CD,
-                    bin_num, bin_name) %&gt;%
-    dplyr::summarise(# compute average bin_tally
-      avtally = mean(bin_tally),
-      # compute stratum variance
-      svar = var(bin_tally),
-      # calculate N
-      n_sites = length(unique(PRIMARY_SAMPLE_UNIT)),
-      .groups = &quot;keep&quot;) %&gt;%
-    # convert 0 for stratum variance so that the sqrt is a small # but not a 0
-    dplyr::mutate(svar = dplyr::case_when(svar == 0 ~ 0.00000001,
-                                          TRUE ~ svar)) %&gt;%
-    dplyr::mutate(Var=svar/n_sites, #variance of mean bin_tally in stratum
-                  std = sqrt(svar), # std dev of bin_tally in stratum
-                  SE=sqrt(Var), #SE of the mean bin_tally stratum
-                  CV_perc=(SE/avtally)*100)
-  
-  #inputdata is dummy, unused if project != DRM
-  ntot &lt;- ncrmp.benthics.analysis::load_NTOT(region = region, inputdata = demos,
-                                             project = project) %&gt;%
-    dplyr::mutate(YEAR = as.factor(YEAR)) %&gt;%
-    dplyr::filter(YEAR %in% years)
-  
-  # STRATUM SIZE ESTIMATES
-  
-  size_estimates &lt;- size_estimates  %&gt;%
-    # Merge ntot with coral_est_spp
-    dplyr::full_join(ntot, by = c(&quot;REGION&quot;, &quot;YEAR&quot;, &quot;ANALYSIS_STRATUM&quot;)) %&gt;%
-    # stratum estimates
-    dplyr::mutate(whavtally = wh * avtally,
-                  whsvar = wh^2 * svar,
-                  whstd = wh * std,
-                  n_sites = tidyr::replace_na(n_sites, 0))  %&gt;%
-    dplyr::ungroup() %&gt;%
-    filter(!is.na(SPECIES_NAME))
-  
-  length_estimates &lt;- length_estimates  %&gt;%
-    # Merge ntot with coral_est_spp
-    dplyr::full_join(ntot, by = c(&quot;REGION&quot;, &quot;YEAR&quot;, &quot;ANALYSIS_STRATUM&quot;)) %&gt;%
-    # stratum estimates
-    dplyr::mutate(whavtally = wh * avtally,
-                  whsvar = wh^2 * svar,
-                  whstd = wh * std,
-                  n_sites = tidyr::replace_na(n_sites, 0))  %&gt;%
-    dplyr::ungroup() %&gt;%
-    filter(!is.na(SPECIES_NAME))
-  
-  
-  #End result: Return the list made up of strata est. and domain est.
-  
-  # Domain Estimates
-  ##Size Domain
-  size_domain_est &lt;- size_estimates %&gt;%
-    dplyr::group_by(REGION, YEAR, SPECIES_NAME, SPECIES_CD, bin_num, bin_name) %&gt;%
-    dplyr::summarise(avtally = sum(whavtally, na.rm = T), # This accounts for strata with 0 species of interest present
-                     Var_tally = sum(whsvar, na.rm = T),
-                     SE_tally=sqrt(Var_tally),
-                     n_sites = sum(n_sites),
-                     n_strat = length(unique(ANALYSIS_STRATUM)),
-                     ngrtot = sum(NTOT),
-                     .groups = &quot;keep&quot;)  %&gt;%
-    dplyr::ungroup() %&gt;%
-    dplyr::arrange(SPECIES_CD, bin_num, YEAR)
-  
-  
-  ##Length Domain
-  length_domain_est &lt;- length_estimates %&gt;%
-    dplyr::group_by(REGION, YEAR, SPECIES_NAME, SPECIES_CD, bin_num, bin_name) %&gt;%
-    dplyr::summarise(avtally = sum(whavtally, na.rm = T), # This accounts for strata with 0 species of interest present
-                     Var_tally = sum(whsvar, na.rm = T),
-                     SE_tally=sqrt(Var_tally),
-                     n_sites = sum(n_sites),
-                     n_strat = length(unique(ANALYSIS_STRATUM)),
-                     ngrtot = sum(NTOT, na.rm = TRUE),
-                     .groups = &quot;keep&quot;)  %&gt;%
-    dplyr::ungroup() %&gt;%
-    dplyr::arrange(SPECIES_CD, bin_num, YEAR)
-  
-  
-  output &lt;- list(size_3d_demos = as.data.frame(size_3d_demos),
-                 length_demos = as.data.frame(length_demos),
-                 size_estimates = as.data.frame(size_estimates),
-                 length_estimates = as.data.frame(length_estimates),
-                 size_domain_est = as.data.frame(size_domain_est),
-                 length_domain_est = as.data.frame(length_domain_est))
-  
-  return(output)
-}
-
-analyzed_species &lt;- c(
-  &quot;ACR CERV&quot;, #A. cervicornis
-  &quot;ACR PALM&quot;, #A. palmata
-  &quot;ORB ANNU&quot;, #O. annularis
-  &quot;ORB FRAN&quot;, #O. franksi
-  &quot;ORB FAVE&quot;, #O. faveolata
-  &quot;MEA MEAN&quot;, #M. meandrites
-  &quot;DEN CYLI&quot;, #D. cylindrus
-  &quot;PSE STRI&quot;, #A. cervicornis
-  &quot;DIP LABI&quot;, #D. labyrinthiformis
-  &quot;COL NATA&quot;, #C. natans
-  &quot;SID SIDE&quot;, #S. siderea
-  &quot;POR ASTE&quot;, #P. astreoides
-  &quot;MON CAVE&quot;, #M. cavernosa
-  &quot;AGA AGAR&quot;, #A. agaricites
-  &quot;STE INTE&quot; #S. inercepta
-)
-
-PRICO_Bins &lt;- NCRMP_make_size_bins_2(region = &quot;PRICO&quot;,
-                                     years = c(min(PR_Cvr$YEAR), max(PR_Cvr$YEAR)),
-                                     species_filter = analyzed_species)
-
-
-STTSTJ_Bins &lt;- NCRMP_make_size_bins_2(region = &quot;STTSTJ&quot;,
-                                      years = c(min(STTSTJ_Cvr$YEAR), max(STTSTJ_Cvr$YEAR)),
-                                      species_filter = analyzed_species)
-
-STX_Bins &lt;- NCRMP_make_size_bins_2(region = &quot;STX&quot;,
-                                   years = c(min(STX_Cvr$YEAR), max(STX_Cvr$YEAR)),
-                                   species_filter = analyzed_species)</code></pre>
-<pre class="r"><code>make_size_plot &lt;- function(x, y = &quot;length&quot;) {
-  
-  if (y == &quot;size&quot;) {
-    domain_estimates = x$size_domain_est
-    demos = x$size_3d_demos
-    name = &quot;Binned Surface Area in&quot;~cm^3
-  }
-  
-  if (y == &quot;length&quot;) {
-    domain_estimates = x$length_domain_est
-    demos = x$length_demos
-    name = &quot;Length (cm)&quot;
-  }
-  
-  plots &lt;- list()
-  uniq_s &lt;- unique(domain_estimates$SPECIES_CD) 
-  
-  for (i in uniq_s) {
-    
-    domain_sub = subset(domain_estimates, SPECIES_CD == i)
-    demos_sub = subset(demos, SPECIES_CD == i)
-    n_bins = max(demos_sub$n_bins)
-    text_size = 11
-    angle = dplyr::if_else(n_bins &gt; 6 | y == &quot;size&quot;, 45, 0)
-    hjust = dplyr::if_else(angle == 45, 1, 0.5)
-    min = min(demos_sub$min)
-    bin_width = min(demos_sub$bin_width)
-    small = dplyr::if_else(n_bins &gt; 4, 0, 1)
-    
-    num_vec = seq_len(max(domain_sub$bin_num))
-    
-    x$bin_low = dplyr::if_else(x$bin_num == 1, 4, round(x$min + (x$bin_width * (x$bin_num-1))+2,2))
-    
-    x$bin_high = round(x$bin_width +x$min + (x$bin_width * (x$bin_num-1))+1,2)
-    
-    lab_vec = paste(x$bin_low, x$bin_high, sep = &quot;-&quot;)
-    
-    lab_vec = paste(
-      format(
-        x = dplyr::if_else(num_vec == 1, 4, round(min + (bin_width * (num_vec-1))+2,small)),
-        nsmall = small
-      ),
-      #&quot;-&quot;,
-      format(
-        x = round(bin_width + min + (bin_width * (num_vec-1))+1,small),
-        nsmall = small
-      ),
-      sep = &quot;-&quot;
-    )
-    
-    
-    
-    plots[[i]] = (
-      ggplot(data = domain_sub, aes(x = as.integer(bin_num), y = avtally, 
-                                    fill = YEAR)) +
-        geom_bar(stat=&quot;identity&quot;, position = &quot;dodge2&quot;, width = .9, color=&quot;black&quot;, size=.5) +
-        theme_Publication(base_size = 20) +
-        #    facet_wrap(~facet_label, nrow=4, scales = &quot;free&quot;) +
-        labs(
-          y = &quot;Frequency&quot;) +
-        scale_x_continuous(name = name, 
-                           breaks = seq_along(lab_vec),
-                           labels = lab_vec) +
-        ggtitle(unique(domain_sub$SPECIES_NAME)) +
-        theme(axis.text.x = element_text(size = text_size, angle = angle, 
-                                         hjust = hjust),
-              legend.key = element_rect(colour = NA),
-              legend.position = &quot;bottom&quot;,
-              legend.direction = &quot;horizontal&quot;,
-              legend.key.size= unit(0.5, &quot;cm&quot;),
-              legend.margin = margin(0,0,0,0, &quot;cm&quot;)
-              #,
-              #legend.title = element_text(face=&quot;italic&quot;)
-        ) +
-        scale_fill_manual(values=c(&#39;springgreen3&#39;,&#39;gold1&#39;))
-    )
-    
-  } 
-  return(plots)
-}
-
-a = list()
-a = make_size_plot(STX_Bins, &quot;length&quot;)</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>NCRMP_make_size_bins_2 <span class="ot">&lt;-</span> <span class="cf">function</span>(region, <span class="at">project =</span> <span class="st">&quot;NCRMP&quot;</span>, years,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">size_bin_count =</span> <span class="dv">10</span>, <span class="at">length_bin_count =</span> <span class="dv">10</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">species_filter =</span> <span class="cn">NULL</span>) {</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  analyzed_species <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ACR CERV&quot;</span>, <span class="co">#A. cervicornis</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ACR PALM&quot;</span>, <span class="co">#A. palmata</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ORB ANNU&quot;</span>, <span class="co">#O. annularis</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ORB FRAN&quot;</span>, <span class="co">#O. franksi</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ORB FAVE&quot;</span>, <span class="co">#O. faveolata</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;MEA MEAN&quot;</span>, <span class="co">#M. meandrites</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;DEN CYLI&quot;</span>, <span class="co">#D. cylindrus</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;PSE STRI&quot;</span>, <span class="co">#A. cervicornis</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;DIP LABI&quot;</span>, <span class="co">#D. labyrinthiformis</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;COL NATA&quot;</span>, <span class="co">#C. natans</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;SID SIDE&quot;</span>, <span class="co">#S. siderea</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;POR ASTE&quot;</span>, <span class="co">#P. astreoides</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;MON CAVE&quot;</span>, <span class="co">#M. cavernosa</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;AGA AGAR&quot;</span>, <span class="co">#A. agaricites</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;STE INTE&quot;</span> <span class="co">#S. inercepta</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="co">#p - a constant for 3d surface area calculation</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">=</span> <span class="fl">1.6</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="co">#pull the demo data using the NCRMP function</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  <span class="co">#outputs a list of two dfs: dat_1stage and dat_2stage</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  demos <span class="ot">&lt;-</span> <span class="fu">load_NCRMP_DRM_demo_data</span>(<span class="at">project =</span> project, <span class="at">region =</span> region)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (region <span class="sc">==</span> <span class="st">&quot;SEFCRI&quot;</span> ) {</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="co">#SEFCRI dat_1stage has one extra column for MEAN_RUG that is not needed</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    demos <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(demos<span class="sc">$</span>dat_1stage, demos<span class="sc">$</span>dat_2stage) <span class="sc">%&gt;%</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>      <span class="co">#filter by year</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">filter</span>(YEAR <span class="sc">%in%</span> years, <span class="sc">!</span><span class="fu">is.na</span>(SPECIES_NAME))</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (region <span class="sc">==</span> <span class="st">&quot;Tortugas&quot;</span>) {</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Tortugas requires dat_1stage and dat_2stage to be comined</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    demos <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_rows</span>(demos<span class="sc">$</span>dat_1stage, demos<span class="sc">$</span>dat_2stage) <span class="sc">%&gt;%</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>      <span class="co">#filter by year</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">filter</span>(YEAR <span class="sc">%in%</span> years)</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (region <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;FLK&quot;</span>, <span class="st">&quot;PRICO&quot;</span>, <span class="st">&quot;STTSTJ&quot;</span>, <span class="st">&quot;STX&quot;</span>)) {</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Florida Keys only has dat_1stage needed</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>    demos <span class="ot">&lt;-</span> demos<span class="sc">$</span>dat_1stage <span class="sc">%&gt;%</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">filter</span>(YEAR <span class="sc">%in%</span> years)</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(species_filter)) {</span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    demos <span class="ot">&lt;-</span> demos <span class="sc">%&gt;%</span></span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>      dplyr<span class="sc">::</span><span class="fu">filter</span>(SPECIES_CD <span class="sc">%in%</span> species_filter)</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>  <span class="co">#3D Surface Area Calculation</span></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>  size_3d_demos <span class="ot">&lt;-</span> demos <span class="sc">%&gt;%</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>    <span class="co">#calculate the 3d surface area</span></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">size_3d =</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a>                    (<span class="dv">4</span><span class="sc">*</span>pi<span class="sc">*</span>(((((MAX_DIAMETER<span class="sc">/</span><span class="dv">2</span>)<span class="sc">*</span>(PERP_DIAMETER<span class="sc">/</span><span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>                               ((MAX_DIAMETER<span class="sc">/</span><span class="dv">2</span>)<span class="sc">*</span>(HEIGHT<span class="sc">/</span><span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>                               ((MAX_DIAMETER<span class="sc">/</span><span class="dv">2</span><span class="sc">*</span>(HEIGHT<span class="sc">/</span><span class="dv">2</span>))))<span class="sc">/</span><span class="dv">3</span>)<span class="sc">^</span><span class="dv">1</span><span class="sc">/</span>p)<span class="sc">/</span><span class="dv">2</span>) <span class="sc">-</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>                    ((<span class="dv">4</span><span class="sc">*</span>pi<span class="sc">*</span>(((((MAX_DIAMETER<span class="sc">/</span><span class="dv">2</span>)<span class="sc">*</span>(PERP_DIAMETER<span class="sc">/</span><span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>                                ((MAX_DIAMETER<span class="sc">/</span><span class="dv">2</span>)<span class="sc">*</span>(HEIGHT<span class="sc">/</span><span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>                                ((MAX_DIAMETER<span class="sc">/</span><span class="dv">2</span><span class="sc">*</span>(HEIGHT<span class="sc">/</span><span class="dv">2</span>))))<span class="sc">/</span><span class="dv">3</span>)<span class="sc">^</span><span class="dv">1</span><span class="sc">/</span>p)<span class="sc">/</span><span class="dv">2</span>)<span class="sc">*</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>                       (OLD_MORT<span class="sc">+</span>RECENT_MORT)<span class="sc">/</span><span class="dv">100</span>),</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>                  <span class="at">YEAR =</span> <span class="fu">as.factor</span>(<span class="fu">as.character</span>(YEAR))) <span class="sc">%&gt;%</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Filter out where 3d surface area cannot be calculated</span></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(MAX_DIAMETER), <span class="sc">!</span><span class="fu">is.na</span>(STRAT), <span class="sc">!</span><span class="fu">is.na</span>(PERP_DIAMETER),</span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a>                  <span class="sc">!</span><span class="fu">is.na</span>(size_3d)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Calculate the Ranges and the Bin Width by...</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>    <span class="co">#...grouping by the species (all years combined),</span></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">group_by</span>(SPECIES_NAME) <span class="sc">%&gt;%</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>    <span class="co">#...calculating the number of bins as the lesser of...</span></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>    <span class="co">#... the user input size bin count OR</span></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>    <span class="co">#... the calculation from Rice&#39;s rule i.e 2 * cube root(# of obs)</span></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">n_bins =</span> <span class="fu">min</span>(size_bin_count,<span class="fu">floor</span>((dplyr<span class="sc">::</span><span class="fu">n</span>() <span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)) <span class="sc">*</span> <span class="dv">2</span>)),</span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>                  <span class="co">#calculate max and min of size</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>                  <span class="at">max =</span> <span class="fu">max</span>(size_3d),</span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>                  <span class="at">min =</span> <span class="fu">min</span>(size_3d),</span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>                  <span class="co">#calculate bin_width = the bin range divided by n_bins</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>                  <span class="at">bin_width =</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a>                    (max <span class="sc">-</span> min)<span class="sc">/</span>n_bins) <span class="sc">%&gt;%</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a>    <span class="co">#ungroup</span></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">ungroup</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a>    <span class="co">#mutate to calculate what bin each observation would fall under</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>      <span class="at">bin_num =</span> dplyr<span class="sc">::</span><span class="fu">if_else</span>(</span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>        <span class="co">#if size = max size...</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a>        size_3d <span class="sc">==</span> max,</span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a>        <span class="co">#...then the bin number is equal to the number of bins</span></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a>        n_bins,</span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>        <span class="co">#otherwise it is equal to...</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>        <span class="co">#the difference between the size and the min size...</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>        <span class="co">#divided by the bin width...</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>        <span class="co">#rounded down to the nearest integer plus 1</span></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>        <span class="fu">floor</span>((size_3d <span class="sc">-</span> min)<span class="sc">/</span>bin_width) <span class="sc">+</span> <span class="dv">1</span>),</span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>      <span class="at">bin_name =</span> <span class="fu">paste</span>(</span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>        <span class="fu">round</span>(min <span class="sc">+</span> (bin_width <span class="sc">*</span> (bin_num<span class="dv">-1</span>)),<span class="dv">2</span>),</span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;-&quot;</span>,</span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>        <span class="fu">round</span>(bin_width <span class="sc">+</span></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>                min <span class="sc">+</span> (bin_width <span class="sc">*</span> (bin_num<span class="dv">-1</span>)),<span class="dv">2</span>)</span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>    )<span class="sc">%&gt;%</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>    <span class="co">#summarize findings by bin count</span></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">group_by</span>(SPECIES_NAME, SPECIES_CD, REGION, YEAR, PRIMARY_SAMPLE_UNIT,</span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>                    STRAT, PROT, bin_num, bin_name, n_bins, bin_width, min) <span class="sc">%&gt;%</span></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">bin_tally =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">&quot;keep&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">arrange</span>(SPECIES_CD, YEAR, PRIMARY_SAMPLE_UNIT, STRAT, PROT,</span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>                   bin_num)</span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Length Calculation</span></span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a>  length_demos <span class="ot">&lt;-</span> demos <span class="sc">%&gt;%</span></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Year as factor (no calc needed as length = MAX_DIAMETER)</span></span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">YEAR =</span> <span class="fu">as.factor</span>(<span class="fu">as.character</span>(YEAR))) <span class="sc">%&gt;%</span></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Filter out where MAX_DIAMETER does not exist</span></span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>    <span class="co">#and where STRAT does not exist</span></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(MAX_DIAMETER), <span class="sc">!</span><span class="fu">is.na</span>(STRAT), MAX_DIAMETER <span class="sc">&gt;=</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Calculate the Ranges and the Bin Width by...</span></span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>    <span class="co">#...grouping by the species (all years combined),</span></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">group_by</span>(SPECIES_NAME) <span class="sc">%&gt;%</span></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a>    <span class="co">#...calculating the number of bins as the lesser of...</span></span>
+<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>    <span class="co">#... the user input length bin count OR</span></span>
+<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>    <span class="co">#... the calculation from Rice&#39;s rule i.e 2 * cube root(# of obs)</span></span>
+<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">n_bins =</span> <span class="fu">min</span>(length_bin_count,<span class="fu">floor</span>((dplyr<span class="sc">::</span><span class="fu">n</span>() <span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>)) <span class="sc">*</span> <span class="dv">2</span>)),</span>
+<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a>                  <span class="co">#calculate max and min of length</span></span>
+<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a>                  <span class="at">max =</span> <span class="fu">max</span>(MAX_DIAMETER),</span>
+<span id="cb5-131"><a href="#cb5-131" aria-hidden="true" tabindex="-1"></a>                  <span class="at">min =</span> <span class="dv">4</span>,</span>
+<span id="cb5-132"><a href="#cb5-132" aria-hidden="true" tabindex="-1"></a>                  <span class="co">#calculate bin_width = the bin range divided by n_bins</span></span>
+<span id="cb5-133"><a href="#cb5-133" aria-hidden="true" tabindex="-1"></a>                  <span class="at">bin_width =</span></span>
+<span id="cb5-134"><a href="#cb5-134" aria-hidden="true" tabindex="-1"></a>                    (max <span class="sc">-</span> min)<span class="sc">/</span>n_bins,</span>
+<span id="cb5-135"><a href="#cb5-135" aria-hidden="true" tabindex="-1"></a>                  <span class="co"># Convert bin width to muliples of 5 or 10</span></span>
+<span id="cb5-136"><a href="#cb5-136" aria-hidden="true" tabindex="-1"></a>                  <span class="at">bin_width =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(bin_width <span class="sc">&lt;=</span> <span class="dv">5</span> <span class="sc">~</span> <span class="dv">5</span>,</span>
+<span id="cb5-137"><a href="#cb5-137" aria-hidden="true" tabindex="-1"></a>                                               bin_width <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">&amp;&amp;</span> bin_width <span class="sc">&lt;</span> <span class="dv">11</span> <span class="sc">~</span> <span class="dv">10</span>,</span>
+<span id="cb5-138"><a href="#cb5-138" aria-hidden="true" tabindex="-1"></a>                                               bin_width <span class="sc">&gt;=</span> <span class="dv">11</span> <span class="sc">~</span> <span class="dv">20</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-139"><a href="#cb5-139" aria-hidden="true" tabindex="-1"></a>    <span class="co">#ungroup</span></span>
+<span id="cb5-140"><a href="#cb5-140" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">ungroup</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb5-141"><a href="#cb5-141" aria-hidden="true" tabindex="-1"></a>    <span class="co">#mutate to calculate what bin each observation would fall under</span></span>
+<span id="cb5-142"><a href="#cb5-142" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb5-143"><a href="#cb5-143" aria-hidden="true" tabindex="-1"></a>      <span class="at">bin_num =</span> dplyr<span class="sc">::</span><span class="fu">if_else</span>(</span>
+<span id="cb5-144"><a href="#cb5-144" aria-hidden="true" tabindex="-1"></a>        <span class="co">#if length = max length...</span></span>
+<span id="cb5-145"><a href="#cb5-145" aria-hidden="true" tabindex="-1"></a>        MAX_DIAMETER <span class="sc">==</span> max,</span>
+<span id="cb5-146"><a href="#cb5-146" aria-hidden="true" tabindex="-1"></a>        <span class="co">#...then the bin number is equal to the number of bins</span></span>
+<span id="cb5-147"><a href="#cb5-147" aria-hidden="true" tabindex="-1"></a>        n_bins,</span>
+<span id="cb5-148"><a href="#cb5-148" aria-hidden="true" tabindex="-1"></a>        <span class="co">#otherwise it is equal to...</span></span>
+<span id="cb5-149"><a href="#cb5-149" aria-hidden="true" tabindex="-1"></a>        <span class="co">#the difference between the size and the min size...</span></span>
+<span id="cb5-150"><a href="#cb5-150" aria-hidden="true" tabindex="-1"></a>        <span class="co">#divided by the bin width...</span></span>
+<span id="cb5-151"><a href="#cb5-151" aria-hidden="true" tabindex="-1"></a>        <span class="co">#rounded down to the nearest integer plus 1</span></span>
+<span id="cb5-152"><a href="#cb5-152" aria-hidden="true" tabindex="-1"></a>        <span class="fu">floor</span>((MAX_DIAMETER <span class="sc">-</span> min)<span class="sc">/</span>bin_width) <span class="sc">+</span> <span class="dv">1</span>),</span>
+<span id="cb5-153"><a href="#cb5-153" aria-hidden="true" tabindex="-1"></a>      <span class="at">bin_low =</span> dplyr<span class="sc">::</span><span class="fu">if_else</span>(</span>
+<span id="cb5-154"><a href="#cb5-154" aria-hidden="true" tabindex="-1"></a>        bin_num <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">4</span>, <span class="fu">round</span>(min <span class="sc">+</span> (bin_width <span class="sc">*</span> (bin_num<span class="dv">-1</span>))<span class="sc">+</span><span class="dv">2</span>,<span class="dv">2</span>)),</span>
+<span id="cb5-155"><a href="#cb5-155" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb5-156"><a href="#cb5-156" aria-hidden="true" tabindex="-1"></a>      <span class="at">bin_high =</span> <span class="fu">round</span>(bin_width <span class="sc">+</span>min <span class="sc">+</span> (bin_width <span class="sc">*</span> (bin_num<span class="dv">-1</span>))<span class="sc">+</span><span class="dv">1</span>,<span class="dv">2</span>),</span>
+<span id="cb5-157"><a href="#cb5-157" aria-hidden="true" tabindex="-1"></a>      <span class="at">bin_name =</span> <span class="fu">paste</span>(bin_low, bin_high, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-158"><a href="#cb5-158" aria-hidden="true" tabindex="-1"></a>    <span class="co">#summarize findings by bin count</span></span>
+<span id="cb5-159"><a href="#cb5-159" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">group_by</span>(SPECIES_NAME, SPECIES_CD, REGION, YEAR, PRIMARY_SAMPLE_UNIT,</span>
+<span id="cb5-160"><a href="#cb5-160" aria-hidden="true" tabindex="-1"></a>                    STRAT, PROT, bin_num, bin_name, n_bins, bin_width, min) <span class="sc">%&gt;%</span></span>
+<span id="cb5-161"><a href="#cb5-161" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">bin_tally =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">&quot;keep&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-162"><a href="#cb5-162" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">arrange</span>(SPECIES_NAME, YEAR, PRIMARY_SAMPLE_UNIT, STRAT, PROT,</span>
+<span id="cb5-163"><a href="#cb5-163" aria-hidden="true" tabindex="-1"></a>                   bin_num)</span>
+<span id="cb5-164"><a href="#cb5-164" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-165"><a href="#cb5-165" aria-hidden="true" tabindex="-1"></a>  <span class="co">#CALCULATE ESTIMATES</span></span>
+<span id="cb5-166"><a href="#cb5-166" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-167"><a href="#cb5-167" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Estimates for 3D Surface Area</span></span>
+<span id="cb5-168"><a href="#cb5-168" aria-hidden="true" tabindex="-1"></a>  size_estimates <span class="ot">&lt;-</span> size_3d_demos <span class="sc">%&gt;%</span></span>
+<span id="cb5-169"><a href="#cb5-169" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb5-170"><a href="#cb5-170" aria-hidden="true" tabindex="-1"></a>      <span class="at">ANALYSIS_STRATUM =</span> dplyr<span class="sc">::</span><span class="fu">if_else</span>(</span>
+<span id="cb5-171"><a href="#cb5-171" aria-hidden="true" tabindex="-1"></a>        region <span class="sc">==</span> <span class="st">&quot;FLK&quot;</span> <span class="sc">|</span> region <span class="sc">==</span> <span class="st">&quot;Tortugas&quot;</span> <span class="sc">|</span> region <span class="sc">==</span> <span class="st">&quot;SEFCRI&quot;</span>,</span>
+<span id="cb5-172"><a href="#cb5-172" aria-hidden="true" tabindex="-1"></a>        <span class="fu">paste</span>(STRAT, <span class="st">&quot;/ PROT =&quot;</span>, PROT, <span class="at">sep =</span> <span class="st">&quot; &quot;</span>), <span class="fu">as.character</span>(STRAT))</span>
+<span id="cb5-173"><a href="#cb5-173" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-174"><a href="#cb5-174" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">group_by</span>(REGION, YEAR, ANALYSIS_STRATUM, SPECIES_NAME,</span>
+<span id="cb5-175"><a href="#cb5-175" aria-hidden="true" tabindex="-1"></a>                    SPECIES_CD, bin_num, bin_name) <span class="sc">%&gt;%</span></span>
+<span id="cb5-176"><a href="#cb5-176" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="co"># compute average bin_tally</span></span>
+<span id="cb5-177"><a href="#cb5-177" aria-hidden="true" tabindex="-1"></a>      <span class="at">avtally =</span> <span class="fu">mean</span>(bin_tally),</span>
+<span id="cb5-178"><a href="#cb5-178" aria-hidden="true" tabindex="-1"></a>      <span class="co"># compute stratum variance</span></span>
+<span id="cb5-179"><a href="#cb5-179" aria-hidden="true" tabindex="-1"></a>      <span class="at">svar =</span> <span class="fu">var</span>(bin_tally),</span>
+<span id="cb5-180"><a href="#cb5-180" aria-hidden="true" tabindex="-1"></a>      <span class="co"># calculate N</span></span>
+<span id="cb5-181"><a href="#cb5-181" aria-hidden="true" tabindex="-1"></a>      <span class="at">n_sites =</span> <span class="fu">length</span>(<span class="fu">unique</span>(PRIMARY_SAMPLE_UNIT)),</span>
+<span id="cb5-182"><a href="#cb5-182" aria-hidden="true" tabindex="-1"></a>      <span class="at">.groups =</span> <span class="st">&quot;keep&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-183"><a href="#cb5-183" aria-hidden="true" tabindex="-1"></a>    <span class="co"># convert 0 for stratum variance so that the sqrt is a small # but not a 0</span></span>
+<span id="cb5-184"><a href="#cb5-184" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">svar =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(svar <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="fl">0.00000001</span>,</span>
+<span id="cb5-185"><a href="#cb5-185" aria-hidden="true" tabindex="-1"></a>                                          <span class="cn">TRUE</span> <span class="sc">~</span> svar)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-186"><a href="#cb5-186" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Var=</span>svar<span class="sc">/</span>n_sites, <span class="co">#variance of mean bin_tally in stratum</span></span>
+<span id="cb5-187"><a href="#cb5-187" aria-hidden="true" tabindex="-1"></a>                  <span class="at">std =</span> <span class="fu">sqrt</span>(svar), <span class="co"># std dev of bin_tally in stratum</span></span>
+<span id="cb5-188"><a href="#cb5-188" aria-hidden="true" tabindex="-1"></a>                  <span class="at">SE=</span><span class="fu">sqrt</span>(Var), <span class="co">#SE of the mean bin_tally stratum</span></span>
+<span id="cb5-189"><a href="#cb5-189" aria-hidden="true" tabindex="-1"></a>                  <span class="at">CV_perc=</span>(SE<span class="sc">/</span>avtally)<span class="sc">*</span><span class="dv">100</span>)</span>
+<span id="cb5-190"><a href="#cb5-190" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-191"><a href="#cb5-191" aria-hidden="true" tabindex="-1"></a>  <span class="co">#Estimates for Length</span></span>
+<span id="cb5-192"><a href="#cb5-192" aria-hidden="true" tabindex="-1"></a>  length_estimates <span class="ot">&lt;-</span> length_demos <span class="sc">%&gt;%</span></span>
+<span id="cb5-193"><a href="#cb5-193" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
+<span id="cb5-194"><a href="#cb5-194" aria-hidden="true" tabindex="-1"></a>      <span class="at">ANALYSIS_STRATUM =</span> dplyr<span class="sc">::</span><span class="fu">if_else</span>(</span>
+<span id="cb5-195"><a href="#cb5-195" aria-hidden="true" tabindex="-1"></a>        region <span class="sc">==</span> <span class="st">&quot;FLK&quot;</span> <span class="sc">|</span> region <span class="sc">==</span> <span class="st">&quot;Tortugas&quot;</span> <span class="sc">|</span> region <span class="sc">==</span> <span class="st">&quot;SEFCRI&quot;</span>,</span>
+<span id="cb5-196"><a href="#cb5-196" aria-hidden="true" tabindex="-1"></a>        <span class="fu">paste</span>(STRAT, <span class="st">&quot;/ PROT =&quot;</span>, PROT, <span class="at">sep =</span> <span class="st">&quot; &quot;</span>), <span class="fu">as.character</span>(STRAT))</span>
+<span id="cb5-197"><a href="#cb5-197" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb5-198"><a href="#cb5-198" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">group_by</span>(REGION, YEAR, ANALYSIS_STRATUM, SPECIES_NAME, SPECIES_CD,</span>
+<span id="cb5-199"><a href="#cb5-199" aria-hidden="true" tabindex="-1"></a>                    bin_num, bin_name) <span class="sc">%&gt;%</span></span>
+<span id="cb5-200"><a href="#cb5-200" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="co"># compute average bin_tally</span></span>
+<span id="cb5-201"><a href="#cb5-201" aria-hidden="true" tabindex="-1"></a>      <span class="at">avtally =</span> <span class="fu">mean</span>(bin_tally),</span>
+<span id="cb5-202"><a href="#cb5-202" aria-hidden="true" tabindex="-1"></a>      <span class="co"># compute stratum variance</span></span>
+<span id="cb5-203"><a href="#cb5-203" aria-hidden="true" tabindex="-1"></a>      <span class="at">svar =</span> <span class="fu">var</span>(bin_tally),</span>
+<span id="cb5-204"><a href="#cb5-204" aria-hidden="true" tabindex="-1"></a>      <span class="co"># calculate N</span></span>
+<span id="cb5-205"><a href="#cb5-205" aria-hidden="true" tabindex="-1"></a>      <span class="at">n_sites =</span> <span class="fu">length</span>(<span class="fu">unique</span>(PRIMARY_SAMPLE_UNIT)),</span>
+<span id="cb5-206"><a href="#cb5-206" aria-hidden="true" tabindex="-1"></a>      <span class="at">.groups =</span> <span class="st">&quot;keep&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-207"><a href="#cb5-207" aria-hidden="true" tabindex="-1"></a>    <span class="co"># convert 0 for stratum variance so that the sqrt is a small # but not a 0</span></span>
+<span id="cb5-208"><a href="#cb5-208" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">svar =</span> dplyr<span class="sc">::</span><span class="fu">case_when</span>(svar <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="fl">0.00000001</span>,</span>
+<span id="cb5-209"><a href="#cb5-209" aria-hidden="true" tabindex="-1"></a>                                          <span class="cn">TRUE</span> <span class="sc">~</span> svar)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-210"><a href="#cb5-210" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">Var=</span>svar<span class="sc">/</span>n_sites, <span class="co">#variance of mean bin_tally in stratum</span></span>
+<span id="cb5-211"><a href="#cb5-211" aria-hidden="true" tabindex="-1"></a>                  <span class="at">std =</span> <span class="fu">sqrt</span>(svar), <span class="co"># std dev of bin_tally in stratum</span></span>
+<span id="cb5-212"><a href="#cb5-212" aria-hidden="true" tabindex="-1"></a>                  <span class="at">SE=</span><span class="fu">sqrt</span>(Var), <span class="co">#SE of the mean bin_tally stratum</span></span>
+<span id="cb5-213"><a href="#cb5-213" aria-hidden="true" tabindex="-1"></a>                  <span class="at">CV_perc=</span>(SE<span class="sc">/</span>avtally)<span class="sc">*</span><span class="dv">100</span>)</span>
+<span id="cb5-214"><a href="#cb5-214" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-215"><a href="#cb5-215" aria-hidden="true" tabindex="-1"></a>  <span class="co">#inputdata is dummy, unused if project != DRM</span></span>
+<span id="cb5-216"><a href="#cb5-216" aria-hidden="true" tabindex="-1"></a>  ntot <span class="ot">&lt;-</span> ncrmp.benthics.analysis<span class="sc">::</span><span class="fu">load_NTOT</span>(<span class="at">region =</span> region, <span class="at">inputdata =</span> demos,</span>
+<span id="cb5-217"><a href="#cb5-217" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">project =</span> project) <span class="sc">%&gt;%</span></span>
+<span id="cb5-218"><a href="#cb5-218" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">YEAR =</span> <span class="fu">as.factor</span>(YEAR)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-219"><a href="#cb5-219" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(YEAR <span class="sc">%in%</span> years)</span>
+<span id="cb5-220"><a href="#cb5-220" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-221"><a href="#cb5-221" aria-hidden="true" tabindex="-1"></a>  <span class="co"># STRATUM SIZE ESTIMATES</span></span>
+<span id="cb5-222"><a href="#cb5-222" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-223"><a href="#cb5-223" aria-hidden="true" tabindex="-1"></a>  size_estimates <span class="ot">&lt;-</span> size_estimates  <span class="sc">%&gt;%</span></span>
+<span id="cb5-224"><a href="#cb5-224" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Merge ntot with coral_est_spp</span></span>
+<span id="cb5-225"><a href="#cb5-225" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">full_join</span>(ntot, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;REGION&quot;</span>, <span class="st">&quot;YEAR&quot;</span>, <span class="st">&quot;ANALYSIS_STRATUM&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-226"><a href="#cb5-226" aria-hidden="true" tabindex="-1"></a>    <span class="co"># stratum estimates</span></span>
+<span id="cb5-227"><a href="#cb5-227" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">whavtally =</span> wh <span class="sc">*</span> avtally,</span>
+<span id="cb5-228"><a href="#cb5-228" aria-hidden="true" tabindex="-1"></a>                  <span class="at">whsvar =</span> wh<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> svar,</span>
+<span id="cb5-229"><a href="#cb5-229" aria-hidden="true" tabindex="-1"></a>                  <span class="at">whstd =</span> wh <span class="sc">*</span> std,</span>
+<span id="cb5-230"><a href="#cb5-230" aria-hidden="true" tabindex="-1"></a>                  <span class="at">n_sites =</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(n_sites, <span class="dv">0</span>))  <span class="sc">%&gt;%</span></span>
+<span id="cb5-231"><a href="#cb5-231" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb5-232"><a href="#cb5-232" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SPECIES_NAME))</span>
+<span id="cb5-233"><a href="#cb5-233" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-234"><a href="#cb5-234" aria-hidden="true" tabindex="-1"></a>  length_estimates <span class="ot">&lt;-</span> length_estimates  <span class="sc">%&gt;%</span></span>
+<span id="cb5-235"><a href="#cb5-235" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Merge ntot with coral_est_spp</span></span>
+<span id="cb5-236"><a href="#cb5-236" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">full_join</span>(ntot, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;REGION&quot;</span>, <span class="st">&quot;YEAR&quot;</span>, <span class="st">&quot;ANALYSIS_STRATUM&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-237"><a href="#cb5-237" aria-hidden="true" tabindex="-1"></a>    <span class="co"># stratum estimates</span></span>
+<span id="cb5-238"><a href="#cb5-238" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">whavtally =</span> wh <span class="sc">*</span> avtally,</span>
+<span id="cb5-239"><a href="#cb5-239" aria-hidden="true" tabindex="-1"></a>                  <span class="at">whsvar =</span> wh<span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> svar,</span>
+<span id="cb5-240"><a href="#cb5-240" aria-hidden="true" tabindex="-1"></a>                  <span class="at">whstd =</span> wh <span class="sc">*</span> std,</span>
+<span id="cb5-241"><a href="#cb5-241" aria-hidden="true" tabindex="-1"></a>                  <span class="at">n_sites =</span> tidyr<span class="sc">::</span><span class="fu">replace_na</span>(n_sites, <span class="dv">0</span>))  <span class="sc">%&gt;%</span></span>
+<span id="cb5-242"><a href="#cb5-242" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb5-243"><a href="#cb5-243" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(SPECIES_NAME))</span>
+<span id="cb5-244"><a href="#cb5-244" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-245"><a href="#cb5-245" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-246"><a href="#cb5-246" aria-hidden="true" tabindex="-1"></a>  <span class="co">#End result: Return the list made up of strata est. and domain est.</span></span>
+<span id="cb5-247"><a href="#cb5-247" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-248"><a href="#cb5-248" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Domain Estimates</span></span>
+<span id="cb5-249"><a href="#cb5-249" aria-hidden="true" tabindex="-1"></a>  <span class="do">##Size Domain</span></span>
+<span id="cb5-250"><a href="#cb5-250" aria-hidden="true" tabindex="-1"></a>  size_domain_est <span class="ot">&lt;-</span> size_estimates <span class="sc">%&gt;%</span></span>
+<span id="cb5-251"><a href="#cb5-251" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">group_by</span>(REGION, YEAR, SPECIES_NAME, SPECIES_CD, bin_num, bin_name) <span class="sc">%&gt;%</span></span>
+<span id="cb5-252"><a href="#cb5-252" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">avtally =</span> <span class="fu">sum</span>(whavtally, <span class="at">na.rm =</span> T), <span class="co"># This accounts for strata with 0 species of interest present</span></span>
+<span id="cb5-253"><a href="#cb5-253" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Var_tally =</span> <span class="fu">sum</span>(whsvar, <span class="at">na.rm =</span> T),</span>
+<span id="cb5-254"><a href="#cb5-254" aria-hidden="true" tabindex="-1"></a>                     <span class="at">SE_tally=</span><span class="fu">sqrt</span>(Var_tally),</span>
+<span id="cb5-255"><a href="#cb5-255" aria-hidden="true" tabindex="-1"></a>                     <span class="at">n_sites =</span> <span class="fu">sum</span>(n_sites),</span>
+<span id="cb5-256"><a href="#cb5-256" aria-hidden="true" tabindex="-1"></a>                     <span class="at">n_strat =</span> <span class="fu">length</span>(<span class="fu">unique</span>(ANALYSIS_STRATUM)),</span>
+<span id="cb5-257"><a href="#cb5-257" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ngrtot =</span> <span class="fu">sum</span>(NTOT),</span>
+<span id="cb5-258"><a href="#cb5-258" aria-hidden="true" tabindex="-1"></a>                     <span class="at">.groups =</span> <span class="st">&quot;keep&quot;</span>)  <span class="sc">%&gt;%</span></span>
+<span id="cb5-259"><a href="#cb5-259" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb5-260"><a href="#cb5-260" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">arrange</span>(SPECIES_CD, bin_num, YEAR)</span>
+<span id="cb5-261"><a href="#cb5-261" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-262"><a href="#cb5-262" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-263"><a href="#cb5-263" aria-hidden="true" tabindex="-1"></a>  <span class="do">##Length Domain</span></span>
+<span id="cb5-264"><a href="#cb5-264" aria-hidden="true" tabindex="-1"></a>  length_domain_est <span class="ot">&lt;-</span> length_estimates <span class="sc">%&gt;%</span></span>
+<span id="cb5-265"><a href="#cb5-265" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">group_by</span>(REGION, YEAR, SPECIES_NAME, SPECIES_CD, bin_num, bin_name) <span class="sc">%&gt;%</span></span>
+<span id="cb5-266"><a href="#cb5-266" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">avtally =</span> <span class="fu">sum</span>(whavtally, <span class="at">na.rm =</span> T), <span class="co"># This accounts for strata with 0 species of interest present</span></span>
+<span id="cb5-267"><a href="#cb5-267" aria-hidden="true" tabindex="-1"></a>                     <span class="at">Var_tally =</span> <span class="fu">sum</span>(whsvar, <span class="at">na.rm =</span> T),</span>
+<span id="cb5-268"><a href="#cb5-268" aria-hidden="true" tabindex="-1"></a>                     <span class="at">SE_tally=</span><span class="fu">sqrt</span>(Var_tally),</span>
+<span id="cb5-269"><a href="#cb5-269" aria-hidden="true" tabindex="-1"></a>                     <span class="at">n_sites =</span> <span class="fu">sum</span>(n_sites),</span>
+<span id="cb5-270"><a href="#cb5-270" aria-hidden="true" tabindex="-1"></a>                     <span class="at">n_strat =</span> <span class="fu">length</span>(<span class="fu">unique</span>(ANALYSIS_STRATUM)),</span>
+<span id="cb5-271"><a href="#cb5-271" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ngrtot =</span> <span class="fu">sum</span>(NTOT, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb5-272"><a href="#cb5-272" aria-hidden="true" tabindex="-1"></a>                     <span class="at">.groups =</span> <span class="st">&quot;keep&quot;</span>)  <span class="sc">%&gt;%</span></span>
+<span id="cb5-273"><a href="#cb5-273" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb5-274"><a href="#cb5-274" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">arrange</span>(SPECIES_CD, bin_num, YEAR)</span>
+<span id="cb5-275"><a href="#cb5-275" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-276"><a href="#cb5-276" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-277"><a href="#cb5-277" aria-hidden="true" tabindex="-1"></a>  output <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">size_3d_demos =</span> <span class="fu">as.data.frame</span>(size_3d_demos),</span>
+<span id="cb5-278"><a href="#cb5-278" aria-hidden="true" tabindex="-1"></a>                 <span class="at">length_demos =</span> <span class="fu">as.data.frame</span>(length_demos),</span>
+<span id="cb5-279"><a href="#cb5-279" aria-hidden="true" tabindex="-1"></a>                 <span class="at">size_estimates =</span> <span class="fu">as.data.frame</span>(size_estimates),</span>
+<span id="cb5-280"><a href="#cb5-280" aria-hidden="true" tabindex="-1"></a>                 <span class="at">length_estimates =</span> <span class="fu">as.data.frame</span>(length_estimates),</span>
+<span id="cb5-281"><a href="#cb5-281" aria-hidden="true" tabindex="-1"></a>                 <span class="at">size_domain_est =</span> <span class="fu">as.data.frame</span>(size_domain_est),</span>
+<span id="cb5-282"><a href="#cb5-282" aria-hidden="true" tabindex="-1"></a>                 <span class="at">length_domain_est =</span> <span class="fu">as.data.frame</span>(length_domain_est))</span>
+<span id="cb5-283"><a href="#cb5-283" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-284"><a href="#cb5-284" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(output)</span>
+<span id="cb5-285"><a href="#cb5-285" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-286"><a href="#cb5-286" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-287"><a href="#cb5-287" aria-hidden="true" tabindex="-1"></a>analyzed_species <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb5-288"><a href="#cb5-288" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;ACR CERV&quot;</span>, <span class="co">#A. cervicornis</span></span>
+<span id="cb5-289"><a href="#cb5-289" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;ACR PALM&quot;</span>, <span class="co">#A. palmata</span></span>
+<span id="cb5-290"><a href="#cb5-290" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;ORB ANNU&quot;</span>, <span class="co">#O. annularis</span></span>
+<span id="cb5-291"><a href="#cb5-291" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;ORB FRAN&quot;</span>, <span class="co">#O. franksi</span></span>
+<span id="cb5-292"><a href="#cb5-292" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;ORB FAVE&quot;</span>, <span class="co">#O. faveolata</span></span>
+<span id="cb5-293"><a href="#cb5-293" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;MEA MEAN&quot;</span>, <span class="co">#M. meandrites</span></span>
+<span id="cb5-294"><a href="#cb5-294" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;DEN CYLI&quot;</span>, <span class="co">#D. cylindrus</span></span>
+<span id="cb5-295"><a href="#cb5-295" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;PSE STRI&quot;</span>, <span class="co">#A. cervicornis</span></span>
+<span id="cb5-296"><a href="#cb5-296" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;DIP LABI&quot;</span>, <span class="co">#D. labyrinthiformis</span></span>
+<span id="cb5-297"><a href="#cb5-297" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;COL NATA&quot;</span>, <span class="co">#C. natans</span></span>
+<span id="cb5-298"><a href="#cb5-298" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;SID SIDE&quot;</span>, <span class="co">#S. siderea</span></span>
+<span id="cb5-299"><a href="#cb5-299" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;POR ASTE&quot;</span>, <span class="co">#P. astreoides</span></span>
+<span id="cb5-300"><a href="#cb5-300" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;MON CAVE&quot;</span>, <span class="co">#M. cavernosa</span></span>
+<span id="cb5-301"><a href="#cb5-301" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;AGA AGAR&quot;</span>, <span class="co">#A. agaricites</span></span>
+<span id="cb5-302"><a href="#cb5-302" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;STE INTE&quot;</span> <span class="co">#S. inercepta</span></span>
+<span id="cb5-303"><a href="#cb5-303" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-304"><a href="#cb5-304" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-305"><a href="#cb5-305" aria-hidden="true" tabindex="-1"></a>PRICO_Bins <span class="ot">&lt;-</span> <span class="fu">NCRMP_make_size_bins_2</span>(<span class="at">region =</span> <span class="st">&quot;PRICO&quot;</span>,</span>
+<span id="cb5-306"><a href="#cb5-306" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">years =</span> <span class="fu">c</span>(<span class="fu">min</span>(PR_Cvr<span class="sc">$</span>YEAR), <span class="fu">max</span>(PR_Cvr<span class="sc">$</span>YEAR)),</span>
+<span id="cb5-307"><a href="#cb5-307" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">species_filter =</span> analyzed_species)</span>
+<span id="cb5-308"><a href="#cb5-308" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-309"><a href="#cb5-309" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-310"><a href="#cb5-310" aria-hidden="true" tabindex="-1"></a>STTSTJ_Bins <span class="ot">&lt;-</span> <span class="fu">NCRMP_make_size_bins_2</span>(<span class="at">region =</span> <span class="st">&quot;STTSTJ&quot;</span>,</span>
+<span id="cb5-311"><a href="#cb5-311" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">years =</span> <span class="fu">c</span>(<span class="fu">min</span>(STTSTJ_Cvr<span class="sc">$</span>YEAR), <span class="fu">max</span>(STTSTJ_Cvr<span class="sc">$</span>YEAR)),</span>
+<span id="cb5-312"><a href="#cb5-312" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">species_filter =</span> analyzed_species)</span>
+<span id="cb5-313"><a href="#cb5-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-314"><a href="#cb5-314" aria-hidden="true" tabindex="-1"></a>STX_Bins <span class="ot">&lt;-</span> <span class="fu">NCRMP_make_size_bins_2</span>(<span class="at">region =</span> <span class="st">&quot;STX&quot;</span>,</span>
+<span id="cb5-315"><a href="#cb5-315" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">years =</span> <span class="fu">c</span>(<span class="fu">min</span>(STX_Cvr<span class="sc">$</span>YEAR), <span class="fu">max</span>(STX_Cvr<span class="sc">$</span>YEAR)),</span>
+<span id="cb5-316"><a href="#cb5-316" aria-hidden="true" tabindex="-1"></a>                                   <span class="at">species_filter =</span> analyzed_species)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>make_size_plot <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">y =</span> <span class="st">&quot;length&quot;</span>) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (y <span class="sc">==</span> <span class="st">&quot;size&quot;</span>) {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    domain_estimates <span class="ot">=</span> x<span class="sc">$</span>size_domain_est</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    demos <span class="ot">=</span> x<span class="sc">$</span>size_3d_demos</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    name <span class="ot">=</span> <span class="st">&quot;Binned Surface Area in&quot;</span><span class="sc">~</span>cm<span class="sc">^</span><span class="dv">3</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (y <span class="sc">==</span> <span class="st">&quot;length&quot;</span>) {</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    domain_estimates <span class="ot">=</span> x<span class="sc">$</span>length_domain_est</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    demos <span class="ot">=</span> x<span class="sc">$</span>length_demos</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    name <span class="ot">=</span> <span class="st">&quot;Length (cm)&quot;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  plots <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  uniq_s <span class="ot">&lt;-</span> <span class="fu">unique</span>(domain_estimates<span class="sc">$</span>SPECIES_CD) </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> uniq_s) {</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    domain_sub <span class="ot">=</span> <span class="fu">subset</span>(domain_estimates, SPECIES_CD <span class="sc">==</span> i)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    demos_sub <span class="ot">=</span> <span class="fu">subset</span>(demos, SPECIES_CD <span class="sc">==</span> i)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    n_bins <span class="ot">=</span> <span class="fu">max</span>(demos_sub<span class="sc">$</span>n_bins)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    text_size <span class="ot">=</span> <span class="dv">11</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    angle <span class="ot">=</span> dplyr<span class="sc">::</span><span class="fu">if_else</span>(n_bins <span class="sc">&gt;</span> <span class="dv">6</span> <span class="sc">|</span> y <span class="sc">==</span> <span class="st">&quot;size&quot;</span>, <span class="dv">45</span>, <span class="dv">0</span>)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    hjust <span class="ot">=</span> dplyr<span class="sc">::</span><span class="fu">if_else</span>(angle <span class="sc">==</span> <span class="dv">45</span>, <span class="dv">1</span>, <span class="fl">0.5</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    min <span class="ot">=</span> <span class="fu">min</span>(demos_sub<span class="sc">$</span>min)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    bin_width <span class="ot">=</span> <span class="fu">min</span>(demos_sub<span class="sc">$</span>bin_width)</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    small <span class="ot">=</span> dplyr<span class="sc">::</span><span class="fu">if_else</span>(n_bins <span class="sc">&gt;</span> <span class="dv">4</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    num_vec <span class="ot">=</span> <span class="fu">seq_len</span>(<span class="fu">max</span>(domain_sub<span class="sc">$</span>bin_num))</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    x<span class="sc">$</span>bin_low <span class="ot">=</span> dplyr<span class="sc">::</span><span class="fu">if_else</span>(x<span class="sc">$</span>bin_num <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">4</span>, <span class="fu">round</span>(x<span class="sc">$</span>min <span class="sc">+</span> (x<span class="sc">$</span>bin_width <span class="sc">*</span> (x<span class="sc">$</span>bin_num<span class="dv">-1</span>))<span class="sc">+</span><span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    x<span class="sc">$</span>bin_high <span class="ot">=</span> <span class="fu">round</span>(x<span class="sc">$</span>bin_width <span class="sc">+</span>x<span class="sc">$</span>min <span class="sc">+</span> (x<span class="sc">$</span>bin_width <span class="sc">*</span> (x<span class="sc">$</span>bin_num<span class="dv">-1</span>))<span class="sc">+</span><span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    lab_vec <span class="ot">=</span> <span class="fu">paste</span>(x<span class="sc">$</span>bin_low, x<span class="sc">$</span>bin_high, <span class="at">sep =</span> <span class="st">&quot;-&quot;</span>)</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    lab_vec <span class="ot">=</span> <span class="fu">paste</span>(</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>      <span class="fu">format</span>(</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> dplyr<span class="sc">::</span><span class="fu">if_else</span>(num_vec <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">4</span>, <span class="fu">round</span>(min <span class="sc">+</span> (bin_width <span class="sc">*</span> (num_vec<span class="dv">-1</span>))<span class="sc">+</span><span class="dv">2</span>,small)),</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">nsmall =</span> small</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>      <span class="co">#&quot;-&quot;,</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>      <span class="fu">format</span>(</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="fu">round</span>(bin_width <span class="sc">+</span> min <span class="sc">+</span> (bin_width <span class="sc">*</span> (num_vec<span class="dv">-1</span>))<span class="sc">+</span><span class="dv">1</span>,small),</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>        <span class="at">nsmall =</span> small</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>      ),</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>      <span class="at">sep =</span> <span class="st">&quot;-&quot;</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    plots[[i]] <span class="ot">=</span> (</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ggplot</span>(<span class="at">data =</span> domain_sub, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.integer</span>(bin_num), <span class="at">y =</span> avtally, </span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">fill =</span> YEAR)) <span class="sc">+</span></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="at">position =</span> <span class="st">&quot;dodge2&quot;</span>, <span class="at">width =</span> .<span class="dv">9</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">size=</span>.<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_Publication</span>(<span class="at">base_size =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>        <span class="co">#    facet_wrap(~facet_label, nrow=4, scales = &quot;free&quot;) +</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>        <span class="fu">labs</span>(</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>          <span class="at">y =</span> <span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> name, </span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>                           <span class="at">breaks =</span> <span class="fu">seq_along</span>(lab_vec),</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>                           <span class="at">labels =</span> lab_vec) <span class="sc">+</span></span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>        <span class="fu">ggtitle</span>(<span class="fu">unique</span>(domain_sub<span class="sc">$</span>SPECIES_NAME)) <span class="sc">+</span></span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> text_size, <span class="at">angle =</span> angle, </span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">hjust =</span> hjust),</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">colour =</span> <span class="cn">NA</span>),</span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.direction =</span> <span class="st">&quot;horizontal&quot;</span>,</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.key.size=</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">&quot;cm&quot;</span>),</span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>              <span class="at">legend.margin =</span> <span class="fu">margin</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>, <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>              <span class="co">#,</span></span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>              <span class="co">#legend.title = element_text(face=&quot;italic&quot;)</span></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>        ) <span class="sc">+</span></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">&#39;springgreen3&#39;</span>,<span class="st">&#39;gold1&#39;</span>))</span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>  } </span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(plots)</span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="fu">list</span>()</span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="fu">make_size_plot</span>(STX_Bins, <span class="st">&quot;length&quot;</span>)</span></code></pre></div>
 <div id="a.-cervicornis" class="section level4">
 <h4>A. cervicornis</h4>
 <p><img src="histograms_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
@@ -1129,29 +1281,33 @@ a = make_size_plot(STX_Bins, &quot;length&quot;)</code></pre>
 </div>
 <div id="some-more-code" class="section level4">
 <h4>Some more code</h4>
-<pre class="r fold-show"><code>analyzed_species &lt;- c(
-    &quot;ACR CERV&quot;, #A. cervicornis
-    &quot;ACR PALM&quot;, #A. palmata
-    &quot;ORB ANNU&quot;, #O. annularis
-    &quot;ORB FRAN&quot;, #O. franksi
-    &quot;ORB FAVE&quot;, #O. faveolata
-    &quot;MEA MEAN&quot;, #M. meandrites
-    &quot;DEN CYLI&quot;, #D. cylindrus
-    &quot;PSE STRI&quot;, #A. cervicornis
-    &quot;DIP LABI&quot;, #D. labyrinthiformis
-    &quot;COL NATA&quot;, #C. natans
-    &quot;SID SIDE&quot;, #S. siderea
-    &quot;POR ASTE&quot;, #P. astreoides
-    &quot;MON CAVE&quot;, #M. cavernosa
-    &quot;AGA AGAR&quot;, #A. agaricites
-    &quot;STE INTE&quot; #S. inercepta
-  )</code></pre>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode r fold-show"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>analyzed_species <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ACR CERV&quot;</span>, <span class="co">#A. cervicornis</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ACR PALM&quot;</span>, <span class="co">#A. palmata</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ORB ANNU&quot;</span>, <span class="co">#O. annularis</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ORB FRAN&quot;</span>, <span class="co">#O. franksi</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;ORB FAVE&quot;</span>, <span class="co">#O. faveolata</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;MEA MEAN&quot;</span>, <span class="co">#M. meandrites</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;DEN CYLI&quot;</span>, <span class="co">#D. cylindrus</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;PSE STRI&quot;</span>, <span class="co">#A. cervicornis</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;DIP LABI&quot;</span>, <span class="co">#D. labyrinthiformis</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;COL NATA&quot;</span>, <span class="co">#C. natans</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;SID SIDE&quot;</span>, <span class="co">#S. siderea</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;POR ASTE&quot;</span>, <span class="co">#P. astreoides</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;MON CAVE&quot;</span>, <span class="co">#M. cavernosa</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;AGA AGAR&quot;</span>, <span class="co">#A. agaricites</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;STE INTE&quot;</span> <span class="co">#S. inercepta</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 </div>
 </div>
 <div id="size-comparison-plots" class="section level3 tabset">
 <h3 class="tabset">Size comparison plots</h3>
-<pre class="r"><code>b = list()
-b = make_size_plot(STTSTJ_Bins, &quot;size&quot;)</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> <span class="fu">list</span>()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> <span class="fu">make_size_plot</span>(<span class="at">x =</span> STTSTJ_Bins, <span class="at">y =</span> <span class="st">&quot;size&quot;</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#x = DATA</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#y = &quot;size&quot;, &quot;length&quot; (parameter)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#link to rel code</span></span></code></pre></div>
 <div id="a.-cervicornis-1" class="section level4">
 <h4>A. cervicornis</h4>
 <p><img src="histograms_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>

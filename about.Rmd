@@ -1,5 +1,6 @@
 ---
 title: "About This Website"
+urlcolor: blue
 ---
 
 https://www.coris.noaa.gov/monitoring/
@@ -7,3 +8,8 @@ https://www.coris.noaa.gov/monitoring/
 https://github.com/jeremiaheb/rvc
 
 https://github.com/shgroves/NCRMP_benthics
+
+
+
+FOR LATER - SEARCHABLE PAGE
+https://programmablesearchengine.google.com/about/

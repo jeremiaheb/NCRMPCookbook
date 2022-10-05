@@ -1,0 +1,46 @@
+---
+title: "Time series"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Packages
+```{r, message=FALSE,warning=FALSE,class.source = 'fold-show'}
+library(rvc)
+library(tidyverse)
+source("fish_plots/theme_publication.R")
+source("fish_plots/WrapperFunctions.R")
+```
+
+## Load data
+```{r data, message=FALSE,warning=FALSE,class.source = 'fold-show'}
+keys11_14 = getRvcData(years = 2011:2014, regions = c("FLA KEYS", "DRY TORT"))
+```
+
+$~$
+
+## Plots
+
+### Domain density by year
+```{r, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+plot_domain_den_by_year(dataset = keys11_14, 
+                        species = "NIC USTA", 
+                        title = NULL, 
+                        print_dataframe = FALSE)
+```
+
+### Domain occurances by year
+```{r, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+plot_domain_occ_by_year(data = keys11_14, #required
+                        species = "NIC USTA", #required
+                        print_dataframe = FALSE, 
+                        title = NULL)
+```
+
