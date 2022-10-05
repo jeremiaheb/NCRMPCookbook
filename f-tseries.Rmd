@@ -19,11 +19,15 @@ source("fish_plots/theme_publication.R")
 source("fish_plots/WrapperFunctions.R")
 ```
 
+$~$
+$~$
+
 ## Load data
 ```{r data, message=FALSE,warning=FALSE,class.source = 'fold-show'}
 keys11_14 = getRvcData(years = 2011:2014, regions = c("FLA KEYS", "DRY TORT"))
 ```
 
+$~$
 $~$
 
 ## Plots

@@ -12,3 +12,13 @@ knitr::opts_chunk$set(echo = TRUE)
 https://github.com/jeremiaheb/rvc
 
 https://github.com/shgroves/NCRMP_benthics
+
+$~$
+$~$
+$~$
+$~$
+
+## Source files
+
+<a href="./fish_plots/WrapperFunctions.R" download>WrapperFunctions.R</a> <br><br>
+<a href="./fish_plots/theme_publication.R" download>theme_publication.R</a> <br><br>

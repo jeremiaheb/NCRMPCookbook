@@ -21,10 +21,16 @@ source("fish_plots/labeler.R")
 source("fish_plots/QL_binned_LengthFreq.R")
 ```
 
+$~$
+$~$
+
 ## Load data
 ```{r data, message=FALSE,warning=FALSE,class.source = 'fold-show'}
 keys11_14 = getRvcData(years = 2011:2014, regions = c("FLA KEYS", "DRY TORT"))
 ```
+
+$~$
+$~$
 
 ## Plots
 
