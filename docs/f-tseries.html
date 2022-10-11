@@ -437,7 +437,18 @@ div.tocify {
   </a>
 </li>
 <li>
-  <a href="about.html">About</a>
+  <a href="about.html">
+    <span class="fa fa-user"></span>
+     
+    About
+  </a>
+</li>
+<li>
+  <a href="updates.html">
+    <span class="fa fa-edit"></span>
+     
+    Updates
+  </a>
 </li>
 <li>
   <a href="downloadpkgs.html">
@@ -524,27 +535,116 @@ class="math inline">\(~\)</span></p>
 <div id="load-data" class="section level2">
 <h2>Load data</h2>
 <div class="sourceCode" id="cb2"><pre
-class="sourceCode r fold-show"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>keys11_14 <span class="ot">=</span> <span class="fu">getRvcData</span>(<span class="at">years =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2014</span>, <span class="at">regions =</span> <span class="fu">c</span>(<span class="st">&quot;FLA KEYS&quot;</span>, <span class="st">&quot;DRY TORT&quot;</span>))</span></code></pre></div>
+class="sourceCode r fold-show"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>keys11_14 <span class="ot">=</span> <span class="fu">getRvcData</span>(<span class="at">years =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2014</span>, <span class="at">regions =</span> <span class="fu">c</span>(<span class="st">&quot;FLA KEYS&quot;</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>torts12_16 <span class="ot">=</span> <span class="fu">getRvcData</span>(<span class="at">years =</span> <span class="dv">2012</span><span class="sc">:</span><span class="dv">2016</span>, <span class="at">regions =</span> <span class="fu">c</span>(<span class="st">&quot;DRY TORT&quot;</span>))</span></code></pre></div>
 <p><span class="math inline">\(~\)</span> <span
 class="math inline">\(~\)</span></p>
 </div>
 <div id="plots" class="section level2">
 <h2>Plots</h2>
-<div id="domain-density-by-year" class="section level3">
-<h3>Domain density by year</h3>
+<div id="domain-density-by-year" class="section level3 tabset">
+<h3 class="tabset">Domain density by year</h3>
+<div id="defaults" class="section level4">
+<h4>Defaults</h4>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_den_by_year</span>(<span class="at">dataset =</span> keys11_14, </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;NIC USTA&quot;</span>, </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="cn">NULL</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="f-tseries_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;MEL NIGE&quot;</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
+<p><img src="f-tseries_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<br><br></p>
 </div>
-<div id="domain-occurances-by-year" class="section level3">
-<h3>Domain occurances by year</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_occ_by_year</span>(<span class="at">data =</span> keys11_14, <span class="co">#required</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;NIC USTA&quot;</span>, <span class="co">#required</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>, </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="cn">NULL</span>)</span></code></pre></div>
-<p><img src="f-tseries_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div id="alt-1" class="section level4">
+<h4>Alt 1</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_den_by_year</span>(<span class="at">dataset =</span> keys11_14, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;nic usta&quot;</span>, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Nicholsina usta&quot;</span>), <span class="co">#Allows scientific name to be italicized</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Florida Keys&quot;</span>)), </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
+<p><img src="f-tseries_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<br><br></p>
+</div>
+<div id="alt-2" class="section level4">
+<h4>Alt 2</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_den_by_year</span>(<span class="at">dataset =</span> keys11_14, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;NIC USTA&quot;</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
+<p><img src="f-tseries_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre><code>## [[1]]
+##   YEAR   REGION SPECIES_CD    density          var   n  nm     N      NM
+## 1 2011 FLA KEYS   NIC USTA 0.03978190 5.171171e-04 402 789 16977 3842807
+## 2 2012 FLA KEYS   NIC USTA 0.01131613 2.849591e-05 416 803 16977 3842807
+## 3 2014 FLA KEYS   NIC USTA 0.01223281 7.245219e-05 432 860 67906 3842694
+##   STAGE_LEVEL          SE
+## 1           2 0.022740209
+## 2           2 0.005338156
+## 3           2 0.008511885
+## 
+## [[2]]
+## 
+## [[1]]
+##   YEAR   REGION SPECIES_CD    density          var   n  nm     N      NM
+## 1 2011 FLA KEYS   NIC USTA 0.03978190 5.171171e-04 402 789 16977 3842807
+## 2 2012 FLA KEYS   NIC USTA 0.01131613 2.849591e-05 416 803 16977 3842807
+## 3 2014 FLA KEYS   NIC USTA 0.01223281 7.245219e-05 432 860 67906 3842694
+##   STAGE_LEVEL          SE
+## 1           2 0.022740209
+## 2           2 0.005338156
+## 3           2 0.008511885</code></pre>
+<p><br><br></p>
+</div>
+</div>
+<div id="domain-occurrences-by-year" class="section level3 tabset">
+<h3 class="tabset">Domain occurrences by year</h3>
+<div id="defaults-1" class="section level4">
+<h4>Defaults</h4>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_occ_by_year</span>(<span class="at">data =</span> torts12_16, <span class="co">#required</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;lut jocu&quot;</span>, <span class="co">#required</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<p><img src="f-tseries_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<br><br></p>
+</div>
+<div id="alt-1-1" class="section level4">
+<h4>Alt 1</h4>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_occ_by_year</span>(<span class="at">data =</span> torts12_16, <span class="co">#required</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;nic usta&quot;</span>, <span class="co">#required</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Nicholsina usta&quot;</span>), <span class="co">#Allows scientific name to be italicized</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Dry Tortugas&quot;</span>)))</span></code></pre></div>
+<p><img src="f-tseries_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+<br><br></p>
+</div>
+<div id="alt-2-1" class="section level4">
+<h4>Alt 2</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_occ_by_year</span>(<span class="at">data =</span> torts12_16, <span class="co">#required</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;NIC USTA&quot;</span>, <span class="co">#required</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="cn">NULL</span>)</span></code></pre></div>
+<p><img src="f-tseries_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre><code>## [[1]]
+##   YEAR   REGION SPECIES_CD  occurrence          var   n  nm       N      NM
+## 1 2012 DRY TORT   NIC USTA 0.011747067 2.019983e-05 416 813  7823.5 1770878
+## 2 2014 DRY TORT   NIC USTA 0.009748189 2.381524e-05 358 704 31290.0 1770652
+## 3 2016 DRY TORT   NIC USTA 0.036980019 1.663309e-04 286 544 30863.0 1746489
+##   STAGE_LEVEL          SE
+## 1           2 0.004494422
+## 2           2 0.004880086
+## 3           2 0.012896933
+## 
+## [[2]]
+## 
+## [[1]]
+##   YEAR   REGION SPECIES_CD  occurrence          var   n  nm       N      NM
+## 1 2012 DRY TORT   NIC USTA 0.011747067 2.019983e-05 416 813  7823.5 1770878
+## 2 2014 DRY TORT   NIC USTA 0.009748189 2.381524e-05 358 704 31290.0 1770652
+## 3 2016 DRY TORT   NIC USTA 0.036980019 1.663309e-04 286 544 30863.0 1746489
+##   STAGE_LEVEL          SE
+## 1           2 0.004494422
+## 2           2 0.004880086
+## 3           2 0.012896933</code></pre>
+<p><br><br></p>
+</div>
 </div>
 </div>
 

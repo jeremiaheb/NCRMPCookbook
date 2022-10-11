@@ -8,6 +8,10 @@ navbar:
       icon: fa-home
     - text: "About"
       href: about.html
+      icon: fa-user
+    - text: "Updates"
+      href: updates.html
+      icon: fa-edit
     - text: "Download"
       href: downloadpkgs.html
       icon: fa-download
@@ -25,10 +29,6 @@ navbar:
         href: f-freqcomp.html
       - text: "Single year plots"
         href: f-singyr.html
-    - text: "Histograms"
-      href: histograms.html
-    - text: "Line graphs"
-      href: linegraphs.html
 output:
   html_document:
     theme: sandstone

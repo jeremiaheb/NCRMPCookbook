@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Packages
-```{r, message=FALSE,warning=FALSE,class.source = 'fold-show'}
+```{r packages, message=FALSE,warning=FALSE,class.source = 'fold-show'}
 library(rvc)
 library(tidyverse)
 source("fish_plots/theme_publication.R")
@@ -24,7 +24,8 @@ $~$
 
 ## Load data
 ```{r data, message=FALSE,warning=FALSE,class.source = 'fold-show'}
-keys11_14 = getRvcData(years = 2011:2014, regions = c("FLA KEYS", "DRY TORT"))
+keys11_14 = getRvcData(years = 2011:2014, regions = c("FLA KEYS"))
+torts12_16 = getRvcData(years = 2012:2016, regions = c("DRY TORT"))
 ```
 
 $~$
@@ -32,19 +33,190 @@ $~$
 
 ## Plots
 
-### Domain density by year
-```{r, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+### Domain density by year {.tabset}
+#### Defaults
+```{r ddy.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
 plot_domain_den_by_year(dataset = keys11_14, 
-                        species = "NIC USTA", 
-                        title = NULL, 
-                        print_dataframe = FALSE)
+                        species = "MEL NIGE", 
+                        title = NULL, #add a figure title
+                        print_dataframe = FALSE) #prints data used for figure
 ```
+<br><br>
 
-### Domain occurances by year
-```{r, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
-plot_domain_occ_by_year(data = keys11_14, #required
-                        species = "NIC USTA", #required
-                        print_dataframe = FALSE, 
-                        title = NULL)
+#### Alt
+```{r ddy.a, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+plot_domain_den_by_year(dataset = keys11_14, 
+                        species = "nic usta", 
+                        title = expression(paste(italic("Nicholsina usta"), #Allows scientific name to be italicized
+                                                " in the Florida Keys")), 
+                        print_dataframe = TRUE) #prints data used for figure
 ```
+<br><br>
 
+
+### Domain density by year by protected status {.tabset}
+#### Defaults
+```{r ddyp.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+plot_domain_den_by_year_by_prot(dataset = keys11_14, 
+                        species = "MEL NIGE", 
+                        title = NULL, #add a figure title
+                        print_dataframe = FALSE) #prints data used for figure
+```
+<br><br>
+
+#### Alt
+```{r ddyp.a, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+plot_domain_den_by_year_by_prot(dataset = keys11_14, 
+                        species = "nic usta", 
+                        title = expression(paste(italic("Nicholsina usta"), #Allows scientific name to be italicized
+                                                " in the Florida Keys")), 
+                        print_dataframe = TRUE) #prints data used for figure
+```
+<br><br>
+
+
+### Domain occurrences by year {.tabset}
+#### Defaults
+```{r doc.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+plot_domain_occ_by_year(data = torts12_16, #required
+                        species = "lut jocu", #required
+                        print_dataframe = FALSE, #prints data used for figure
+                        title = NULL)#add a figure title
+```
+<br><br>
+
+#### Alt
+```{r doy.a, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+plot_domain_occ_by_year(data = torts12_16, #required
+                        species = "nic usta", #required
+                        print_dataframe = TRUE, #prints data used for figure
+                        title = expression(paste(italic("Nicholsina usta"), #Allows scientific name to be italicized
+                                                " in the Dry Tortugas")))
+```
+<br><br>
+
+
+### Domain occurrences by year by protected status {.tabset}
+#### Defaults
+```{r doyp.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+plot_domain_occ_by_year_by_prot(data = torts12_16, #required
+                        species = "lut jocu", #required
+                        print_dataframe = FALSE, #prints data used for figure
+                        title = NULL)#add a figure title
+```
+<br><br>
+
+#### Alt
+```{r doyp.a, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+plot_domain_occ_by_year_by_prot(data = torts12_16, #required
+                        species = "nic usta", #required
+                        print_dataframe = TRUE, #prints data used for figure
+                        title = expression(paste(italic("Nicholsina usta"), #Allows scientific name to be italicized
+                                                " in the Dry Tortugas")))
+```
+<br><br>
+
+
+### Domain biomass by year {.tabset}
+#### Defaults
+```{r dby.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+plot_domain_biomass_by_year(dataset = keys11_14, #required 
+                            species = "lut jocu", #required
+                            title = NULL, #add a figure title
+                            print_dataframe = NULL) #prints data used for figure
+```
+<br><br>
+
+#### Alt
+```{r dby.a, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+plot_domain_biomass_by_year(dataset = keys11_14, #required 
+                            species = "NIC USTA", #required
+                            title = expression(paste(italic("Nicholsina usta"), 
+                                                " in the Florida Keys")),#Allows scientific name to be italicized
+                            print_dataframe = TRUE) #prints data used for figure
+```
+<br><br>
+
+
+### Domain biomass by year by protected status {.tabset}
+#### Defaults
+```{r dbyp.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+plot_domain_biomass_by_year_by_prot(dataset = keys11_14, #required 
+                            species = "lut jocu", #required
+                            title = NULL, #add a figure title
+                            print_dataframe = NULL) #prints data used for figure
+```
+<br><br>
+
+#### Alt
+```{r dbyp.a, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+plot_domain_biomass_by_year_by_prot(dataset = keys11_14, #required 
+                            species = "NIC USTA", #required
+                            title = expression(paste(italic("Nicholsina usta"), 
+                                                " in the Florida Keys")),#Allows scientific name to be italicized
+                            print_dataframe = TRUE) #prints data used for figure
+```
+<br><br>
+
+
+### Stratum density by year {.tabset}
+#### Defaults
+```{r sdy.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+plot_stratum_den_by_year(dataset = keys11_14, #required
+                         species = "nic usta", #required
+                         title = NULL, #add a figure title
+                         print_dataframe = FALSE) #prints data used for figure
+```
+<br><br>
+
+#### Alt
+```{r sdy.a, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+plot_stratum_den_by_year(dataset = keys11_14, #required
+                         species = "nic usta", #required
+                         title = expression(paste(italic("Nicholsina usta"), 
+                                                " in the Florida Keys")), #Allows scientific name to be italicized 
+                         print_dataframe = TRUE) #prints data used for figure
+```
+<br><br>
+
+
+### Stratum occurrence by year {.tabset}
+#### Defaults
+```{r soy.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+plot_stratum_occ_by_year(dataset = torts12_16, #required
+                         species = "nic usta", #required
+                         title = NULL, #add a figure title 
+                         print_dataframe = FALSE)#prints data used for figure
+```
+<br><br>
+
+#### Alt
+```{r soy.a, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+plot_stratum_den_by_year(dataset = torts12_16, #required
+                         species = "nic usta", #required
+                         title = expression(paste(italic("Nicholsina usta"), 
+                                                " in the Dry Tortugas")), #Allows scientific name to be italicized 
+                         print_dataframe = TRUE)#prints data used for figure
+```
+<br><br>
+
+
+### Stratum biomass by year {.tabset}
+#### Defaults
+```{r sby.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+plot_stratum_biomass_by_year(dataset = keys11_14, #required
+                         species = "nic usta", #required
+                         title = NULL, #add a figure title 
+                         print_dataframe = FALSE)#prints data used for figure
+```
+<br><br>
+
+#### Alt
+```{r sby.a, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+plot_stratum_biomass_by_year(dataset = keys11_14, #required
+                         species = "nic usta", #required
+                         title = expression(paste(italic("Nicholsina usta"), 
+                                                " in the Florida Keys")),#Allows scientific name to be italicized 
+                         print_dataframe = TRUE)#prints data used for figure
+```
+<br><br>

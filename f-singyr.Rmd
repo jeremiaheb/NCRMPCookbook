@@ -12,8 +12,63 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Packages
-[Click 'code' to view.....................................................................................................................................................]{style="float:right"}
+```{r packages, message=FALSE,warning=FALSE,class.source = 'fold-show'}
+library(rvc)
+library(tidyverse)
+source("fish_plots/theme_publication.R")
+source("fish_plots/labeler.R")
+source("fish_plots/WrapperFunctions.R")
+source("fish_plots/QL_binned_LengthFreq.R")
+source("fish_plots/QL_SubregionDensityPlot.R")
+source("fish_plots/plot_horizontal_bar_shared_axis.R")
+```
 
+<br>
 
 ## Load data
-[Click 'code' to view.....................................................................................................................................................]{style="float:right"}
+```{r data, message=FALSE,warning=FALSE,class.source = 'fold-show'}
+keys11_14 = getRvcData(years = 2011:2014, regions = c("FLA KEYS"))
+torts12_16 = getRvcData(years = 2012:2016, regions = c("DRY TORT"))
+```
+
+<br>
+
+## Plots
+
+### Top N density {.tabset}
+
+#### Top 10
+```{r top10, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+plot_topN_density(data = keys11_14, #required
+                  yr = 2011, #required
+                  topOcc_n = 10) #required; number of spp to include
+#Can also use plotSubregionDens with same parameters
+```
+<br><br>
+
+#### Top 25
+```{r top25, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
+plot_topN_density(data = torts12_16, #required
+                  yr = 2012, #required
+                  topOcc_n = 25) #required; number of spp to include
+#Can also use plotSubregionDens with same parameters
+```
+<br><br>
+
+### Species occurrence vs CV of Density {.tabset}
+
+#### Florida Keys 2011
+```{r svcv.fl11, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all', fig.width=10, fig.height=6}
+plot_cv_vs_occurrence(df = keys11_14,
+                      yr = 2011,
+                      plotTitle = "Floriday Keys, 2011")
+```
+<br><br>
+
+#### Dry Tortugas 2014
+```{r svcv.dt14, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all', fig.width=10, fig.height=6}
+plot_cv_vs_occurrence(df = torts12_16,
+                      yr = 2014,
+                      plotTitle = "Dry Tortugas, 2014")
+```
+<br><br>

@@ -1,15 +1,22 @@
 ---
 title: "About This Website"
-urlcolor: blue
 ---
 
-https://www.coris.noaa.gov/monitoring/
+<a href="https://www.coris.noaa.gov/monitoring/" target="_blank" style="color:blue"> NCRMP Website</a>
 
-https://github.com/jeremiaheb/rvc
+## What do I need to download? {.tabset}
+### Benthic
 
-https://github.com/shgroves/NCRMP_benthics
+### Fish
+#### How to source R files
 
+<br>
 
+## How to access data {.tabset}
+### Benthic
 
-FOR LATER - SEARCHABLE PAGE
-https://programmablesearchengine.google.com/about/
+### Fish
+
+<br> 
+
+## About the data

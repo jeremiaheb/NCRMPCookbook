@@ -3,20 +3,32 @@ title: "National Coral Reef Management Project R Cookbook"
 urlcolor: blue
 ---
 
-Hello, Website!
+Here's some sweet sweet welome text!
 
-For more information about simple R Markdown websites, please read the documentation at https://bookdown.org/yihui/rmarkdown/rmarkdown-site.html.
+<br><br><br>
 
-Please also note that simple R Markdown sites are _not_ based on **blogdown**. They are probably good for websites with only a few Rmd documents. For larger-scale and more sophisticated websites (such as blogs), you may want to use **blogdown** instead: https://github.com/rstudio/blogdown.
+<!-- 
+The images below are hard coded.
+Any changes made to the code will not change them here.
+Any images you want to add must be downloaded and placed in the home-figs 
+folder, and coded in the following format.
+-->
+     
+<!-- 
+<a href="URL TO LINK TO">
+<img alt="ALT TEXT FOR IMAGE" src=./home-figs/IMAGE-NAME style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"?
+</a>
+-->
 
-$~$
-$~$
-$~$
-$~$
-$~$
-$~$
-
-
-[![](./home-figs/domaindenyr_NICUSTA_11_14){style="float:left"}](https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_density_by_year)
-[![](./home-figs/domainoccyr_NICUSTA_11_14){style="float:right"}](https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_occurances_by_year)
-[![](./home-figs/forklenfreq_NICUSTA_11_14)](https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Fork_length_frequency_comparison)
+<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_density_by_year">
+  <img alt="NIC USTA Domain density by year" src=./home-figs/domaindenyr_NICUSTA_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  </a>
+  
+<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_occurrences_by_year">
+  <img alt="NIC USTA Domain occurrence by year" src=./home-figs/domainoccyr_NICUSTA_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  </a>
+  
+<a href="https://kenzieknox.github.io/NCRMPCookbook/f-freqcomp.html#Fork_length_frequency_comparison">
+  <img alt="NIC USTA Fork length frequency" src=./home-figs/forklenfreq_NICUSTA_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  </a>
+<p style="clear: both;">
