@@ -21,14 +21,32 @@ folder, and coded in the following format.
 -->
 
 <a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_density_by_year">
-  <img alt="NIC USTA Domain density by year" src=./home-figs/domaindenyr_NICUSTA_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img alt="MEL NIGE Domain density by year" src=./home-figs/domaindenyr_MELNIGE_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   </a>
   
 <a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_occurrences_by_year">
-  <img alt="NIC USTA Domain occurrence by year" src=./home-figs/domainoccyr_NICUSTA_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img alt="LUT JOCU Domain occurrence by year" src=./home-figs/domainoccyr_LUTJOCU_12_16 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  </a>
+  
+<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_biomass_by_year">
+  <img alt="LUT JOCU Domain biomass by year" src=./home-figs/domainbioyr_LUTJOCU_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  </a>
+
+<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_density_by_year_by_protected_status">
+  <img alt="LUT JOCU Domain occurrence by year by protected status" src=./home-figs/domaindenyr_prot_MELNIGE_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  </a>
+
+<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_occurrences_by_year_by_protected_status">
+  <img alt="LUT JOCU Domain occurrence by year by protected status" src=./home-figs/domainoccyr_prot_LUTJOCU_12_16 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  </a>
+  
+<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_biomass_by_year_by_by_protected_status">
+  <img alt="LUT JOCU Domain biomass by year by protected status" src=./home-figs/domainbioyr_prot_LUTJOCU_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   </a>
   
 <a href="https://kenzieknox.github.io/NCRMPCookbook/f-freqcomp.html#Fork_length_frequency_comparison">
-  <img alt="NIC USTA Fork length frequency" src=./home-figs/forklenfreq_NICUSTA_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img alt="ABU SAXA Fork length frequency" src=./home-figs/forklenfreq_ABUSAXA_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   </a>
+
 <p style="clear: both;">
+
