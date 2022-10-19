@@ -1,18 +1,19 @@
 ---
-title: "Frequency comparisson"
+title: "&nbsp;"
 output: 
   html_document:
     toc: true
-    toc_float: true
+    toc_float: 
+      collapsed: false
+    toc_depth: 3
     code_folding: hide
 ---
-
+# **Fish: Length frequency**
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Packages
-```{r packages, message=FALSE,warning=FALSE,class.source = 'fold-show'}
+```{r packages, include=FALSE, message=FALSE,warning=FALSE,class.source = 'fold-show'}
 library(rvc)
 library(tidyverse)
 source("fish_plots/theme_publication.R")
@@ -39,7 +40,7 @@ torts12_16 = getRvcData(years = 2012:2016, regions = c("DRY TORT"))
 #### Defaults
 ```{r flf.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
 plot_domain_LF_by_year(data = keys11_14, #required 
-                       species = "abu saxa", #required 
+                       species = "ocy chry", #required 
                        bin_size = 5, #required
                        vertical_line = NULL, #add vertical (dashed) line
                        title = NULL) #add a figure title
@@ -48,9 +49,9 @@ plot_domain_LF_by_year(data = keys11_14, #required
 #### Alt
 ```{r flf.a, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
 plot_domain_LF_by_year(data = keys11_14, #required 
-                       species = "ABU SAXA", #required 
+                       species = "ocy chry", #required 
                        bin_size = 3, #required
                        vertical_line = NULL,  #add vertical (dashed) line
-                       title = expression(paste(italic("Abudefduf saxatilis"), #Allows scientific name to be italicized
+                       title = expression(paste(italic("Ocyurus chrysurus"), #Allows scientific name to be italicized
                                                 " in the Florida Keys")))
 ```

@@ -1,18 +1,19 @@
 ---
-title: "Single year plots"
+title: "&nbsp;"
 output: 
   html_document:
     toc: true
-    toc_float: true
+    toc_float: 
+      collapsed: false
+    toc_depth: 3
     code_folding: hide
 ---
-
+# **Fish: Single year plots**
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Packages
-```{r packages, message=FALSE,warning=FALSE,class.source = 'fold-show'}
+```{r packages, include=FALSE, message=FALSE,warning=FALSE,class.source = 'fold-show'}
 library(rvc)
 library(tidyverse)
 source("fish_plots/theme_publication.R")
@@ -35,23 +36,21 @@ torts12_16 = getRvcData(years = 2012:2016, regions = c("DRY TORT"))
 
 ## Plots
 
-### Top N density {.tabset}
+### Top N density of subregion {.tabset}
 
 #### Top 10
 ```{r top10, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
-plot_topN_density(data = keys11_14, #required
+plotSubregionDens(df1 = keys11_14, #required
                   yr = 2011, #required
                   topOcc_n = 10) #required; number of spp to include
-#Can also use plotSubregionDens with same parameters
 ```
 <br><br>
 
 #### Top 25
 ```{r top25, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
-plot_topN_density(data = torts12_16, #required
+plotSubregionDens(df1 = torts12_16, #required
                   yr = 2012, #required
                   topOcc_n = 25) #required; number of spp to include
-#Can also use plotSubregionDens with same parameters
 ```
 <br><br>
 

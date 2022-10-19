@@ -35,7 +35,7 @@ plot_domain_den_by_year_by_prot <- function(dataset, species, title = NULL, prin
                   size = 0.5) + 
     ggtitle(title) + 
     theme_Publication(base_size = 20) +
-    scale_colour_Publication() +
+    scale_color_Publication() +
     xlab("Year") + ylab("Density ind/177m2")
   
   ifelse(isTRUE(print_dataframe), print(list(a,p)), print(p))
@@ -172,7 +172,7 @@ plot_domain_biomass_by_year_by_prot <- function(dataset, species, title = NULL, 
                   size = 0.5) + 
     ggtitle(title) + 
     theme_Publication(base_size = 20) +
-    scale_colour_Publication() +
+    scale_color_Publication() +
     xlab("Year") + ylab("biomass kg/177m2")
   
   ifelse(isTRUE(print_dataframe), print(list(a,p)), print(p))
@@ -247,10 +247,11 @@ plot_cv_vs_occurrence <- function(df, yr, plotTitle){
   
 }
 
-plot_topN_density <- function(data, yr, topOcc_n) {
-  
-  plotSubregionDens(df1 = data, yr = yr, topOcc_n = topOcc_n)
-  
-}
+#same as plotSubregionDens -- ignore
+# plot_topN_density <- function(data, yr, topOcc_n) {
+#   
+#   plotSubregionDens(df1 = data, yr = yr, topOcc_n = topOcc_n)
+#   
+# }
 
 

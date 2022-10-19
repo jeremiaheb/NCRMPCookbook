@@ -11,7 +11,7 @@
 
 
 
-<title>Time series</title>
+<title> </title>
 
 <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -392,6 +392,12 @@ div.tocify {
   border-radius: 0px;
 }
 
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
 
 </style>
 
@@ -484,7 +490,7 @@ div.tocify {
       <a href="f-tseries.html">Time series</a>
     </li>
     <li>
-      <a href="f-freqcomp.html">Frequency comparisson</a>
+      <a href="f-freqcomp.html">Length frequency</a>
     </li>
     <li>
       <a href="f-singyr.html">Single year plots</a>
@@ -511,28 +517,20 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Time series</h1>
+<h1 class="title toc-ignore"> </h1>
 
 </div>
 
 
-<div id="packages" class="section level2">
-<h2>Packages</h2>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r fold-show"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvc)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/theme_publication.R&quot;</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/WrapperFunctions.R&quot;</span>)</span></code></pre></div>
-<p><span class="math inline">\(~\)</span> <span
-class="math inline">\(~\)</span></p>
-</div>
+<div id="fish-time-series" class="section level1">
+<h1><strong>Fish: Time series</strong></h1>
+<p><br></p>
 <div id="load-data" class="section level2">
 <h2>Load data</h2>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode r fold-show"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>keys11_14 <span class="ot">=</span> <span class="fu">getRvcData</span>(<span class="at">years =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2014</span>, <span class="at">regions =</span> <span class="fu">c</span>(<span class="st">&quot;FLA KEYS&quot;</span>))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>torts12_16 <span class="ot">=</span> <span class="fu">getRvcData</span>(<span class="at">years =</span> <span class="dv">2012</span><span class="sc">:</span><span class="dv">2016</span>, <span class="at">regions =</span> <span class="fu">c</span>(<span class="st">&quot;DRY TORT&quot;</span>))</span></code></pre></div>
-<p><span class="math inline">\(~\)</span> <span
-class="math inline">\(~\)</span></p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r fold-show"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>keys11_14 <span class="ot">=</span> <span class="fu">getRvcData</span>(<span class="at">years =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2014</span>, <span class="at">regions =</span> <span class="fu">c</span>(<span class="st">&quot;FLA KEYS&quot;</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>torts12_16 <span class="ot">=</span> <span class="fu">getRvcData</span>(<span class="at">years =</span> <span class="dv">2012</span><span class="sc">:</span><span class="dv">2016</span>, <span class="at">regions =</span> <span class="fu">c</span>(<span class="st">&quot;DRY TORT&quot;</span>))</span></code></pre></div>
+<p><br></p>
 </div>
 <div id="plots" class="section level2">
 <h2>Plots</h2>
@@ -540,98 +538,98 @@ class="math inline">\(~\)</span></p>
 <h3 class="tabset">Domain density by year</h3>
 <div id="defaults" class="section level4">
 <h4>Defaults</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_den_by_year</span>(<span class="at">dataset =</span> keys11_14, </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;MEL NIGE&quot;</span>, </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_den_by_year</span>(<span class="at">dataset =</span> keys11_14, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;ocy chry&quot;</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/ddy.d-1.png" width="672" />
 <br><br></p>
 </div>
 <div id="alt" class="section level4">
 <h4>Alt</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_den_by_year</span>(<span class="at">dataset =</span> keys11_14, </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;nic usta&quot;</span>, </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Nicholsina usta&quot;</span>), <span class="co">#Allows scientific name to be italicized</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Florida Keys&quot;</span>)), </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_den_by_year</span>(<span class="at">dataset =</span> keys11_14, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;OCY CHRY&quot;</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Ocyurus chrysurus&quot;</span>), <span class="co">#Allows scientific name to be italicized</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Florida Keys&quot;</span>)), </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/ddy.a-1.png" width="672" /></p>
 <pre><code>## [[1]]
-##   YEAR   REGION SPECIES_CD    density          var   n  nm     N      NM
-## 1 2011 FLA KEYS   NIC USTA 0.03978190 5.171171e-04 402 789 16977 3842807
-## 2 2012 FLA KEYS   NIC USTA 0.01131613 2.849591e-05 416 803 16977 3842807
-## 3 2014 FLA KEYS   NIC USTA 0.01223281 7.245219e-05 432 860 67906 3842694
-##   STAGE_LEVEL          SE
-## 1           2 0.022740209
-## 2           2 0.005338156
-## 3           2 0.008511885
+##   YEAR   REGION SPECIES_CD  density       var   n  nm     N      NM STAGE_LEVEL
+## 1 2011 FLA KEYS   OCY CHRY 3.958033 0.2264159 402 789 16977 3842807           2
+## 2 2012 FLA KEYS   OCY CHRY 4.705751 0.1867620 416 803 16977 3842807           2
+## 3 2014 FLA KEYS   OCY CHRY 4.954156 0.8857168 432 860 67906 3842694           2
+##          SE
+## 1 0.4758318
+## 2 0.4321597
+## 3 0.9411253
 ## 
 ## [[2]]
 ## 
 ## [[1]]
-##   YEAR   REGION SPECIES_CD    density          var   n  nm     N      NM
-## 1 2011 FLA KEYS   NIC USTA 0.03978190 5.171171e-04 402 789 16977 3842807
-## 2 2012 FLA KEYS   NIC USTA 0.01131613 2.849591e-05 416 803 16977 3842807
-## 3 2014 FLA KEYS   NIC USTA 0.01223281 7.245219e-05 432 860 67906 3842694
-##   STAGE_LEVEL          SE
-## 1           2 0.022740209
-## 2           2 0.005338156
-## 3           2 0.008511885</code></pre>
+##   YEAR   REGION SPECIES_CD  density       var   n  nm     N      NM STAGE_LEVEL
+## 1 2011 FLA KEYS   OCY CHRY 3.958033 0.2264159 402 789 16977 3842807           2
+## 2 2012 FLA KEYS   OCY CHRY 4.705751 0.1867620 416 803 16977 3842807           2
+## 3 2014 FLA KEYS   OCY CHRY 4.954156 0.8857168 432 860 67906 3842694           2
+##          SE
+## 1 0.4758318
+## 2 0.4321597
+## 3 0.9411253</code></pre>
 <p><br><br></p>
 </div>
 </div>
-<div id="domain-density-by-year-by-protected-status"
+<div id="domain-density-by-protected-status"
 class="section level3 tabset">
-<h3 class="tabset">Domain density by year by protected status</h3>
+<h3 class="tabset">Domain density by protected status</h3>
 <div id="defaults-1" class="section level4">
 <h4>Defaults</h4>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_den_by_year_by_prot</span>(<span class="at">dataset =</span> keys11_14, </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;MEL NIGE&quot;</span>, </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_den_by_year_by_prot</span>(<span class="at">dataset =</span> keys11_14, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;ocy chry&quot;</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/ddyp.d-1.png" width="672" />
 <br><br></p>
 </div>
 <div id="alt-1" class="section level4">
 <h4>Alt</h4>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_den_by_year_by_prot</span>(<span class="at">dataset =</span> keys11_14, </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;nic usta&quot;</span>, </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Nicholsina usta&quot;</span>), <span class="co">#Allows scientific name to be italicized</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Florida Keys&quot;</span>)), </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_den_by_year_by_prot</span>(<span class="at">dataset =</span> keys11_14, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;OCY CHRY&quot;</span>, </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Ocyurus chrysurus&quot;</span>), <span class="co">#Allows scientific name to be italicized</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Florida Keys&quot;</span>)), </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/ddyp.a-1.png" width="672" /></p>
 <pre><code>## [[1]]
-##   YEAR   REGION SPECIES_CD     density          var   n  nm     N        NM
-## 1 2011 FLA KEYS   NIC USTA 0.041392885 5.657213e-04 312 613 16231 3673946.9
-## 2 2012 FLA KEYS   NIC USTA 0.010250473 3.013841e-05 302 587 16231 3673946.9
-## 3 2014 FLA KEYS   NIC USTA 0.012563626 7.924162e-05 313 622 64924 3673946.9
-## 4 2011 FLA KEYS   NIC USTA 0.004731115 1.089916e-05  90 176   746  168859.9
-## 5 2012 FLA KEYS   NIC USTA 0.034502075 4.909575e-04 114 216   746  168859.9
-## 6 2014 FLA KEYS   NIC USTA 0.005030181 8.990037e-06 119 238  2982  168746.7
-##   STAGE_LEVEL protected_status          SE
-## 1           2                0 0.023784897
-## 2           2                0 0.005489846
-## 3           2                0 0.008901776
-## 4           2                1 0.003301388
-## 5           2                1 0.022157560
-## 6           2                1 0.002998339
+##   YEAR   REGION SPECIES_CD  density       var   n  nm     N        NM
+## 1 2011 FLA KEYS   OCY CHRY 3.903986 0.2462712 312 613 16231 3673946.9
+## 2 2012 FLA KEYS   OCY CHRY 4.577569 0.2027740 302 587 16231 3673946.9
+## 3 2014 FLA KEYS   OCY CHRY 4.830219 0.9661663 313 622 64924 3673946.9
+## 4 2011 FLA KEYS   OCY CHRY 5.133954 0.6796827  90 176   746  168859.9
+## 5 2012 FLA KEYS   OCY CHRY 7.494662 0.7338565 114 216   746  168859.9
+## 6 2014 FLA KEYS   OCY CHRY 7.652498 1.3187956 119 238  2982  168746.7
+##   STAGE_LEVEL protected_status        SE
+## 1           2                0 0.4962572
+## 2           2                0 0.4503043
+## 3           2                0 0.9829376
+## 4           2                1 0.8244287
+## 5           2                1 0.8566543
+## 6           2                1 1.1483882
 ## 
 ## [[2]]
 ## 
 ## [[1]]
-##   YEAR   REGION SPECIES_CD     density          var   n  nm     N        NM
-## 1 2011 FLA KEYS   NIC USTA 0.041392885 5.657213e-04 312 613 16231 3673946.9
-## 2 2012 FLA KEYS   NIC USTA 0.010250473 3.013841e-05 302 587 16231 3673946.9
-## 3 2014 FLA KEYS   NIC USTA 0.012563626 7.924162e-05 313 622 64924 3673946.9
-## 4 2011 FLA KEYS   NIC USTA 0.004731115 1.089916e-05  90 176   746  168859.9
-## 5 2012 FLA KEYS   NIC USTA 0.034502075 4.909575e-04 114 216   746  168859.9
-## 6 2014 FLA KEYS   NIC USTA 0.005030181 8.990037e-06 119 238  2982  168746.7
-##   STAGE_LEVEL protected_status          SE
-## 1           2                0 0.023784897
-## 2           2                0 0.005489846
-## 3           2                0 0.008901776
-## 4           2                1 0.003301388
-## 5           2                1 0.022157560
-## 6           2                1 0.002998339</code></pre>
+##   YEAR   REGION SPECIES_CD  density       var   n  nm     N        NM
+## 1 2011 FLA KEYS   OCY CHRY 3.903986 0.2462712 312 613 16231 3673946.9
+## 2 2012 FLA KEYS   OCY CHRY 4.577569 0.2027740 302 587 16231 3673946.9
+## 3 2014 FLA KEYS   OCY CHRY 4.830219 0.9661663 313 622 64924 3673946.9
+## 4 2011 FLA KEYS   OCY CHRY 5.133954 0.6796827  90 176   746  168859.9
+## 5 2012 FLA KEYS   OCY CHRY 7.494662 0.7338565 114 216   746  168859.9
+## 6 2014 FLA KEYS   OCY CHRY 7.652498 1.3187956 119 238  2982  168746.7
+##   STAGE_LEVEL protected_status        SE
+## 1           2                0 0.4962572
+## 2           2                0 0.4503043
+## 3           2                0 0.9829376
+## 4           2                1 0.8244287
+## 5           2                1 0.8566543
+## 6           2                1 1.1483882</code></pre>
 <p><br><br></p>
 </div>
 </div>
@@ -639,110 +637,110 @@ class="section level3 tabset">
 <h3 class="tabset">Domain occurrences by year</h3>
 <div id="defaults-2" class="section level4">
 <h4>Defaults</h4>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_occ_by_year</span>(<span class="at">data =</span> torts12_16, <span class="co">#required</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;lut jocu&quot;</span>, <span class="co">#required</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>, <span class="co">#prints data used for figure</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="cn">NULL</span>)<span class="co">#add a figure title</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_occ_by_year</span>(<span class="at">data =</span> torts12_16, <span class="co">#required</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;OCY CHRY&quot;</span>, <span class="co">#required</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>, <span class="co">#prints data used for figure</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="cn">NULL</span>)<span class="co">#add a figure title</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/doc.d-1.png" width="672" />
 <br><br></p>
 </div>
 <div id="alt-2" class="section level4">
 <h4>Alt</h4>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_occ_by_year</span>(<span class="at">data =</span> torts12_16, <span class="co">#required</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;nic usta&quot;</span>, <span class="co">#required</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>, <span class="co">#prints data used for figure</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Nicholsina usta&quot;</span>), <span class="co">#Allows scientific name to be italicized</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Dry Tortugas&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_occ_by_year</span>(<span class="at">data =</span> torts12_16, <span class="co">#required</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;ocy chry&quot;</span>, <span class="co">#required</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>, <span class="co">#prints data used for figure</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Ocyurus chrysurus&quot;</span>), <span class="co">#Allows scientific name to be italicized</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Dry Tortugas&quot;</span>)))</span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/doy.a-1.png" width="672" /></p>
 <pre><code>## [[1]]
-##   YEAR   REGION SPECIES_CD  occurrence          var   n  nm       N      NM
-## 1 2012 DRY TORT   NIC USTA 0.011747067 2.019983e-05 416 813  7823.5 1770878
-## 2 2014 DRY TORT   NIC USTA 0.009748189 2.381524e-05 358 704 31290.0 1770652
-## 3 2016 DRY TORT   NIC USTA 0.036980019 1.663309e-04 286 544 30863.0 1746489
-##   STAGE_LEVEL          SE
-## 1           2 0.004494422
-## 2           2 0.004880086
-## 3           2 0.012896933
+##   YEAR   REGION SPECIES_CD occurrence          var   n  nm       N      NM
+## 1 2012 DRY TORT   OCY CHRY  0.8057955 0.0003763230 416 813  7823.5 1770878
+## 2 2014 DRY TORT   OCY CHRY  0.8676588 0.0004248947 358 704 31290.0 1770652
+## 3 2016 DRY TORT   OCY CHRY  0.7850411 0.0005181697 286 544 30863.0 1746489
+##   STAGE_LEVEL         SE
+## 1           2 0.01939905
+## 2           2 0.02061297
+## 3           2 0.02276334
 ## 
 ## [[2]]
 ## 
 ## [[1]]
-##   YEAR   REGION SPECIES_CD  occurrence          var   n  nm       N      NM
-## 1 2012 DRY TORT   NIC USTA 0.011747067 2.019983e-05 416 813  7823.5 1770878
-## 2 2014 DRY TORT   NIC USTA 0.009748189 2.381524e-05 358 704 31290.0 1770652
-## 3 2016 DRY TORT   NIC USTA 0.036980019 1.663309e-04 286 544 30863.0 1746489
-##   STAGE_LEVEL          SE
-## 1           2 0.004494422
-## 2           2 0.004880086
-## 3           2 0.012896933</code></pre>
+##   YEAR   REGION SPECIES_CD occurrence          var   n  nm       N      NM
+## 1 2012 DRY TORT   OCY CHRY  0.8057955 0.0003763230 416 813  7823.5 1770878
+## 2 2014 DRY TORT   OCY CHRY  0.8676588 0.0004248947 358 704 31290.0 1770652
+## 3 2016 DRY TORT   OCY CHRY  0.7850411 0.0005181697 286 544 30863.0 1746489
+##   STAGE_LEVEL         SE
+## 1           2 0.01939905
+## 2           2 0.02061297
+## 3           2 0.02276334</code></pre>
 <p><br><br></p>
 </div>
 </div>
-<div id="domain-occurrences-by-year-by-protected-status"
+<div id="domain-occur.-by-protected-status"
 class="section level3 tabset">
-<h3 class="tabset">Domain occurrences by year by protected status</h3>
+<h3 class="tabset">Domain occur. by protected status</h3>
 <div id="defaults-3" class="section level4">
 <h4>Defaults</h4>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_occ_by_year_by_prot</span>(<span class="at">data =</span> torts12_16, <span class="co">#required</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;lut jocu&quot;</span>, <span class="co">#required</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>, <span class="co">#prints data used for figure</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="cn">NULL</span>)<span class="co">#add a figure title</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_occ_by_year_by_prot</span>(<span class="at">data =</span> torts12_16, <span class="co">#required</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;ocy chry&quot;</span>, <span class="co">#required</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>, <span class="co">#prints data used for figure</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="cn">NULL</span>)<span class="co">#add a figure title</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/doyp.d-1.png" width="672" />
 <br><br></p>
 </div>
 <div id="alt-3" class="section level4">
 <h4>Alt</h4>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_occ_by_year_by_prot</span>(<span class="at">data =</span> torts12_16, <span class="co">#required</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;nic usta&quot;</span>, <span class="co">#required</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>, <span class="co">#prints data used for figure</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Nicholsina usta&quot;</span>), <span class="co">#Allows scientific name to be italicized</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Dry Tortugas&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_occ_by_year_by_prot</span>(<span class="at">data =</span> torts12_16, <span class="co">#required</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">species =</span> <span class="st">&quot;OCY CHRY&quot;</span>, <span class="co">#required</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>, <span class="co">#prints data used for figure</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>                        <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Ocyurus chrysurus&quot;</span>), <span class="co">#Allows scientific name to be italicized</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Dry Tortugas&quot;</span>)))</span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/doyp.a-1.png" width="672" /></p>
 <pre><code>## [[1]]
-##   YEAR   REGION SPECIES_CD  occurrence          var   n  nm       N        NM
-## 1 2012 DRY TORT   NIC USTA 0.000000000 0.000000e+00  57 112  1444.5  326967.9
-## 2 2014 DRY TORT   NIC USTA 0.013702249 1.877097e-04  47  94  5777.0  326911.3
-## 3 2016 DRY TORT   NIC USTA 0.037191820 1.383924e-03  22  43  5350.0  302748.1
-## 4 2012 DRY TORT   NIC USTA 0.000000000 0.000000e+00  91 176  1959.0  443426.9
-## 5 2014 DRY TORT   NIC USTA 0.001680494 2.820268e-06  73 146  7835.0  443370.3
-## 6 2016 DRY TORT   NIC USTA 0.055222293 1.221445e-03  71 136  7835.0  443370.3
-## 7 2012 DRY TORT   NIC USTA 0.020792574 6.328567e-05 268 525  4420.0 1000483.3
-## 8 2014 DRY TORT   NIC USTA 0.012031694 5.401061e-05 238 464 17678.0 1000370.2
-## 9 2016 DRY TORT   NIC USTA 0.028825714 1.333734e-04 193 365 17678.0 1000370.2
+##   YEAR   REGION SPECIES_CD occurrence          var   n  nm       N        NM
+## 1 2012 DRY TORT   OCY CHRY  0.5954509 3.368315e-03  57 112  1444.5  326967.9
+## 2 2014 DRY TORT   OCY CHRY  0.8567659 1.730527e-03  47  94  5777.0  326911.3
+## 3 2016 DRY TORT   OCY CHRY  0.4127642 1.701570e-03  22  43  5350.0  302748.1
+## 4 2012 DRY TORT   OCY CHRY  0.9211179 1.409490e-03  91 176  1959.0  443426.9
+## 5 2014 DRY TORT   OCY CHRY  0.9966390 4.961332e-06  73 146  7835.0  443370.3
+## 6 2016 DRY TORT   OCY CHRY  0.9332041 3.109933e-03  71 136  7835.0  443370.3
+## 7 2012 DRY TORT   OCY CHRY  0.8234259 5.423838e-04 268 525  4420.0 1000483.3
+## 8 2014 DRY TORT   OCY CHRY  0.8140536 1.145366e-03 238 464 17678.0 1000370.2
+## 9 2016 DRY TORT   OCY CHRY  0.8410309 8.307642e-04 193 365 17678.0 1000370.2
 ##   STAGE_LEVEL protected_status          SE
-## 1           2                0 0.000000000
-## 2           2                0 0.013700720
-## 3           2                0 0.037201130
-## 4           2                1 0.000000000
-## 5           2                1 0.001679365
-## 6           2                1 0.034949181
-## 7           2                2 0.007955229
-## 8           2                2 0.007349191
-## 9           2                2 0.011548742
+## 1           2                0 0.058037189
+## 2           2                0 0.041599607
+## 3           2                0 0.041250093
+## 4           2                1 0.037543176
+## 5           2                1 0.002227405
+## 6           2                1 0.055766769
+## 7           2                2 0.023289134
+## 8           2                2 0.033843263
+## 9           2                2 0.028822981
 ## 
 ## [[2]]
 ## 
 ## [[1]]
-##   YEAR   REGION SPECIES_CD  occurrence          var   n  nm       N        NM
-## 1 2012 DRY TORT   NIC USTA 0.000000000 0.000000e+00  57 112  1444.5  326967.9
-## 2 2014 DRY TORT   NIC USTA 0.013702249 1.877097e-04  47  94  5777.0  326911.3
-## 3 2016 DRY TORT   NIC USTA 0.037191820 1.383924e-03  22  43  5350.0  302748.1
-## 4 2012 DRY TORT   NIC USTA 0.000000000 0.000000e+00  91 176  1959.0  443426.9
-## 5 2014 DRY TORT   NIC USTA 0.001680494 2.820268e-06  73 146  7835.0  443370.3
-## 6 2016 DRY TORT   NIC USTA 0.055222293 1.221445e-03  71 136  7835.0  443370.3
-## 7 2012 DRY TORT   NIC USTA 0.020792574 6.328567e-05 268 525  4420.0 1000483.3
-## 8 2014 DRY TORT   NIC USTA 0.012031694 5.401061e-05 238 464 17678.0 1000370.2
-## 9 2016 DRY TORT   NIC USTA 0.028825714 1.333734e-04 193 365 17678.0 1000370.2
+##   YEAR   REGION SPECIES_CD occurrence          var   n  nm       N        NM
+## 1 2012 DRY TORT   OCY CHRY  0.5954509 3.368315e-03  57 112  1444.5  326967.9
+## 2 2014 DRY TORT   OCY CHRY  0.8567659 1.730527e-03  47  94  5777.0  326911.3
+## 3 2016 DRY TORT   OCY CHRY  0.4127642 1.701570e-03  22  43  5350.0  302748.1
+## 4 2012 DRY TORT   OCY CHRY  0.9211179 1.409490e-03  91 176  1959.0  443426.9
+## 5 2014 DRY TORT   OCY CHRY  0.9966390 4.961332e-06  73 146  7835.0  443370.3
+## 6 2016 DRY TORT   OCY CHRY  0.9332041 3.109933e-03  71 136  7835.0  443370.3
+## 7 2012 DRY TORT   OCY CHRY  0.8234259 5.423838e-04 268 525  4420.0 1000483.3
+## 8 2014 DRY TORT   OCY CHRY  0.8140536 1.145366e-03 238 464 17678.0 1000370.2
+## 9 2016 DRY TORT   OCY CHRY  0.8410309 8.307642e-04 193 365 17678.0 1000370.2
 ##   STAGE_LEVEL protected_status          SE
-## 1           2                0 0.000000000
-## 2           2                0 0.013700720
-## 3           2                0 0.037201130
-## 4           2                1 0.000000000
-## 5           2                1 0.001679365
-## 6           2                1 0.034949181
-## 7           2                2 0.007955229
-## 8           2                2 0.007349191
-## 9           2                2 0.011548742</code></pre>
+## 1           2                0 0.058037189
+## 2           2                0 0.041599607
+## 3           2                0 0.041250093
+## 4           2                1 0.037543176
+## 5           2                1 0.002227405
+## 6           2                1 0.055766769
+## 7           2                2 0.023289134
+## 8           2                2 0.033843263
+## 9           2                2 0.028822981</code></pre>
 <p><br><br></p>
 </div>
 </div>
@@ -750,98 +748,97 @@ class="section level3 tabset">
 <h3 class="tabset">Domain biomass by year</h3>
 <div id="defaults-4" class="section level4">
 <h4>Defaults</h4>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_biomass_by_year</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required </span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">species =</span> <span class="st">&quot;lut jocu&quot;</span>, <span class="co">#required</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print_dataframe =</span> <span class="cn">NULL</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_biomass_by_year</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required </span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">species =</span> <span class="st">&quot;ocy chry&quot;</span>, <span class="co">#required</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print_dataframe =</span> <span class="cn">NULL</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/dby.d-1.png" width="672" />
 <br><br></p>
 </div>
 <div id="alt-4" class="section level4">
 <h4>Alt</h4>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_biomass_by_year</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required </span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">species =</span> <span class="st">&quot;NIC USTA&quot;</span>, <span class="co">#required</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Nicholsina usta&quot;</span>), </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Florida Keys&quot;</span>)),<span class="co">#Allows scientific name to be italicized</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_biomass_by_year</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">species =</span> <span class="st">&quot;OCY CHRY&quot;</span>, <span class="co">#required</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Ocyurus chrysurus&quot;</span>), </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Florida Keys&quot;</span>)),<span class="co">#Allows scientific name to be italicized</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/dby.a-1.png" width="672" /></p>
 <pre><code>## [[1]]
-##   YEAR   REGION SPECIES_CD      biomass          var   n  nm     N      NM
-## 1 2011 FLA KEYS   NIC USTA 0.0019819595 1.614195e-06 402 789 16977 3842807
-## 2 2012 FLA KEYS   NIC USTA 0.0004923163 1.076203e-07 416 803 16977 3842807
-## 3 2014 FLA KEYS   NIC USTA 0.0008785307 3.704375e-07 432 860 67906 3842694
-##   STAGE_LEVEL           SE
-## 1           2 0.0012705098
-## 2           2 0.0003280554
-## 3           2 0.0006086358
+##   YEAR   REGION SPECIES_CD   biomass         var   n  nm     N      NM
+## 1 2011 FLA KEYS   OCY CHRY 0.5491526 0.007883477 402 789 16977 3842807
+## 2 2012 FLA KEYS   OCY CHRY 0.5722797 0.010103591 416 803 16977 3842807
+## 3 2014 FLA KEYS   OCY CHRY 0.7950199 0.139967804 432 860 67906 3842694
+##   STAGE_LEVEL         SE
+## 1           2 0.08878894
+## 2           2 0.10051662
+## 3           2 0.37412271
 ## 
 ## [[2]]
 ## 
 ## [[1]]
-##   YEAR   REGION SPECIES_CD      biomass          var   n  nm     N      NM
-## 1 2011 FLA KEYS   NIC USTA 0.0019819595 1.614195e-06 402 789 16977 3842807
-## 2 2012 FLA KEYS   NIC USTA 0.0004923163 1.076203e-07 416 803 16977 3842807
-## 3 2014 FLA KEYS   NIC USTA 0.0008785307 3.704375e-07 432 860 67906 3842694
-##   STAGE_LEVEL           SE
-## 1           2 0.0012705098
-## 2           2 0.0003280554
-## 3           2 0.0006086358</code></pre>
+##   YEAR   REGION SPECIES_CD   biomass         var   n  nm     N      NM
+## 1 2011 FLA KEYS   OCY CHRY 0.5491526 0.007883477 402 789 16977 3842807
+## 2 2012 FLA KEYS   OCY CHRY 0.5722797 0.010103591 416 803 16977 3842807
+## 3 2014 FLA KEYS   OCY CHRY 0.7950199 0.139967804 432 860 67906 3842694
+##   STAGE_LEVEL         SE
+## 1           2 0.08878894
+## 2           2 0.10051662
+## 3           2 0.37412271</code></pre>
 <p><br><br></p>
 </div>
 </div>
-<div id="domain-biomass-by-year-by-protected-status"
-class="section level3 tabset">
-<h3 class="tabset">Domain biomass by year by protected status</h3>
+<div id="domain-biomass-by-prot.-status" class="section level3 tabset">
+<h3 class="tabset">Domain biomass by prot. status</h3>
 <div id="defaults-5" class="section level4">
 <h4>Defaults</h4>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_biomass_by_year_by_prot</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required </span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">species =</span> <span class="st">&quot;lut jocu&quot;</span>, <span class="co">#required</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print_dataframe =</span> <span class="cn">NULL</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_biomass_by_year_by_prot</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required </span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">species =</span> <span class="st">&quot;OCY CHRY&quot;</span>, <span class="co">#required</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print_dataframe =</span> <span class="cn">NULL</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/dbyp.d-1.png" width="672" />
 <br><br></p>
 </div>
 <div id="alt-5" class="section level4">
 <h4>Alt</h4>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_biomass_by_year_by_prot</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required </span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">species =</span> <span class="st">&quot;NIC USTA&quot;</span>, <span class="co">#required</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Nicholsina usta&quot;</span>), </span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Florida Keys&quot;</span>)),<span class="co">#Allows scientific name to be italicized</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_domain_biomass_by_year_by_prot</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required </span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">species =</span> <span class="st">&quot;ocy chry&quot;</span>, <span class="co">#required</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Ocyurus chrysurus&quot;</span>), </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Florida Keys&quot;</span>)),<span class="co">#Allows scientific name to be italicized</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>                            <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/dbyp.a-1.png" width="672" /></p>
 <pre><code>## [[1]]
-##   YEAR   REGION SPECIES_CD      biomass          var   n  nm     N        NM
-## 1 2011 FLA KEYS   NIC USTA 2.072660e-03 1.765986e-06 312 613 16231 3673946.9
-## 2 2012 FLA KEYS   NIC USTA 4.974644e-04 1.175840e-07 302 587 16231 3673946.9
-## 3 2014 FLA KEYS   NIC USTA 8.365276e-04 4.018233e-07 313 622 64924 3673946.9
-## 4 2011 FLA KEYS   NIC USTA 8.548103e-06 3.980939e-11  90 176   746  168859.9
-## 5 2012 FLA KEYS   NIC USTA 3.803072e-04 7.405935e-08 114 216   746  168859.9
-## 6 2014 FLA KEYS   NIC USTA 1.793019e-03 1.623304e-06 119 238  2982  168746.7
-##   STAGE_LEVEL protected_status           SE
-## 1           2                0 1.328904e-03
-## 2           2                0 3.429052e-04
-## 3           2                0 6.338954e-04
-## 4           2                1 6.309468e-06
-## 5           2                1 2.721385e-04
-## 6           2                1 1.274090e-03
+##   YEAR   REGION SPECIES_CD   biomass         var   n  nm     N        NM
+## 1 2011 FLA KEYS   OCY CHRY 0.5356340 0.008585168 312 613 16231 3673946.9
+## 2 2012 FLA KEYS   OCY CHRY 0.5577801 0.011015573 302 587 16231 3673946.9
+## 3 2014 FLA KEYS   OCY CHRY 0.7780423 0.153030054 313 622 64924 3673946.9
+## 4 2011 FLA KEYS   OCY CHRY 0.8432825 0.018762243  90 176   746  168859.9
+## 5 2012 FLA KEYS   OCY CHRY 0.8877519 0.018041496 114 216   746  168859.9
+## 6 2014 FLA KEYS   OCY CHRY 1.1646552 0.042968667 119 238  2982  168746.7
+##   STAGE_LEVEL protected_status         SE
+## 1           2                0 0.09265618
+## 2           2                0 0.10495510
+## 3           2                0 0.39119056
+## 4           2                1 0.13697534
+## 5           2                1 0.13431864
+## 6           2                1 0.20728885
 ## 
 ## [[2]]
 ## 
 ## [[1]]
-##   YEAR   REGION SPECIES_CD      biomass          var   n  nm     N        NM
-## 1 2011 FLA KEYS   NIC USTA 2.072660e-03 1.765986e-06 312 613 16231 3673946.9
-## 2 2012 FLA KEYS   NIC USTA 4.974644e-04 1.175840e-07 302 587 16231 3673946.9
-## 3 2014 FLA KEYS   NIC USTA 8.365276e-04 4.018233e-07 313 622 64924 3673946.9
-## 4 2011 FLA KEYS   NIC USTA 8.548103e-06 3.980939e-11  90 176   746  168859.9
-## 5 2012 FLA KEYS   NIC USTA 3.803072e-04 7.405935e-08 114 216   746  168859.9
-## 6 2014 FLA KEYS   NIC USTA 1.793019e-03 1.623304e-06 119 238  2982  168746.7
-##   STAGE_LEVEL protected_status           SE
-## 1           2                0 1.328904e-03
-## 2           2                0 3.429052e-04
-## 3           2                0 6.338954e-04
-## 4           2                1 6.309468e-06
-## 5           2                1 2.721385e-04
-## 6           2                1 1.274090e-03</code></pre>
+##   YEAR   REGION SPECIES_CD   biomass         var   n  nm     N        NM
+## 1 2011 FLA KEYS   OCY CHRY 0.5356340 0.008585168 312 613 16231 3673946.9
+## 2 2012 FLA KEYS   OCY CHRY 0.5577801 0.011015573 302 587 16231 3673946.9
+## 3 2014 FLA KEYS   OCY CHRY 0.7780423 0.153030054 313 622 64924 3673946.9
+## 4 2011 FLA KEYS   OCY CHRY 0.8432825 0.018762243  90 176   746  168859.9
+## 5 2012 FLA KEYS   OCY CHRY 0.8877519 0.018041496 114 216   746  168859.9
+## 6 2014 FLA KEYS   OCY CHRY 1.1646552 0.042968667 119 238  2982  168746.7
+##   STAGE_LEVEL protected_status         SE
+## 1           2                0 0.09265618
+## 2           2                0 0.10495510
+## 3           2                0 0.39119056
+## 4           2                1 0.13697534
+## 5           2                1 0.13431864
+## 6           2                1 0.20728885</code></pre>
 <p><br><br></p>
 </div>
 </div>
@@ -849,186 +846,186 @@ class="section level3 tabset">
 <h3 class="tabset">Stratum density by year</h3>
 <div id="defaults-6" class="section level4">
 <h4>Defaults</h4>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_stratum_den_by_year</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">species =</span> <span class="st">&quot;nic usta&quot;</span>, <span class="co">#required</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_stratum_den_by_year</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">species =</span> <span class="st">&quot;ocy chry&quot;</span>, <span class="co">#required</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/sdy.d-1.png" width="672" />
 <br><br></p>
 </div>
 <div id="alt-6" class="section level4">
 <h4>Alt</h4>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_stratum_den_by_year</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">species =</span> <span class="st">&quot;nic usta&quot;</span>, <span class="co">#required</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Nicholsina usta&quot;</span>), </span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Florida Keys&quot;</span>)), <span class="co">#Allows scientific name to be italicized </span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_stratum_den_by_year</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">species =</span> <span class="st">&quot;OCY CHRY&quot;</span>, <span class="co">#required</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Ocyurus chrysurus&quot;</span>), </span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Florida Keys&quot;</span>)), <span class="co">#Allows scientific name to be italicized </span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>) <span class="co">#prints data used for figure</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/sdy.a-1.png" width="672" /></p>
 <pre><code>## [[1]]
-##    YEAR   REGION STRAT PROT SPECIES_CD     density          var   n  nm     N
-## 1  2011 FLA KEYS  FDLR    0   NIC USTA 0.000000000 0.000000e+00  73 146  2220
-## 2  2011 FLA KEYS  FMLR    0   NIC USTA 0.002380952 5.678276e-06 105 204  6674
-## 3  2011 FLA KEYS  FMLR    1   NIC USTA 0.000000000 0.000000e+00  41  80   272
-## 4  2011 FLA KEYS  FSLR    0   NIC USTA 0.000000000 0.000000e+00  45  89   846
-## 5  2011 FLA KEYS  FSLR    1   NIC USTA 0.029411765 4.212194e-04  17  32   120
-## 6  2011 FLA KEYS  HRRF    0   NIC USTA 0.000000000 0.000000e+00  17  33   291
-## 7  2011 FLA KEYS  HRRF    1   NIC USTA 0.000000000 0.000000e+00  15  30   149
-## 8  2011 FLA KEYS  INPR    0   NIC USTA 0.000000000 0.000000e+00  11  22   386
-## 9  2011 FLA KEYS  INPR    1   NIC USTA 0.000000000 0.000000e+00   3   6    35
-## 10 2011 FLA KEYS  MCPR    0   NIC USTA 0.171875000 1.077985e-02  32  62  3711
-## 11 2011 FLA KEYS  MCPR    1   NIC USTA 0.000000000 0.000000e+00   8  16    87
-## 12 2011 FLA KEYS  OFPR    0   NIC USTA 0.008620690 7.436213e-05  29  57  2103
-## 13 2011 FLA KEYS  OFPR    1   NIC USTA 0.000000000 0.000000e+00   6  12    83
-## 14 2012 FLA KEYS  FDLR    0   NIC USTA 0.000000000 0.000000e+00  40  77  2220
-## 15 2012 FLA KEYS  FMLR    0   NIC USTA 0.000000000 0.000000e+00 129 245  6674
-## 16 2012 FLA KEYS  FMLR    1   NIC USTA 0.011627907 1.138334e-04  43  84   272
-## 17 2012 FLA KEYS  FSLR    0   NIC USTA 0.025862069 3.612162e-04  29  58   846
-## 18 2012 FLA KEYS  FSLR    1   NIC USTA 0.090909091 8.944153e-03  22  39   120
-## 19 2012 FLA KEYS  HRRF    0   NIC USTA 0.000000000 0.000000e+00   9  17   291
-## 20 2012 FLA KEYS  HRRF    1   NIC USTA 0.000000000 0.000000e+00  17  30   149
-## 21 2012 FLA KEYS  INPR    0   NIC USTA 0.000000000 0.000000e+00   6  12   386
-## 22 2012 FLA KEYS  INPR    1   NIC USTA 0.333333333 1.110270e-01   3   6    35
-## 23 2012 FLA KEYS  MCPR    0   NIC USTA 0.029166667 4.623141e-04  60 120  3711
-## 24 2012 FLA KEYS  MCPR    1   NIC USTA 0.000000000 0.000000e+00  12  24    87
-## 25 2012 FLA KEYS  OFPR    0   NIC USTA 0.017241379 2.972289e-04  29  58  2103
-## 26 2012 FLA KEYS  OFPR    1   NIC USTA 0.000000000 0.000000e+00  17  33    83
-## 27 2014 FLA KEYS  FDLR    0   NIC USTA 0.000000000 0.000000e+00  35  70  8880
-## 28 2014 FLA KEYS  FMLR    0   NIC USTA 0.000000000 0.000000e+00  93 186 26696
-## 29 2014 FLA KEYS  FMLR    1   NIC USTA 0.000000000 0.000000e+00  41  82  1089
-## 30 2014 FLA KEYS  FSLR    0   NIC USTA 0.050000000 1.869244e-03  35  70  3384
-## 31 2014 FLA KEYS  FSLR    1   NIC USTA 0.031250000 3.469719e-04  32  64   480
-## 32 2014 FLA KEYS  HRRF    0   NIC USTA 0.000000000 0.000000e+00  16  32  1163
-## 33 2014 FLA KEYS  HRRF    1   NIC USTA 0.000000000 0.000000e+00  24  48   594
-## 34 2014 FLA KEYS  INPR    0   NIC USTA 0.358846154 1.276857e-01  13  23  1543
-## 35 2014 FLA KEYS  INPR    1   NIC USTA 0.000000000 0.000000e+00   4   8   141
-## 36 2014 FLA KEYS  MCPR    0   NIC USTA 0.006250000 3.905897e-05  80 159 14845
-## 37 2014 FLA KEYS  MCPR    1   NIC USTA 0.000000000 0.000000e+00   7  14   347
-## 38 2014 FLA KEYS  OFPR    0   NIC USTA 0.000000000 0.000000e+00  41  82  8413
-## 39 2014 FLA KEYS  OFPR    1   NIC USTA 0.000000000 0.000000e+00  11  22   331
-##             NM STAGE_LEVEL          SE
-## 1   502505.207           2 0.000000000
-## 2  1510684.573           2 0.002382913
-## 3    61568.206           2 0.000000000
-## 4   191495.228           2 0.000000000
-## 5    27162.444           2 0.020523629
-## 6    65868.926           2 0.000000000
-## 7    33726.701           2 0.000000000
-## 8    87372.527           2 0.000000000
-## 9     7922.379           2 0.000000000
-## 10  839998.569           2 0.103826034
-## 11   19692.772           2 0.000000000
-## 12  476021.824           2 0.008623348
-## 13   18787.357           2 0.000000000
-## 14  502505.207           2 0.000000000
-## 15 1510684.573           2 0.000000000
-## 16   61568.206           2 0.010669273
-## 17  191495.228           2 0.019005689
-## 18   27162.444           2 0.094573534
-## 19   65868.926           2 0.000000000
-## 20   33726.701           2 0.000000000
-## 21   87372.527           2 0.000000000
-## 22    7922.379           2 0.333207085
-## 23  839998.569           2 0.021501490
-## 24   19692.772           2 0.000000000
-## 25  476021.824           2 0.017240329
-## 26   18787.357           2 0.000000000
-## 27  502505.207           2 0.000000000
-## 28 1510684.573           2 0.000000000
-## 29   61624.794           2 0.000000000
-## 30  191495.228           2 0.043234756
-## 31   27162.444           2 0.018627182
-## 32   65812.337           2 0.000000000
-## 33   33613.524           2 0.000000000
-## 34   87315.939           2 0.357331291
-## 35    7978.968           2 0.000000000
-## 36  840055.157           2 0.006249718
-## 37   19636.183           2 0.000000000
-## 38  476078.413           2 0.000000000
-## 39   18730.768           2 0.000000000
+##    YEAR   REGION STRAT PROT SPECIES_CD    density         var   n  nm     N
+## 1  2011 FLA KEYS  FDLR    0   OCY CHRY  3.3904110  0.37233925  73 146  2220
+## 2  2011 FLA KEYS  FMLR    0   OCY CHRY  3.4833333  0.34346600 105 204  6674
+## 3  2011 FLA KEYS  FMLR    1   OCY CHRY  4.2134146  2.54167426  41  80   272
+## 4  2011 FLA KEYS  FSLR    0   OCY CHRY  7.4055556 18.80465095  45  89   846
+## 5  2011 FLA KEYS  FSLR    1   OCY CHRY  1.9411765  1.33906844  17  32   120
+## 6  2011 FLA KEYS  HRRF    0   OCY CHRY  6.6323529  3.68781150  17  33   291
+## 7  2011 FLA KEYS  HRRF    1   OCY CHRY 11.8000000  6.07470875  15  30   149
+## 8  2011 FLA KEYS  INPR    0   OCY CHRY  0.7727273  0.07618523  11  22   386
+## 9  2011 FLA KEYS  INPR    1   OCY CHRY  0.5833333  0.12358481   3   6    35
+## 10 2011 FLA KEYS  MCPR    0   OCY CHRY  3.7187500  1.94035295  32  62  3711
+## 11 2011 FLA KEYS  MCPR    1   OCY CHRY  3.5937500  0.59620345   8  16    87
+## 12 2011 FLA KEYS  OFPR    0   OCY CHRY  4.8965517  1.63730944  29  57  2103
+## 13 2011 FLA KEYS  OFPR    1   OCY CHRY  4.3333333  4.55796290   6  12    83
+## 14 2012 FLA KEYS  FDLR    0   OCY CHRY  3.8687500  1.14304723  40  77  2220
+## 15 2012 FLA KEYS  FMLR    0   OCY CHRY  3.7151163  0.39013649 129 245  6674
+## 16 2012 FLA KEYS  FMLR    1   OCY CHRY  4.5813953  2.01688453  43  84   272
+## 17 2012 FLA KEYS  FSLR    0   OCY CHRY  2.7241379  1.05192729  29  58   846
+## 18 2012 FLA KEYS  FSLR    1   OCY CHRY  6.2613636  2.89667618  22  39   120
+## 19 2012 FLA KEYS  HRRF    0   OCY CHRY 12.3333333 73.16148417   9  17   291
+## 20 2012 FLA KEYS  HRRF    1   OCY CHRY 14.0588235  7.44672049  17  30   149
+## 21 2012 FLA KEYS  INPR    0   OCY CHRY  0.9166667  0.17945452   6  12   386
+## 22 2012 FLA KEYS  INPR    1   OCY CHRY 12.5000000 16.89171683   3   6    35
+## 23 2012 FLA KEYS  MCPR    0   OCY CHRY  4.6666667  0.36494489  60 120  3711
+## 24 2012 FLA KEYS  MCPR    1   OCY CHRY  7.6666667  3.27900678  12  24    87
+## 25 2012 FLA KEYS  OFPR    0   OCY CHRY  8.2500000  4.16226025  29  58  2103
+## 26 2012 FLA KEYS  OFPR    1   OCY CHRY  4.7500000  0.96353193  17  33    83
+## 27 2014 FLA KEYS  FDLR    0   OCY CHRY  2.6336571  0.34982690  35  70  8880
+## 28 2014 FLA KEYS  FMLR    0   OCY CHRY  4.5626129  4.48687286  93 186 26696
+## 29 2014 FLA KEYS  FMLR    1   OCY CHRY  4.6166220  1.81588688  41  82  1089
+## 30 2014 FLA KEYS  FSLR    0   OCY CHRY  1.3872286  0.15916249  35  70  3384
+## 31 2014 FLA KEYS  FSLR    1   OCY CHRY  3.3013125  1.45788489  32  64   480
+## 32 2014 FLA KEYS  HRRF    0   OCY CHRY  9.4099688 13.22528503  16  32  1163
+## 33 2014 FLA KEYS  HRRF    1   OCY CHRY 12.1827292  8.52836431  24  48   594
+## 34 2014 FLA KEYS  INPR    0   OCY CHRY  4.3086538  2.32344229  13  23  1543
+## 35 2014 FLA KEYS  INPR    1   OCY CHRY 11.8966250 46.57842135   4   8   141
+## 36 2014 FLA KEYS  MCPR    0   OCY CHRY  5.9072250  0.56735845  80 159 14845
+## 37 2014 FLA KEYS  MCPR    1   OCY CHRY 10.1022857 34.88279295   7  14   347
+## 38 2014 FLA KEYS  OFPR    0   OCY CHRY  6.9449146  9.84711676  41  82  8413
+## 39 2014 FLA KEYS  OFPR    1   OCY CHRY 11.4445909 10.06216169  11  22   331
+##             NM STAGE_LEVEL        SE
+## 1   502505.207           2 0.6101961
+## 2  1510684.573           2 0.5860597
+## 3    61568.206           2 1.5942629
+## 4   191495.228           2 4.3364330
+## 5    27162.444           2 1.1571812
+## 6    65868.926           2 1.9203675
+## 7    33726.701           2 2.4646924
+## 8    87372.527           2 0.2760167
+## 9     7922.379           2 0.3515463
+## 10  839998.569           2 1.3929655
+## 11   19692.772           2 0.7721421
+## 12  476021.824           2 1.2795739
+## 13   18787.357           2 2.1349386
+## 14  502505.207           2 1.0691339
+## 15 1510684.573           2 0.6246091
+## 16   61568.206           2 1.4201706
+## 17  191495.228           2 1.0256351
+## 18   27162.444           2 1.7019624
+## 19   65868.926           2 8.5534487
+## 20   33726.701           2 2.7288680
+## 21   87372.527           2 0.4236207
+## 22    7922.379           2 4.1099534
+## 23  839998.569           2 0.6041067
+## 24   19692.772           2 1.8108028
+## 25  476021.824           2 2.0401618
+## 26   18787.357           2 0.9815966
+## 27  502505.207           2 0.5914617
+## 28 1510684.573           2 2.1182240
+## 29   61624.794           2 1.3475485
+## 30  191495.228           2 0.3989517
+## 31   27162.444           2 1.2074290
+## 32   65812.337           2 3.6366585
+## 33   33613.524           2 2.9203363
+## 34   87315.939           2 1.5242842
+## 35    7978.968           2 6.8248386
+## 36  840055.157           2 0.7532320
+## 37   19636.183           2 5.9061657
+## 38  476078.413           2 3.1380116
+## 39   18730.768           2 3.1720911
 ## 
 ## [[2]]
 ## 
 ## [[1]]
-##    YEAR   REGION STRAT PROT SPECIES_CD     density          var   n  nm     N
-## 1  2011 FLA KEYS  FDLR    0   NIC USTA 0.000000000 0.000000e+00  73 146  2220
-## 2  2011 FLA KEYS  FMLR    0   NIC USTA 0.002380952 5.678276e-06 105 204  6674
-## 3  2011 FLA KEYS  FMLR    1   NIC USTA 0.000000000 0.000000e+00  41  80   272
-## 4  2011 FLA KEYS  FSLR    0   NIC USTA 0.000000000 0.000000e+00  45  89   846
-## 5  2011 FLA KEYS  FSLR    1   NIC USTA 0.029411765 4.212194e-04  17  32   120
-## 6  2011 FLA KEYS  HRRF    0   NIC USTA 0.000000000 0.000000e+00  17  33   291
-## 7  2011 FLA KEYS  HRRF    1   NIC USTA 0.000000000 0.000000e+00  15  30   149
-## 8  2011 FLA KEYS  INPR    0   NIC USTA 0.000000000 0.000000e+00  11  22   386
-## 9  2011 FLA KEYS  INPR    1   NIC USTA 0.000000000 0.000000e+00   3   6    35
-## 10 2011 FLA KEYS  MCPR    0   NIC USTA 0.171875000 1.077985e-02  32  62  3711
-## 11 2011 FLA KEYS  MCPR    1   NIC USTA 0.000000000 0.000000e+00   8  16    87
-## 12 2011 FLA KEYS  OFPR    0   NIC USTA 0.008620690 7.436213e-05  29  57  2103
-## 13 2011 FLA KEYS  OFPR    1   NIC USTA 0.000000000 0.000000e+00   6  12    83
-## 14 2012 FLA KEYS  FDLR    0   NIC USTA 0.000000000 0.000000e+00  40  77  2220
-## 15 2012 FLA KEYS  FMLR    0   NIC USTA 0.000000000 0.000000e+00 129 245  6674
-## 16 2012 FLA KEYS  FMLR    1   NIC USTA 0.011627907 1.138334e-04  43  84   272
-## 17 2012 FLA KEYS  FSLR    0   NIC USTA 0.025862069 3.612162e-04  29  58   846
-## 18 2012 FLA KEYS  FSLR    1   NIC USTA 0.090909091 8.944153e-03  22  39   120
-## 19 2012 FLA KEYS  HRRF    0   NIC USTA 0.000000000 0.000000e+00   9  17   291
-## 20 2012 FLA KEYS  HRRF    1   NIC USTA 0.000000000 0.000000e+00  17  30   149
-## 21 2012 FLA KEYS  INPR    0   NIC USTA 0.000000000 0.000000e+00   6  12   386
-## 22 2012 FLA KEYS  INPR    1   NIC USTA 0.333333333 1.110270e-01   3   6    35
-## 23 2012 FLA KEYS  MCPR    0   NIC USTA 0.029166667 4.623141e-04  60 120  3711
-## 24 2012 FLA KEYS  MCPR    1   NIC USTA 0.000000000 0.000000e+00  12  24    87
-## 25 2012 FLA KEYS  OFPR    0   NIC USTA 0.017241379 2.972289e-04  29  58  2103
-## 26 2012 FLA KEYS  OFPR    1   NIC USTA 0.000000000 0.000000e+00  17  33    83
-## 27 2014 FLA KEYS  FDLR    0   NIC USTA 0.000000000 0.000000e+00  35  70  8880
-## 28 2014 FLA KEYS  FMLR    0   NIC USTA 0.000000000 0.000000e+00  93 186 26696
-## 29 2014 FLA KEYS  FMLR    1   NIC USTA 0.000000000 0.000000e+00  41  82  1089
-## 30 2014 FLA KEYS  FSLR    0   NIC USTA 0.050000000 1.869244e-03  35  70  3384
-## 31 2014 FLA KEYS  FSLR    1   NIC USTA 0.031250000 3.469719e-04  32  64   480
-## 32 2014 FLA KEYS  HRRF    0   NIC USTA 0.000000000 0.000000e+00  16  32  1163
-## 33 2014 FLA KEYS  HRRF    1   NIC USTA 0.000000000 0.000000e+00  24  48   594
-## 34 2014 FLA KEYS  INPR    0   NIC USTA 0.358846154 1.276857e-01  13  23  1543
-## 35 2014 FLA KEYS  INPR    1   NIC USTA 0.000000000 0.000000e+00   4   8   141
-## 36 2014 FLA KEYS  MCPR    0   NIC USTA 0.006250000 3.905897e-05  80 159 14845
-## 37 2014 FLA KEYS  MCPR    1   NIC USTA 0.000000000 0.000000e+00   7  14   347
-## 38 2014 FLA KEYS  OFPR    0   NIC USTA 0.000000000 0.000000e+00  41  82  8413
-## 39 2014 FLA KEYS  OFPR    1   NIC USTA 0.000000000 0.000000e+00  11  22   331
-##             NM STAGE_LEVEL          SE
-## 1   502505.207           2 0.000000000
-## 2  1510684.573           2 0.002382913
-## 3    61568.206           2 0.000000000
-## 4   191495.228           2 0.000000000
-## 5    27162.444           2 0.020523629
-## 6    65868.926           2 0.000000000
-## 7    33726.701           2 0.000000000
-## 8    87372.527           2 0.000000000
-## 9     7922.379           2 0.000000000
-## 10  839998.569           2 0.103826034
-## 11   19692.772           2 0.000000000
-## 12  476021.824           2 0.008623348
-## 13   18787.357           2 0.000000000
-## 14  502505.207           2 0.000000000
-## 15 1510684.573           2 0.000000000
-## 16   61568.206           2 0.010669273
-## 17  191495.228           2 0.019005689
-## 18   27162.444           2 0.094573534
-## 19   65868.926           2 0.000000000
-## 20   33726.701           2 0.000000000
-## 21   87372.527           2 0.000000000
-## 22    7922.379           2 0.333207085
-## 23  839998.569           2 0.021501490
-## 24   19692.772           2 0.000000000
-## 25  476021.824           2 0.017240329
-## 26   18787.357           2 0.000000000
-## 27  502505.207           2 0.000000000
-## 28 1510684.573           2 0.000000000
-## 29   61624.794           2 0.000000000
-## 30  191495.228           2 0.043234756
-## 31   27162.444           2 0.018627182
-## 32   65812.337           2 0.000000000
-## 33   33613.524           2 0.000000000
-## 34   87315.939           2 0.357331291
-## 35    7978.968           2 0.000000000
-## 36  840055.157           2 0.006249718
-## 37   19636.183           2 0.000000000
-## 38  476078.413           2 0.000000000
-## 39   18730.768           2 0.000000000</code></pre>
+##    YEAR   REGION STRAT PROT SPECIES_CD    density         var   n  nm     N
+## 1  2011 FLA KEYS  FDLR    0   OCY CHRY  3.3904110  0.37233925  73 146  2220
+## 2  2011 FLA KEYS  FMLR    0   OCY CHRY  3.4833333  0.34346600 105 204  6674
+## 3  2011 FLA KEYS  FMLR    1   OCY CHRY  4.2134146  2.54167426  41  80   272
+## 4  2011 FLA KEYS  FSLR    0   OCY CHRY  7.4055556 18.80465095  45  89   846
+## 5  2011 FLA KEYS  FSLR    1   OCY CHRY  1.9411765  1.33906844  17  32   120
+## 6  2011 FLA KEYS  HRRF    0   OCY CHRY  6.6323529  3.68781150  17  33   291
+## 7  2011 FLA KEYS  HRRF    1   OCY CHRY 11.8000000  6.07470875  15  30   149
+## 8  2011 FLA KEYS  INPR    0   OCY CHRY  0.7727273  0.07618523  11  22   386
+## 9  2011 FLA KEYS  INPR    1   OCY CHRY  0.5833333  0.12358481   3   6    35
+## 10 2011 FLA KEYS  MCPR    0   OCY CHRY  3.7187500  1.94035295  32  62  3711
+## 11 2011 FLA KEYS  MCPR    1   OCY CHRY  3.5937500  0.59620345   8  16    87
+## 12 2011 FLA KEYS  OFPR    0   OCY CHRY  4.8965517  1.63730944  29  57  2103
+## 13 2011 FLA KEYS  OFPR    1   OCY CHRY  4.3333333  4.55796290   6  12    83
+## 14 2012 FLA KEYS  FDLR    0   OCY CHRY  3.8687500  1.14304723  40  77  2220
+## 15 2012 FLA KEYS  FMLR    0   OCY CHRY  3.7151163  0.39013649 129 245  6674
+## 16 2012 FLA KEYS  FMLR    1   OCY CHRY  4.5813953  2.01688453  43  84   272
+## 17 2012 FLA KEYS  FSLR    0   OCY CHRY  2.7241379  1.05192729  29  58   846
+## 18 2012 FLA KEYS  FSLR    1   OCY CHRY  6.2613636  2.89667618  22  39   120
+## 19 2012 FLA KEYS  HRRF    0   OCY CHRY 12.3333333 73.16148417   9  17   291
+## 20 2012 FLA KEYS  HRRF    1   OCY CHRY 14.0588235  7.44672049  17  30   149
+## 21 2012 FLA KEYS  INPR    0   OCY CHRY  0.9166667  0.17945452   6  12   386
+## 22 2012 FLA KEYS  INPR    1   OCY CHRY 12.5000000 16.89171683   3   6    35
+## 23 2012 FLA KEYS  MCPR    0   OCY CHRY  4.6666667  0.36494489  60 120  3711
+## 24 2012 FLA KEYS  MCPR    1   OCY CHRY  7.6666667  3.27900678  12  24    87
+## 25 2012 FLA KEYS  OFPR    0   OCY CHRY  8.2500000  4.16226025  29  58  2103
+## 26 2012 FLA KEYS  OFPR    1   OCY CHRY  4.7500000  0.96353193  17  33    83
+## 27 2014 FLA KEYS  FDLR    0   OCY CHRY  2.6336571  0.34982690  35  70  8880
+## 28 2014 FLA KEYS  FMLR    0   OCY CHRY  4.5626129  4.48687286  93 186 26696
+## 29 2014 FLA KEYS  FMLR    1   OCY CHRY  4.6166220  1.81588688  41  82  1089
+## 30 2014 FLA KEYS  FSLR    0   OCY CHRY  1.3872286  0.15916249  35  70  3384
+## 31 2014 FLA KEYS  FSLR    1   OCY CHRY  3.3013125  1.45788489  32  64   480
+## 32 2014 FLA KEYS  HRRF    0   OCY CHRY  9.4099688 13.22528503  16  32  1163
+## 33 2014 FLA KEYS  HRRF    1   OCY CHRY 12.1827292  8.52836431  24  48   594
+## 34 2014 FLA KEYS  INPR    0   OCY CHRY  4.3086538  2.32344229  13  23  1543
+## 35 2014 FLA KEYS  INPR    1   OCY CHRY 11.8966250 46.57842135   4   8   141
+## 36 2014 FLA KEYS  MCPR    0   OCY CHRY  5.9072250  0.56735845  80 159 14845
+## 37 2014 FLA KEYS  MCPR    1   OCY CHRY 10.1022857 34.88279295   7  14   347
+## 38 2014 FLA KEYS  OFPR    0   OCY CHRY  6.9449146  9.84711676  41  82  8413
+## 39 2014 FLA KEYS  OFPR    1   OCY CHRY 11.4445909 10.06216169  11  22   331
+##             NM STAGE_LEVEL        SE
+## 1   502505.207           2 0.6101961
+## 2  1510684.573           2 0.5860597
+## 3    61568.206           2 1.5942629
+## 4   191495.228           2 4.3364330
+## 5    27162.444           2 1.1571812
+## 6    65868.926           2 1.9203675
+## 7    33726.701           2 2.4646924
+## 8    87372.527           2 0.2760167
+## 9     7922.379           2 0.3515463
+## 10  839998.569           2 1.3929655
+## 11   19692.772           2 0.7721421
+## 12  476021.824           2 1.2795739
+## 13   18787.357           2 2.1349386
+## 14  502505.207           2 1.0691339
+## 15 1510684.573           2 0.6246091
+## 16   61568.206           2 1.4201706
+## 17  191495.228           2 1.0256351
+## 18   27162.444           2 1.7019624
+## 19   65868.926           2 8.5534487
+## 20   33726.701           2 2.7288680
+## 21   87372.527           2 0.4236207
+## 22    7922.379           2 4.1099534
+## 23  839998.569           2 0.6041067
+## 24   19692.772           2 1.8108028
+## 25  476021.824           2 2.0401618
+## 26   18787.357           2 0.9815966
+## 27  502505.207           2 0.5914617
+## 28 1510684.573           2 2.1182240
+## 29   61624.794           2 1.3475485
+## 30  191495.228           2 0.3989517
+## 31   27162.444           2 1.2074290
+## 32   65812.337           2 3.6366585
+## 33   33613.524           2 2.9203363
+## 34   87315.939           2 1.5242842
+## 35    7978.968           2 6.8248386
+## 36  840055.157           2 0.7532320
+## 37   19636.183           2 5.9061657
+## 38  476078.413           2 3.1380116
+## 39   18730.768           2 3.1720911</code></pre>
 <p><br><br></p>
 </div>
 </div>
@@ -1036,20 +1033,20 @@ class="section level3 tabset">
 <h3 class="tabset">Stratum occurrence by year</h3>
 <div id="defaults-7" class="section level4">
 <h4>Defaults</h4>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_stratum_occ_by_year</span>(<span class="at">dataset =</span> torts12_16, <span class="co">#required</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">species =</span> <span class="st">&quot;nic usta&quot;</span>, <span class="co">#required</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title </span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>)<span class="co">#prints data used for figure</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_stratum_occ_by_year</span>(<span class="at">dataset =</span> torts12_16, <span class="co">#required</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">species =</span> <span class="st">&quot;ocy chry&quot;</span>, <span class="co">#required</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title </span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>)<span class="co">#prints data used for figure</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/soy.d-1.png" width="672" />
 <br><br></p>
 </div>
 <div id="alt-7" class="section level4">
 <h4>Alt</h4>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_stratum_den_by_year</span>(<span class="at">dataset =</span> torts12_16, <span class="co">#required</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">species =</span> <span class="st">&quot;nic usta&quot;</span>, <span class="co">#required</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Nicholsina usta&quot;</span>), </span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Dry Tortugas&quot;</span>)), <span class="co">#Allows scientific name to be italicized </span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>)<span class="co">#prints data used for figure</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_stratum_den_by_year</span>(<span class="at">dataset =</span> torts12_16, <span class="co">#required</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">species =</span> <span class="st">&quot;OCY CHRY&quot;</span>, <span class="co">#required</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Ocyurus chrysurus&quot;</span>), </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Dry Tortugas&quot;</span>)), <span class="co">#Allows scientific name to be italicized </span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>)<span class="co">#prints data used for figure</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/soy.a-1.png" width="672" />
 <br><br></p>
 </div>
@@ -1058,22 +1055,23 @@ class="section level3 tabset">
 <h3 class="tabset">Stratum biomass by year</h3>
 <div id="defaults-8" class="section level4">
 <h4>Defaults</h4>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_stratum_biomass_by_year</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">species =</span> <span class="st">&quot;nic usta&quot;</span>, <span class="co">#required</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title </span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>)<span class="co">#prints data used for figure</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_stratum_biomass_by_year</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">species =</span> <span class="st">&quot;OCY CHRY&quot;</span>, <span class="co">#required</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">title =</span> <span class="cn">NULL</span>, <span class="co">#add a figure title </span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">print_dataframe =</span> <span class="cn">FALSE</span>)<span class="co">#prints data used for figure</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/sby.d-1.png" width="672" />
 <br><br></p>
 </div>
 <div id="alt-8" class="section level4">
 <h4>Alt</h4>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_stratum_biomass_by_year</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">species =</span> <span class="st">&quot;nic usta&quot;</span>, <span class="co">#required</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Nicholsina usta&quot;</span>), </span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Florida Keys&quot;</span>)),<span class="co">#Allows scientific name to be italicized </span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>)<span class="co">#prints data used for figure</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_stratum_biomass_by_year</span>(<span class="at">dataset =</span> keys11_14, <span class="co">#required</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">species =</span> <span class="st">&quot;ocy chry&quot;</span>, <span class="co">#required</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">title =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">italic</span>(<span class="st">&quot;Ocyurus chrysurus&quot;</span>), </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                                                <span class="st">&quot; in the Florida Keys&quot;</span>)),<span class="co">#Allows scientific name to be italicized </span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>                         <span class="at">print_dataframe =</span> <span class="cn">TRUE</span>)<span class="co">#prints data used for figure</span></span></code></pre></div>
 <p><img src="f-tseries_files/figure-html/sby.a-1.png" width="672" />
 <br><br></p>
+</div>
 </div>
 </div>
 </div>
@@ -1141,7 +1139,7 @@ $(document).ready(function ()  {
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
     };
-    options.showAndHide = true;
+    options.showAndHide = false;
     options.smoothScroll = true;
 
     // tocify

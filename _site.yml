@@ -25,7 +25,7 @@ navbar:
       menu:
       - text: "Time series"
         href: f-tseries.html
-      - text: "Frequency comparisson"
+      - text: "Length frequency"
         href: f-freqcomp.html
       - text: "Single year plots"
         href: f-singyr.html

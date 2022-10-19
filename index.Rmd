@@ -1,5 +1,5 @@
 ---
-title: "National Coral Reef Management Project R Cookbook"
+title: "National Coral Reef Monitoring Program R Cookbook"
 urlcolor: blue
 ---
 
@@ -21,31 +21,51 @@ folder, and coded in the following format.
 -->
 
 <a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_density_by_year">
-  <img alt="MEL NIGE Domain density by year" src=./home-figs/domaindenyr_MELNIGE_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img alt="OCY CHRY Domain density by year" src=./home-figs/domdenyr-OCYCHRY-keys-11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   </a>
   
 <a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_occurrences_by_year">
-  <img alt="LUT JOCU Domain occurrence by year" src=./home-figs/domainoccyr_LUTJOCU_12_16 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img alt="OCY CHRY Domain occurrence by year" src=./home-figs/domoccyr-OCYCHRY-torts-12_16 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   </a>
   
 <a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_biomass_by_year">
-  <img alt="LUT JOCU Domain biomass by year" src=./home-figs/domainbioyr_LUTJOCU_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img alt="OCY CHRY Domain biomass by year" src=./home-figs/dombioyr-OCYCHRY-keys-11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   </a>
 
 <a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_density_by_year_by_protected_status">
-  <img alt="LUT JOCU Domain occurrence by year by protected status" src=./home-figs/domaindenyr_prot_MELNIGE_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img alt="OCY CHRY Domain occurrence by year by protected status" src=./home-figs/domdenyr_prot-OCYCHRY-keys-11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   </a>
 
 <a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_occurrences_by_year_by_protected_status">
-  <img alt="LUT JOCU Domain occurrence by year by protected status" src=./home-figs/domainoccyr_prot_LUTJOCU_12_16 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img alt="OCY CHRY Domain occurrence by year by protected status" src=./home-figs/domoccyr_prot-OCYCHRY-torts-12_16 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   </a>
   
 <a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_biomass_by_year_by_by_protected_status">
-  <img alt="LUT JOCU Domain biomass by year by protected status" src=./home-figs/domainbioyr_prot_LUTJOCU_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img alt="OCY CHRY Domain biomass by year by protected status" src=./home-figs/dombioyr_prot-OCYCHRY-keys-11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   </a>
   
 <a href="https://kenzieknox.github.io/NCRMPCookbook/f-freqcomp.html#Fork_length_frequency_comparison">
-  <img alt="ABU SAXA Fork length frequency" src=./home-figs/forklenfreq_ABUSAXA_11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img alt="OCY CHRY Fork length frequency" src=./home-figs/forklenfreq-OCYCHRY-keys-11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  </a>
+  
+<a href="https://kenzieknox.github.io/NCRMPCookbook/f-singyr.html#Top_N_density">
+  <img alt="Top N density" src=./home-figs/top25-torts-12 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  </a>
+  
+<a href="https://kenzieknox.github.io/NCRMPCookbook/f-singyr.html#Species_occurrence_vs_CV_of_Density">
+  <img alt="Species occurrence vs CV of Density" src=./home-figs/svcv-keys-11 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  </a>
+  
+<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Stratum_density_by_year">
+  <img alt="OCY CHRY Stratum density by year" src=./home-figs/stratdenyr-OCYCHRY-keys-11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  </a>
+  
+<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Stratum_occurrence_by_year">
+  <img alt="OCY CHRY Stratum occurrence by year" src=./home-figs/stratoccyr-OCYCHRY-torts-12_16 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  </a>
+  
+<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Stratum_biomass_by_year">
+  <img alt="OCY CHRY Stratum biomass by year" src=./home-figs/stratbioyr-OCYCHRY-keys-11_14 style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   </a>
 
 <p style="clear: both;">
