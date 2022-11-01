@@ -525,6 +525,9 @@ div.tocify {
 <div id="fish-single-year-plots" class="section level1">
 <h1><strong>Fish: Single year plots</strong></h1>
 <p><br></p>
+<!-- 
+All figures are made using the species Ocyurus chrysurus (OCY CHRY) 
+-->
 <div id="load-data" class="section level2">
 <h2>Load data</h2>
 <div class="sourceCode" id="cb1"><pre
@@ -534,6 +537,25 @@ class="sourceCode r fold-show"><code class="sourceCode r"><span id="cb1-1"><a hr
 </div>
 <div id="plots" class="section level2">
 <h2>Plots</h2>
+<!-- To add another figure set:
+### Figure type title {.tabset}
+
+#### Defaults
+'''{r example, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+  #include function call here - only include required parameters
+  #be sure to list all parameters with descriptive comments
+'''
+
+#### Alt
+'''{r example, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+  #include function call here - include all parameters
+  #be sure to list all parameters with descriptive comments
+'''
+
+Defaults and alt are not necessarily required, but please include at least 2 variations of the figure.
+
+When the figure is added, save the image of one of the variations to the folder labeled "home-figs" and add it to the home page linking to the figure
+-->
 <div id="top-n-density-of-subregion" class="section level3 tabset">
 <h3 class="tabset">Top N density of subregion</h3>
 <div id="top-10" class="section level4">
