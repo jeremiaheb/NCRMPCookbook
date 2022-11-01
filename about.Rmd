@@ -1,22 +1,99 @@
 ---
-title: "About This Website"
+title: "About this site"
 ---
+<center>
+<button> <a href="https://www.coris.noaa.gov/monitoring/" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold"> NCRMP Website</a></button>
+</center>
+<br>
 
-<a href="https://www.coris.noaa.gov/monitoring/" target="_blank" style="color:blue"> NCRMP Website</a>
 
 ## What do I need to download? {.tabset}
 ### Benthic
+The benthic R package can be accessed <a href="https://github.com/shgroves/NCRMP_benthics" target="_blank" style="color:blue">here.</a>
+Instructions to download and install the package are available on the GitHub page. <br>
+In addition to the R package, the files for the benthic figures are available under the tab "Download" individually or in a zip file.
+<br><br><br>
 
 ### Fish
-#### How to source R files
+The fish R package can be accessed <a href="https://github.com/jeremiaheb/rvc" target="_blank" style="color:blue">here.</a>
+Instructions to download and install the package are available on the GitHub page. <br>
+In addition to the R package, the files for the benthic figures are available under the tab "Download" individually or in a zip file.
+<br><br><br>
+
+
+## Getting started
 
 <br>
 
-## How to access data {.tabset}
-### Benthic
+### Load libraries and scripts
 
-### Fish
+Once you have downloaded/installed all relevant R scripts and packages, they must be loaded into R. <br>
+To use load installed NCRMP libraries, use the following: <br>
+Benthic: **library(ncrmp.benthics.analysis)** <br>
+Fish: **library(rvc)**
 
-<br> 
 
-## About the data
+#### How to source R files {.tabset}
+To use the files downloaded here as .R scripts, use the following template: <br>
+**source("path/to/file.R")**
+<br>
+
+##### Benthic files and libraries example
+```{r Bsource, message=FALSE,warning=FALSE}
+library(ncrmp.benthics.analysis)
+library(tidyverse)
+```
+
+<br>
+
+##### Fish files and libraries example
+```{r Fsource, message=FALSE,warning=FALSE}
+library(rvc)
+library(tidyverse)
+source("fish_plots/theme_publication.R")
+source("fish_plots/labeler.R")
+source("fish_plots/WrapperFunctions.R")
+source("fish_plots/QL_binned_LengthFreq.R")
+source("fish_plots/QL_SubregionDensityPlot.R")
+source("fish_plots/plot_horizontal_bar_shared_axis.R")
+```
+
+<br>
+
+### Load data {.tabset}
+
+#### Benthic
+Benthic data is downloaded with the package. <br>
+ADD MORE HERE
+<br><br>
+
+#### Fish
+Fish data is not included in the package download, and must be accessed from the server. <br>
+Data can be accessed using the method **getRvcData()**. See example below: 
+```{r fishdata, message=FALSE,warning=FALSE}
+keys11_14 = getRvcData(years = 2011:2014, regions = c("FLA KEYS"))
+torts12_16 = getRvcData(years = 2012:2016, regions = c("DRY TORT"))
+```
+<br><br>
+
+## About the data 
+
+<br>
+
+### Benthic {.tabset}
+
+#### Coral Species
+BLAH BLAH
+
+#### Regions
+BLAH BLAH
+
+<br>
+
+### Fish {.tabset}
+
+#### Fish Species
+BLAH BLAH
+
+#### Regions
+BLAH BLAH

@@ -11,7 +11,7 @@
 
 
 
-<title>About This Website</title>
+<title>About this site</title>
 
 <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -44,6 +44,107 @@
 
 
 
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -313,38 +414,117 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About This Website</h1>
+<h1 class="title toc-ignore">About this site</h1>
 
 </div>
 
 
-<p><a href="https://www.coris.noaa.gov/monitoring/" target="_blank" style="color:blue">
-NCRMP Website</a></p>
+<center>
+<button>
+<a href="https://www.coris.noaa.gov/monitoring/" target="_blank" style="font-size:100%;color:#2874A6;font-weight:bold">
+NCRMP Website</a>
+</button>
+</center>
+<p><br></p>
 <div id="what-do-i-need-to-download" class="section level2 tabset">
 <h2 class="tabset">What do I need to download?</h2>
 <div id="benthic" class="section level3">
 <h3>Benthic</h3>
+<p>The benthic R package can be accessed
+<a href="https://github.com/shgroves/NCRMP_benthics" target="_blank" style="color:blue">here.</a>
+Instructions to download and install the package are available on the
+GitHub page. <br> In addition to the R package, the files for the
+benthic figures are available under the tab “Download” individually or
+in a zip file. <br><br><br></p>
 </div>
 <div id="fish" class="section level3">
 <h3>Fish</h3>
-<div id="how-to-source-r-files" class="section level4">
-<h4>How to source R files</h4>
+<p>The fish R package can be accessed
+<a href="https://github.com/jeremiaheb/rvc" target="_blank" style="color:blue">here.</a>
+Instructions to download and install the package are available on the
+GitHub page. <br> In addition to the R package, the files for the
+benthic figures are available under the tab “Download” individually or
+in a zip file. <br><br><br></p>
+</div>
+</div>
+<div id="getting-started" class="section level2">
+<h2>Getting started</h2>
+<p><br></p>
+<div id="load-libraries-and-scripts" class="section level3">
+<h3>Load libraries and scripts</h3>
+<p>Once you have downloaded/installed all relevant R scripts and
+packages, they must be loaded into R. <br> To use load installed NCRMP
+libraries, use the following: <br> Benthic:
+<strong>library(ncrmp.benthics.analysis)</strong> <br> Fish:
+<strong>library(rvc)</strong></p>
+<div id="how-to-source-r-files" class="section level4 tabset">
+<h4 class="tabset">How to source R files</h4>
+<p>To use the files downloaded here as .R scripts, use the following
+template: <br> <strong>source(“path/to/file.R”)</strong> <br></p>
+<div id="benthic-files-and-libraries-example" class="section level5">
+<h5>Benthic files and libraries example</h5>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ncrmp.benthics.analysis)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="fish-files-and-libraries-example" class="section level5">
+<h5>Fish files and libraries example</h5>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvc)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/theme_publication.R&quot;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/labeler.R&quot;</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/WrapperFunctions.R&quot;</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/QL_binned_LengthFreq.R&quot;</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/QL_SubregionDensityPlot.R&quot;</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/plot_horizontal_bar_shared_axis.R&quot;</span>)</span></code></pre></div>
 <p><br></p>
 </div>
 </div>
 </div>
-<div id="how-to-access-data" class="section level2 tabset">
-<h2 class="tabset">How to access data</h2>
-<div id="benthic-1" class="section level3">
-<h3>Benthic</h3>
+<div id="load-data" class="section level3 tabset">
+<h3 class="tabset">Load data</h3>
+<div id="benthic-1" class="section level4">
+<h4>Benthic</h4>
+<p>Benthic data is downloaded with the package. <br> ADD MORE HERE
+<br><br></p>
 </div>
-<div id="fish-1" class="section level3">
-<h3>Fish</h3>
-<p><br></p>
+<div id="fish-1" class="section level4">
+<h4>Fish</h4>
+<p>Fish data is not included in the package download, and must be
+accessed from the server. <br> Data can be accessed using the method
+<strong>getRvcData()</strong>. See example below:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>keys11_14 <span class="ot">=</span> <span class="fu">getRvcData</span>(<span class="at">years =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2014</span>, <span class="at">regions =</span> <span class="fu">c</span>(<span class="st">&quot;FLA KEYS&quot;</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>torts12_16 <span class="ot">=</span> <span class="fu">getRvcData</span>(<span class="at">years =</span> <span class="dv">2012</span><span class="sc">:</span><span class="dv">2016</span>, <span class="at">regions =</span> <span class="fu">c</span>(<span class="st">&quot;DRY TORT&quot;</span>))</span></code></pre></div>
+<p><br><br></p>
+</div>
 </div>
 </div>
 <div id="about-the-data" class="section level2">
 <h2>About the data</h2>
+<p><br></p>
+<div id="benthic-2" class="section level3 tabset">
+<h3 class="tabset">Benthic</h3>
+<div id="coral-species" class="section level4">
+<h4>Coral Species</h4>
+<p>BLAH BLAH</p>
+</div>
+<div id="regions" class="section level4">
+<h4>Regions</h4>
+<p>BLAH BLAH</p>
+<p><br></p>
+</div>
+</div>
+<div id="fish-2" class="section level3 tabset">
+<h3 class="tabset">Fish</h3>
+<div id="fish-species" class="section level4">
+<h4>Fish Species</h4>
+<p>BLAH BLAH</p>
+</div>
+<div id="regions-1" class="section level4">
+<h4>Regions</h4>
+<p>BLAH BLAH</p>
+</div>
+</div>
 </div>
 
 

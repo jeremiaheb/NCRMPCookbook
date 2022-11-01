@@ -22,9 +22,15 @@ source("fish_plots/WrapperFunctions.R")
 source("fish_plots/QL_binned_LengthFreq.R")
 source("fish_plots/QL_SubregionDensityPlot.R")
 source("fish_plots/plot_horizontal_bar_shared_axis.R")
+#this block is invisible
+#add any sources or packages needed for figures below
 ```
 
 <br>
+
+<!-- 
+All figures are made using the species Ocyurus chrysurus (OCY CHRY) 
+-->
 
 ## Load data
 ```{r data, message=FALSE,warning=FALSE,class.source = 'fold-show'}
@@ -35,6 +41,26 @@ torts12_16 = getRvcData(years = 2012:2016, regions = c("DRY TORT"))
 <br>
 
 ## Plots
+
+<!-- To add another figure set:
+### Figure type title {.tabset}
+
+#### Defaults
+'''{r example, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+  #include function call here - only include required parameters
+  #be sure to list all parameters with descriptive comments
+'''
+
+#### Alt
+'''{r example, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+  #include function call here - include all parameters
+  #be sure to list all parameters with descriptive comments
+'''
+
+Defaults and alt are not necessarily required, but please include at least 2 variations of the figure.
+
+When the figure is added, save the image of one of the variations to the folder labeled "home-figs" and add it to the home page linking to the figure
+-->
 
 ### Top N density of subregion {.tabset}
 

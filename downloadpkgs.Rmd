@@ -10,17 +10,30 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Primary packages {.tabset}
 
-### Fish package
-<a href="https://github.com/jeremiaheb/rvc" target="_blank" style="color:blue"> Fish R Package GitHub</a>
-
-<br><br><br>
-
 ### Benthic package
 <a href="https://github.com/shgroves/NCRMP_benthics" target="_blank" style="color:blue"> Benthic R Package GitHub</a>
 
 <br><br><br>
 
+### Fish package
+<a href="https://github.com/jeremiaheb/rvc" target="_blank" style="color:blue"> Fish R Package GitHub</a>
+
+<br><br><br>
+
+
 ## Source files {.tabset}
+
+<!-- To add a download link, use the following format:
+<a href="path/to/file" download style="color:blue">Download ____</a>
+
+NOTE: All fish files should be in the folder fish_plots, and all benthic files should be in XXXXX. Both zip files should be remade when R scripts are added to the folders, and a note should be made at the top of updates.RMD with the date.
+-->
+
+### All benthic files
+TO BE ADDED
+
+### Individual benthic files
+TO BE ADDED
 
 ### All fish files
 <a href="./fish_plots/fish-files.zip" download style="color:blue">Download all files</a>
@@ -32,3 +45,4 @@ knitr::opts_chunk$set(echo = TRUE)
 <a href="./fish_plots/QL_binned_LengthFreq.R" download style="color:blue">QL_binned_LengthFreq.R</a> <br>
 <a href="./fish_plots/plot_horizontal_bar_shared_axis.R" download style="color:blue">plot_horizontal_bar_shared_axis.R</a> <br>
 <a href="./fish_plots/labeler.R" download style="color:blue">labeler.R</a> <br>
+
