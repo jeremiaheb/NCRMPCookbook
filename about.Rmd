@@ -11,13 +11,37 @@ title: "About this site"
 ### Benthic
 The benthic R package can be accessed <a href="https://github.com/shgroves/NCRMP_benthics" target="_blank" style="color:blue">here.</a>
 Instructions to download and install the package are available on the GitHub page. <br>
-In addition to the R package, the files for the benthic figures are available under the tab "Download" individually or in a zip file.
+In addition to the R package, the files for the benthic figures are available under the tab "Download" individually or in a zip file. <br><br>
+
+Download instructions: <br>
+1. Download the .zip file from GitHub (green "Code" button, download zip) <br>
+2. Open the .Rproj file inside the .zip in RStudio <br>
+3. Run the following code
+```{r eval=FALSE}
+install.packages('devtools') #if devtools is not already installed
+devtools::install()
+```
+<br>
+4. Exit the .Rproj and run the following code from your own project or workspace
+```{r eval=FALSE}
+library(ncrmp.benthics.analysis) 
+```
+
+
 <br><br><br>
 
 ### Fish
 The fish R package can be accessed <a href="https://github.com/jeremiaheb/rvc" target="_blank" style="color:blue">here.</a>
 Instructions to download and install the package are available on the GitHub page. <br>
-In addition to the R package, the files for the benthic figures are available under the tab "Download" individually or in a zip file.
+In addition to the R package, the files for the benthic figures are available under the tab "Download" individually or in a zip file. <br> <br>
+
+Download instructions: <br>
+1. Run the following code in R
+```{r eval=FALSE}
+install.packages('devtools') #skip if devtools is already installed
+devtools::install_github('jeremiaheb/rvc')
+```
+
 <br><br><br>
 
 
@@ -64,7 +88,7 @@ source("fish_plots/plot_horizontal_bar_shared_axis.R")
 
 #### Benthic
 Benthic data is downloaded with the package. <br>
-ADD MORE HERE
+When data sets are added, the package must me re-installed.
 <br><br>
 
 #### Fish
@@ -74,6 +98,7 @@ Data can be accessed using the method **getRvcData()**. See example below:
 keys11_14 = getRvcData(years = 2011:2014, regions = c("FLA KEYS"))
 torts12_16 = getRvcData(years = 2012:2016, regions = c("DRY TORT"))
 ```
+When data sets are added, no additional actions must be taken.
 <br><br>
 
 ## About the data 
@@ -83,17 +108,58 @@ torts12_16 = getRvcData(years = 2012:2016, regions = c("DRY TORT"))
 ### Benthic {.tabset}
 
 #### Coral Species
-BLAH BLAH
+<a href="benthic_plots/benthic_spp.txt" download style="color:blue">Download list of coral species</a>
 
 #### Regions
 BLAH BLAH
-
 <br>
 
 ### Fish {.tabset}
 
 #### Fish Species
-BLAH BLAH
+<a href="fish_plots/fish_spp.txt" download style="color:blue">Download list of fish species</a>
 
 #### Regions
-BLAH BLAH
+<!-- 
+To add a year
+*Add a set of "" to the end of every vector/list
+*Empty "" indiate no data that year, "X" indicates available data
+
+To add a new location
+*Add the code to the rnames vector/list within ""
+*Then add a new list at the bottom with a code and indicate what years are available from that location, with enough "" for years from 1999 through the most recent year
+*Indicate what years data is available with "X" and unavailable as ""
+*Add this code to the end of the list in 'df'
+-->
+Option 1:
+```{r fish_reg, echo=FALSE}
+rnames <- c("DRY TORT", "FLA KEYS", "PRICO", "SEFCRI", "STTSTJ", "STC")
+cnames <- c(1999:2021)
+dt <- c("X", "X", "", "", "", "X", "", "X", "", "X", "", "X", "", "X", "", "X", "", "X", "", "X", "", "", "X")
+fk <- c("X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "", "X", "", "X", "", "X", "", "", "")
+pr <- c("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "X", "", "", "X", "", "X")
+se <- c("", "", "", "", "", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X", "", "X", "", "", "X")
+stj <- c("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "X", "", "X", "", "X")
+stc <- c("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "X", "", "X", "", "X")
+df <- data.frame(dt, fk, pr, se, stj, stc)
+df <- data.frame(t(df))
+colnames(df) <- cnames
+rownames(df) <- rnames
+knitr::kable(df)
+```
+
+Option 2:
+```{r fish_reg2, echo=FALSE}
+cnames <- c("DRY TORT", "FLA KEYS", "PRICO", "SEFCRI", "STTSTJ", "STC")
+rnames <- c(1999:2021)
+dt <- c("X", "X", "", "", "", "X", "", "X", "", "X", "", "X", "", "X", "", "X", "", "X", "", "X", "", "", "X")
+fk <- c("X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "", "X", "", "X", "", "X", "", "", "")
+pr <- c("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "X", "", "", "X", "", "X")
+se <- c("", "", "", "", "", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X", "", "X", "", "", "X")
+stj <- c("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "X", "", "X", "", "X")
+stc <- c("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "X", "", "X", "", "X")
+df <- data.frame(dt, fk, pr, se, stj, stc)
+colnames(df) <- cnames
+rownames(df) <- rnames
+knitr::kable(df)
+```

@@ -435,7 +435,16 @@ NCRMP Website</a>
 Instructions to download and install the package are available on the
 GitHub page. <br> In addition to the R package, the files for the
 benthic figures are available under the tab “Download” individually or
-in a zip file. <br><br><br></p>
+in a zip file. <br><br></p>
+<p>Download instructions: <br> 1. Download the .zip file from GitHub
+(green “Code” button, download zip) <br> 2. Open the .Rproj file inside
+the .zip in RStudio <br> 3. Run the following code</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;devtools&#39;</span>) <span class="co">#if devtools is not already installed</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install</span>()</span></code></pre></div>
+<p><br> 4. Exit the .Rproj and run the following code from your own
+project or workspace</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ncrmp.benthics.analysis) </span></code></pre></div>
+<p><br><br><br></p>
 </div>
 <div id="fish" class="section level3">
 <h3>Fish</h3>
@@ -444,7 +453,11 @@ in a zip file. <br><br><br></p>
 Instructions to download and install the package are available on the
 GitHub page. <br> In addition to the R package, the files for the
 benthic figures are available under the tab “Download” individually or
-in a zip file. <br><br><br></p>
+in a zip file. <br> <br></p>
+<p>Download instructions: <br> 1. Run the following code in R</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;devtools&#39;</span>) <span class="co">#skip if devtools is already installed</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;jeremiaheb/rvc&#39;</span>)</span></code></pre></div>
+<p><br><br><br></p>
 </div>
 </div>
 <div id="getting-started" class="section level2">
@@ -463,20 +476,20 @@ libraries, use the following: <br> Benthic:
 template: <br> <strong>source(“path/to/file.R”)</strong> <br></p>
 <div id="benthic-files-and-libraries-example" class="section level5">
 <h5>Benthic files and libraries example</h5>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ncrmp.benthics.analysis)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ncrmp.benthics.analysis)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p><br></p>
 </div>
 <div id="fish-files-and-libraries-example" class="section level5">
 <h5>Fish files and libraries example</h5>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvc)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/theme_publication.R&quot;</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/labeler.R&quot;</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/WrapperFunctions.R&quot;</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/QL_binned_LengthFreq.R&quot;</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/QL_SubregionDensityPlot.R&quot;</span>)</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/plot_horizontal_bar_shared_axis.R&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvc)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/theme_publication.R&quot;</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/labeler.R&quot;</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/WrapperFunctions.R&quot;</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/QL_binned_LengthFreq.R&quot;</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/QL_SubregionDensityPlot.R&quot;</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&quot;fish_plots/plot_horizontal_bar_shared_axis.R&quot;</span>)</span></code></pre></div>
 <p><br></p>
 </div>
 </div>
@@ -485,17 +498,18 @@ template: <br> <strong>source(“path/to/file.R”)</strong> <br></p>
 <h3 class="tabset">Load data</h3>
 <div id="benthic-1" class="section level4">
 <h4>Benthic</h4>
-<p>Benthic data is downloaded with the package. <br> ADD MORE HERE
-<br><br></p>
+<p>Benthic data is downloaded with the package. <br> When data sets are
+added, the package must me re-installed. <br><br></p>
 </div>
 <div id="fish-1" class="section level4">
 <h4>Fish</h4>
 <p>Fish data is not included in the package download, and must be
 accessed from the server. <br> Data can be accessed using the method
 <strong>getRvcData()</strong>. See example below:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>keys11_14 <span class="ot">=</span> <span class="fu">getRvcData</span>(<span class="at">years =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2014</span>, <span class="at">regions =</span> <span class="fu">c</span>(<span class="st">&quot;FLA KEYS&quot;</span>))</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>torts12_16 <span class="ot">=</span> <span class="fu">getRvcData</span>(<span class="at">years =</span> <span class="dv">2012</span><span class="sc">:</span><span class="dv">2016</span>, <span class="at">regions =</span> <span class="fu">c</span>(<span class="st">&quot;DRY TORT&quot;</span>))</span></code></pre></div>
-<p><br><br></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>keys11_14 <span class="ot">=</span> <span class="fu">getRvcData</span>(<span class="at">years =</span> <span class="dv">2011</span><span class="sc">:</span><span class="dv">2014</span>, <span class="at">regions =</span> <span class="fu">c</span>(<span class="st">&quot;FLA KEYS&quot;</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>torts12_16 <span class="ot">=</span> <span class="fu">getRvcData</span>(<span class="at">years =</span> <span class="dv">2012</span><span class="sc">:</span><span class="dv">2016</span>, <span class="at">regions =</span> <span class="fu">c</span>(<span class="st">&quot;DRY TORT&quot;</span>))</span></code></pre></div>
+<p>When data sets are added, no additional actions must be taken.
+<br><br></p>
 </div>
 </div>
 </div>
@@ -506,11 +520,449 @@ accessed from the server. <br> Data can be accessed using the method
 <h3 class="tabset">Benthic</h3>
 <div id="coral-species" class="section level4">
 <h4>Coral Species</h4>
-<p>BLAH BLAH</p>
+<p><a href="benthic_plots/benthic_spp.txt" download style="color:blue">Download
+list of coral species</a></p>
 </div>
 <div id="regions" class="section level4">
 <h4>Regions</h4>
-<p>BLAH BLAH</p>
+<p>Option 1:</p>
+<table style="width:100%;">
+<colgroup>
+<col width="7%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+<col width="4%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">1999</th>
+<th align="left">2000</th>
+<th align="left">2001</th>
+<th align="left">2002</th>
+<th align="left">2003</th>
+<th align="left">2004</th>
+<th align="left">2005</th>
+<th align="left">2006</th>
+<th align="left">2007</th>
+<th align="left">2008</th>
+<th align="left">2009</th>
+<th align="left">2010</th>
+<th align="left">2011</th>
+<th align="left">2012</th>
+<th align="left">2013</th>
+<th align="left">2014</th>
+<th align="left">2015</th>
+<th align="left">2016</th>
+<th align="left">2017</th>
+<th align="left">2018</th>
+<th align="left">2019</th>
+<th align="left">2020</th>
+<th align="left">2021</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">DRY TORT</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">X</td>
+</tr>
+<tr class="even">
+<td align="left">FLA KEYS</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">PRICO</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+</tr>
+<tr class="even">
+<td align="left">SEFCRI</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">X</td>
+</tr>
+<tr class="odd">
+<td align="left">STTSTJ</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+</tr>
+<tr class="even">
+<td align="left">STC</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+</tr>
+</tbody>
+</table>
+<p>Option 2:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">DRY TORT</th>
+<th align="left">FLA KEYS</th>
+<th align="left">PRICO</th>
+<th align="left">SEFCRI</th>
+<th align="left">STTSTJ</th>
+<th align="left">STC</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">1999</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">2000</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">2001</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">2002</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">2003</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">2004</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">2005</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">2006</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">2007</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">2008</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">2009</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">2010</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">2011</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">2012</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">2013</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">2014</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">2015</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">2016</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">2017</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left">X</td>
+</tr>
+<tr class="even">
+<td align="left">2018</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">2019</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left">X</td>
+</tr>
+<tr class="even">
+<td align="left">2020</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">2021</td>
+<td align="left">X</td>
+<td align="left"></td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+<td align="left">X</td>
+</tr>
+</tbody>
+</table>
 <p><br></p>
 </div>
 </div>
@@ -518,7 +970,8 @@ accessed from the server. <br> Data can be accessed using the method
 <h3 class="tabset">Fish</h3>
 <div id="fish-species" class="section level4">
 <h4>Fish Species</h4>
-<p>BLAH BLAH</p>
+<p><a href="fish_plots/fish_spp.txt" download style="color:blue">Download
+list of fish species</a></p>
 </div>
 <div id="regions-1" class="section level4">
 <h4>Regions</h4>

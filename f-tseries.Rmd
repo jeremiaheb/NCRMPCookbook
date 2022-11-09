@@ -42,7 +42,7 @@ torts12_16 = getRvcData(years = 2012:2016, regions = c("DRY TORT"))
 
 ## Plots
 
-<!-- To add another figure set:
+<!-- To add another figure set (the #s control the headers):
 ### Figure type title {.tabset}
 
 #### Defaults
