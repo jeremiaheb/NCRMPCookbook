@@ -6,13 +6,13 @@ navbar:
     - text: "Home"
       href: index.html
       icon: fa-home
-    - text: "About"
+    - text: "Getting started"
       href: about.html
       icon: fa-user
     - text: "Updates"
       href: updates.html
       icon: fa-edit
-    - text: "Download"
+    - text: "File download"
       href: downloadpkgs.html
       icon: fa-download
     - text: "Benthic"
@@ -29,6 +29,8 @@ navbar:
         href: f-freqcomp.html
       - text: "Single year plots"
         href: f-singyr.html
+    - text: "Test page"
+      href: test.html
 output:
   html_document:
     theme: sandstone

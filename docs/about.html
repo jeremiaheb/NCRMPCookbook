@@ -30,6 +30,14 @@
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="site_libs/datatables-binding-0.26/datatables.js"></script>
+<link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -351,7 +359,7 @@ $(document).ready(function () {
   <a href="about.html">
     <span class="fa fa-user"></span>
      
-    About
+    Getting started
   </a>
 </li>
 <li>
@@ -365,7 +373,7 @@ $(document).ready(function () {
   <a href="downloadpkgs.html">
     <span class="fa fa-download"></span>
      
-    Download
+    File download
   </a>
 </li>
 <li class="dropdown">
@@ -401,6 +409,9 @@ $(document).ready(function () {
       <a href="f-singyr.html">Single year plots</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="test.html">Test page</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -548,444 +559,12 @@ To add a new location
 *Indicate what years data is available with "X" and unavailable as ""
 *Add this code to the end of the list in 'df'
 -->
-<p>Option 1:</p>
-<table style="width:100%;">
-<colgroup>
-<col width="7%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-<col width="4%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">1999</th>
-<th align="left">2000</th>
-<th align="left">2001</th>
-<th align="left">2002</th>
-<th align="left">2003</th>
-<th align="left">2004</th>
-<th align="left">2005</th>
-<th align="left">2006</th>
-<th align="left">2007</th>
-<th align="left">2008</th>
-<th align="left">2009</th>
-<th align="left">2010</th>
-<th align="left">2011</th>
-<th align="left">2012</th>
-<th align="left">2013</th>
-<th align="left">2014</th>
-<th align="left">2015</th>
-<th align="left">2016</th>
-<th align="left">2017</th>
-<th align="left">2018</th>
-<th align="left">2019</th>
-<th align="left">2020</th>
-<th align="left">2021</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">DRY TORT</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">X</td>
-</tr>
-<tr class="even">
-<td align="left">FLA KEYS</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">PRICO</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-</tr>
-<tr class="even">
-<td align="left">SEFCRI</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">X</td>
-</tr>
-<tr class="odd">
-<td align="left">STTSTJ</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-</tr>
-<tr class="even">
-<td align="left">STC</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-</tr>
-</tbody>
-</table>
-<p>Option 2:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="left"></th>
-<th align="left">DRY TORT</th>
-<th align="left">FLA KEYS</th>
-<th align="left">PRICO</th>
-<th align="left">SEFCRI</th>
-<th align="left">STTSTJ</th>
-<th align="left">STC</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">1999</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">2000</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">2001</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">2002</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">2003</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">2004</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">2005</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">2006</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">2007</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">2008</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">2009</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">2010</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">2011</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">2012</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">2013</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">2014</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">2015</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">2016</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">2017</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left">X</td>
-</tr>
-<tr class="even">
-<td align="left">2018</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">2019</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left">X</td>
-</tr>
-<tr class="even">
-<td align="left">2020</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">2021</td>
-<td align="left">X</td>
-<td align="left"></td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-<td align="left">X</td>
-</tr>
-</tbody>
-</table>
+<p>Option 1 (manual input):</p>
+<div id="htmlwidget-60574c877874750b625e" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-60574c877874750b625e">{"x":{"filter":"none","vertical":false,"data":[["1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021"],["X","X","","","","X","","X","","X","","X","","X","","X","","X","","X","","","X"],["X","X","X","X","X","X","X","X","X","X","X","X","X","X","","X","","X","","X","","",""],["","","","","","","","","","","","","","","","","","X","","","X","","X"],["","","","","","","","","","","","","","","X","X","X","X","","X","","","X"],["","","","","","","","","","","","","","","","","","","X","","X","","X"],["","","","","","","","","","","","","","","","","","","X","","X","","X"]],"container":"<table class=\"cell-border stripe\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>DRY TORT<\/th>\n      <th>FLA KEYS<\/th>\n      <th>PRICO<\/th>\n      <th>SEFCRI<\/th>\n      <th>STTSTJ<\/th>\n      <th>STC<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p>Option 2 (csv):</p>
+<div id="htmlwidget-1f5321215f3c92650b7d" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1f5321215f3c92650b7d">{"x":{"filter":"none","vertical":false,"data":[["1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021"],["X","X","","","","X","","X","","X","","X","","X","","X","","X","","X","",null,"X"],["X","X","X","X","X","X","X","X","X","X","X","X","X","X","","X","","X","","X","",null,""],["","","","","","","","","","","","","","","","","","X","","","X",null,"X"],["","","","","","","","","","","","","","","X","X","X","X","","X","",null,"X"],["","","","","","","","","","","","","","","","","","","X","","X",null,"X"],["","","","","","","","","","","","","","","","","","","X","","X",null,"X"]],"container":"<table class=\"cell-border stripe\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>DRY.TORT<\/th>\n      <th>FLA.KEYS<\/th>\n      <th>PRICO<\/th>\n      <th>SEFCRI<\/th>\n      <th>STTSTJ<\/th>\n      <th>STC<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>

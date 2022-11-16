@@ -8,12 +8,14 @@ urlcolor: blue
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+<br>
+
 ## Primary packages {.tabset}
 
 ### Benthic package
 <a href="https://github.com/shgroves/NCRMP_benthics" target="_blank" style="color:blue"> Benthic R Package GitHub</a>
 
-<br><br><br>
+<br><br>
 
 ### Fish package
 <a href="https://github.com/jeremiaheb/rvc" target="_blank" style="color:blue"> Fish R Package GitHub</a>
@@ -29,6 +31,9 @@ knitr::opts_chunk$set(echo = TRUE)
 NOTE: All fish files should be in the folder fish_plots, and all benthic files should be in XXXXX. Both zip files should be remade when R scripts are added to the folders, and a note should be made at the top of updates.RMD with the date.
 -->
 
+When downloading R scripts to source, be aware that if you have previously downloaded scripts and edited them that you can overwrite any changes by downloading all files as a zip. <br>
+It is reccomended to only download files you do not already have downloaded, especially if you have made edits.
+
 ### All benthic files
 TO BE ADDED
 
@@ -39,7 +44,17 @@ TO BE ADDED
 <a href="./fish_plots/fish-files.zip" download style="color:blue">Download all files</a>
 
 ### Indivisual fish files
-<a href="./fish_plots/WrapperFunctions.R" download style="color:blue">WrapperFunctions.R</a> <br>
+<details><summary><a href="./fish_plots/WrapperFunctions.R" download style="color:blue">WrapperFunctions.R</a></summary>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+enim ad minim veniam, quis nostrud exercitation ullamco laboris
+nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+nulla pariatur.
+
+</details> <br>
+
 <a href="./fish_plots/theme_publication.R" download style="color:blue">theme_publication.R</a> <br>
 <a href="./fish_plots/QL_SubregionDensityPlot.R" download style="color:blue">QL_SubregionDensityPlot.R</a> <br>
 <a href="./fish_plots/QL_binned_LengthFreq.R" download style="color:blue">QL_binned_LengthFreq.R</a> <br>

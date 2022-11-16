@@ -3,6 +3,25 @@ title: "National Coral Reef Monitoring Program R Cookbook"
 urlcolor: blue
 ---
 
+<br>
+
+:::: {class='fluid-row'}
+
+::: {class='col-md-2'}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+enim ad minim veniam, quis nostrud exercitation ullamco laboris
+nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+nulla pariatur. <br>
+
+<button> <a href="https://www.coris.noaa.gov/monitoring/" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold"> NCRMP Website</a></button>
+
+:::
+
+::: {class='col-md-10'}
+
 <!-- 
 The images below are hard coded.
 Any changes made to the code will not change them here.
@@ -72,5 +91,7 @@ folder, and coded in the following format.
   
 <!-- -->
 
-<p style="clear: both;">
 
+:::
+
+::::
