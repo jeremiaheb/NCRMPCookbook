@@ -8,6 +8,14 @@ output:
     toc_depth: 3
     code_folding: hide
 ---
+
+<style type="text/css">
+.main-container {
+  max-width: 90% !important;
+  margin: auto;
+}
+</style>
+
 # **Fish: Length frequency**
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)

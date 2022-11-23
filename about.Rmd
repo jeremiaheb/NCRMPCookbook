@@ -1,11 +1,53 @@
 ---
 title: "About this site"
 ---
+
+<style type="text/css">
+.main-container {
+  max-width: 90% !important;
+  margin: auto;
+}
+</style>
+
 <center>
 <button> <a href="https://www.coris.noaa.gov/monitoring/" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold"> NCRMP Website</a></button>
 </center>
 <br>
 
+:::: {class='fluid-row'}
+
+::: {class='col-md-3'}
+
+<fieldset>
+   <legend>Getting started checklist:</legend>
+</fieldset>
+
+### {.tabset}
+
+#### Benthic
+
+<fieldset>
+   <label><input type="checkbox" name="pkg"> Package downloaded and installed</label><br />
+   <label><input type="checkbox" name="load"> Package loaded into environment</label><br />
+   <label><input type="checkbox" name="source"> R scripts sourced</label><br />
+   <label><input type="checkbox" name="data"> Call data from package</label><br />
+</fieldset>
+
+#### Fish
+
+<fieldset>
+   <label><input type="checkbox" name="pkg"> Package installed</label><br />
+   <label><input type="checkbox" name="load"> Package loaded into environment</label><br />
+   <label><input type="checkbox" name="source"> R scripts sourced</label><br />
+   <label><input type="checkbox" name="data"> Data loaded into object in environment</label><br />
+</fieldset>
+
+:::
+
+::: {class='col-md-9'}
+
+<!-- SIDE BAR ABOVE
+REST OF PAGE BELOW -->
 
 ## What do I need to download? {.tabset}
 ### Benthic
@@ -41,7 +83,7 @@ Download instructions: <br>
 install.packages('devtools') #skip if devtools is already installed
 devtools::install_github('jeremiaheb/rvc')
 ```
-
+There may be warnings about packages not installed necessary for developing packages, this can be ignored or you can install the package if you so choose. 
 <br><br><br>
 
 
@@ -55,11 +97,16 @@ Once you have downloaded/installed all relevant R scripts and packages, they mus
 To use load installed NCRMP libraries, use the following: <br>
 Benthic: **library(ncrmp.benthics.analysis)** <br>
 Fish: **library(rvc)**
+<br>
 
+#### Working directories
+You will want to make sure that you are working out of the same place on your computer as where you have stored all of the files downloaded from this site. If you aren't sure where your working directory is pointing, use the command **getwd()** in the console. Use **setwd()** to set a working directory [ex: **setwd("C:/Users/username/Desktop/NCRMP")**]. If you are using RStudio, you can set your working directory in the file viewer window under "More>Set As Working Directory".
+<br>
 
 #### How to source R files {.tabset}
 To use the files downloaded here as .R scripts, use the following template: <br>
-**source("path/to/file.R")**
+**source("path/to/file.R")** <br>
+This will allow you to load the functions in the scripts for your own figures without running the code for each function individually in the console.
 <br>
 
 ##### Benthic files and libraries example
@@ -98,7 +145,19 @@ Data can be accessed using the method **getRvcData()**. See example below:
 keys11_14 = getRvcData(years = 2011:2014, regions = c("FLA KEYS"))
 torts12_16 = getRvcData(years = 2012:2016, regions = c("DRY TORT"))
 ```
-When data sets are added, no additional actions must be taken.
+When data sets are added, no additional actions must be taken. <br>
+
+Below are the locations where fish data is provided. The code must be used when getting data from the server rather than the name.
+```{r fishloc, message=FALSE,warning=FALSE}
+library("DT")
+data <- read.csv("fish_plots/NCRMP-f-loc.csv")
+df <- data.frame(data)
+datatable(df, class = 'cell-border stripe', 
+          options = list(ordering=F), rownames = FALSE)
+```
+<br>
+When loading data, you can retrieve data for multiple regions and years at once, but for many of the figures shown on this site, you will want to only grab data for one location at a time as shown above. It is much easier to work with data from one location at a time. 
+
 <br><br>
 
 ## About the data 
@@ -121,40 +180,12 @@ BLAH BLAH
 
 #### Regions
 <!-- 
-To add a year
-*Add a set of "" to the end of every vector/list
-*Empty "" indiate no data that year, "X" indicates available data
-
-To add a new location
-*Add the code to the rnames vector/list within ""
-*Then add a new list at the bottom with a code and indicate what years are available from that location, with enough "" for years from 1999 through the most recent year
-*Indicate what years data is available with "X" and unavailable as ""
-*Add this code to the end of the list in 'df'
+To add to the table, edit the NCRMP-f-datayrs.csv
 -->
-Option 1 (manual input):
-```{r fish_reg, echo=FALSE, messages=FALSE, warning=FALSE}
-library("DT")
-cnames <- c("DRY TORT", "FLA KEYS", "PRICO", "SEFCRI", "STTSTJ", "STC")
-rnames <- c(1999:2021)
-dt <- c("X", "X", "", "", "", "X", "", "X", "", "X", "", "X", "", "X", "", "X", "", "X", "", "X", "", "", "X")
-fk <- c("X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "X", "", "X", "", "X", "", "X", "", "", "")
-pr <- c("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "X", "", "", "X", "", "X")
-se <- c("", "", "", "", "", "", "", "", "", "", "", "", "", "", "X", "X", "X", "X", "", "X", "", "", "X")
-stj <- c("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "X", "", "X", "", "X")
-stc <- c("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "X", "", "X", "", "X")
-df <- data.frame(dt, fk, pr, se, stj, stc)
-colnames(df) <- cnames
-rownames(df) <- rnames
-datatable(df, class = 'cell-border stripe', 
-          options = list(ordering=F))
-```
 
-Option 2 (csv):
 ```{r fish_reg2, echo=FALSE, messages=FALSE, warning=FALSE}
 library("DT")
-cnames <- c("DRY TORT", "FLA KEYS", "PRICO", "SEFCRI", "STTSTJ", "STC")
-rnames <- c(1999:2021)
-data <- read.csv("benthic_plots/NCRMP-b-datayrs.csv", header = FALSE)
+data <- read.csv("fish_plots/NCRMP-f-datayrs.csv", header = FALSE)
 df <- data.frame(data[,-1], row.names = data[,1])
 colnames(df) <- as.character(df[1,])
 df <- df[-1,]
@@ -162,3 +193,8 @@ df <- data.frame(t(df))
 datatable(df, class = 'cell-border stripe', 
           options = list(ordering=F))
 ```
+
+
+:::
+
+::::

@@ -7,6 +7,14 @@ output:
     toc_depth: 4
 urlcolor: blue
 ---
+
+<style type="text/css">
+.main-container {
+  max-width: 90% !important;
+  margin: auto;
+}
+</style>
+
 <!-- Don't move!! -->
 <center>**Sign up for email updates:**  
 FORM HERE  

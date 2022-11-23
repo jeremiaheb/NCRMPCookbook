@@ -3,13 +3,36 @@ title: "National Coral Reef Monitoring Program R Cookbook"
 urlcolor: blue
 ---
 
-<details><summary><a href="./fish_plots/WrapperFunctions.R" download style="color:blue">WrapperFunctions.R</a></summary>
+<style type="text/css">
+.main-container {
+  max-width: 90% !important;
+  margin: auto;
+}
+</style>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-enim ad minim veniam, quis nostrud exercitation ullamco laboris
-nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-nulla pariatur.
 
-</details>
+<br>
+
+### All fish files
+<details><summary><a href="./fish_plots/fish-files.zip" download style="color:blue">Download all files</a></summary>
+
+Includes: <br>
+* WrapperFunctions.R
+* theme_publication.R
+* QL_SubregionDensityPlot.R
+* QL_binned_LengthFreq.R
+* plot_horizontal_bar_shared_axis.R
+* labeler.R
+
+</details> <br>
+
+### Indivisual fish files
+<details><summary><a href="./fish_plots/QL_binned_LengthFreq.R" download style="color:blue">QL_binned_LengthFreq.R</a></summary>
+
+Requires the following files to run:  
+<li>Milk</li>
+<li>Eggs</li>
+<li>Cereal</li>
+<li>Fruit</li> 
+
+</details> <br>

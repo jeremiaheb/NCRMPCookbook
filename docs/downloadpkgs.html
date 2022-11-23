@@ -321,6 +321,12 @@ $(document).ready(function () {
 </div>
 
 
+<style type="text/css">
+.main-container {
+  max-width: 90% !important;
+  margin: auto;
+}
+</style>
 <p><br></p>
 <div id="primary-packages" class="section level2 tabset">
 <h2 class="tabset">Primary packages</h2>
@@ -337,18 +343,28 @@ Fish R Package GitHub</a></p>
 <p><br><br><br></p>
 </div>
 </div>
-<div id="source-files" class="section level2 tabset">
-<h2 class="tabset">Source files</h2>
+<div id="graphplotting-scripts" class="section level2 tabset">
+<h2 class="tabset">Graph/plotting scripts</h2>
 <!-- To add a download link, use the following format:
-<a href="path/to/file" download style="color:blue">Download ____</a>
+
+<details><summary><a href="path/to/file" download style="color:blue">Download ____</a></summary>
+DETAILS:
+<li>blah blah</li>
+</details>
 
 NOTE: All fish files should be in the folder fish_plots, and all benthic files should be in XXXXX. Both zip files should be remade when R scripts are added to the folders, and a note should be made at the top of updates.RMD with the date.
 -->
+<details>
+<summary>
+If you have customized previously downloaded scripts…
+</summary>
 <p>When downloading R scripts to source, be aware that if you have
 previously downloaded scripts and edited them that you can overwrite any
 changes by downloading all files as a zip. <br> It is reccomended to
 only download files you do not already have downloaded, especially if
 you have made edits.</p>
+</details>
+<p><br></p>
 <div id="all-benthic-files" class="section level3">
 <h3>All benthic files</h3>
 <p>TO BE ADDED</p>
@@ -359,8 +375,31 @@ you have made edits.</p>
 </div>
 <div id="all-fish-files" class="section level3">
 <h3>All fish files</h3>
-<p><a href="./fish_plots/fish-files.zip" download style="color:blue">Download
-all files</a></p>
+<details>
+<summary>
+<a href="./fish_plots/fish-files.zip" download style="color:blue">Download
+all files</a>
+</summary>
+Includes: <br>
+<li>
+WrapperFunctions.
+</li>
+<li>
+theme_publication.R
+</li>
+<li>
+QL_SubregionDensityPlot.R
+</li>
+<li>
+QL_binned_LengthFreq.
+</li>
+<li>
+plot_horizontal_bar_shared_axis.R
+</li>
+<li>
+<p>labeler.R</p>
+</details>
+<p><br></p>
 </div>
 <div id="indivisual-fish-files" class="section level3">
 <h3>Indivisual fish files</h3>
@@ -368,23 +407,65 @@ all files</a></p>
 <summary>
 <a href="./fish_plots/WrapperFunctions.R" download style="color:blue">WrapperFunctions.R</a>
 </summary>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+Requires the following files to run: <br>
+<li>
+theme_publication.R
+</li>
+</details>
+<br>
+<details>
+<summary>
+<a href="./fish_plots/theme_publication.R" download style="color:blue">theme_publication.R</a>
+</summary>
+Requires the following files to run: <br>
+<li>
+N/A
+</li>
+</details>
+<br>
+<details>
+<summary>
+<a href="./fish_plots/QL_SubregionDensityPlot.R" download style="color:blue">QL_SubregionDensityPlot.R</a>
+</summary>
+Requires the following files to run: <br>
+<li>
+theme_publication.R
+</li>
+</details>
+<br>
+<details>
+<summary>
+<a href="./fish_plots/QL_binned_LengthFreq.R" download style="color:blue">QL_binned_LengthFreq.R</a>
+</summary>
+Requires the following files to run: <br>
+<li>
+labeler.R
+</li>
+<li>
+theme_publication.R
+</li>
+</details>
+<br>
+<details>
+<summary>
+<a href="./fish_plots/plot_horizontal_bar_shared_axis.R" download style="color:blue">plot_horizontal_bar_shared_axis.R</a>
+</summary>
+Requires the following files to run: <br>
+<li>
+N/A
+</li>
+</details>
+<br>
+<details>
+<summary>
+<a href="./fish_plots/labeler.R" download style="color:blue">labeler.R</a>
+</summary>
+Requires the following files to run: <br>
+<li>
+N/A
+</li>
 </details>
 <p><br></p>
-<p><a href="./fish_plots/theme_publication.R" download style="color:blue">theme_publication.R</a>
-<br>
-<a href="./fish_plots/QL_SubregionDensityPlot.R" download style="color:blue">QL_SubregionDensityPlot.R</a>
-<br>
-<a href="./fish_plots/QL_binned_LengthFreq.R" download style="color:blue">QL_binned_LengthFreq.R</a>
-<br>
-<a href="./fish_plots/plot_horizontal_bar_shared_axis.R" download style="color:blue">plot_horizontal_bar_shared_axis.R</a>
-<br>
-<a href="./fish_plots/labeler.R" download style="color:blue">labeler.R</a>
-<br></p>
 </div>
 </div>
 
