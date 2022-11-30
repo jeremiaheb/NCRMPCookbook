@@ -1,5 +1,5 @@
 ---
-title: "National Coral Reef Monitoring Program R Cookbook"
+title: "Test page"
 urlcolor: blue
 ---
 
@@ -10,29 +10,26 @@ urlcolor: blue
 }
 </style>
 
+<!-- -->
 
-<br>
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(slickR)
+setwd("./home-figs") #setwd() is not persistent in R Markdown and will revert after this code chunk
+paths = list.files(".", pattern = ".jpg", all.files = TRUE)
+links = read.csv("fig-links.csv", header = FALSE)
+links = as.character(links[,1])
 
-### All fish files
-<details><summary><a href="./fish_plots/fish-files.zip" download style="color:blue">Download all files</a></summary>
+opts <- settings(
+  dots = TRUE,
+  initialSlide = 0,
+  slidesToShow = 2, 
+  slidesToScroll = 1, 
+  focusOnSelect = TRUE,
+  autoplay = TRUE)
 
-Includes: <br>
-* WrapperFunctions.R
-* theme_publication.R
-* QL_SubregionDensityPlot.R
-* QL_binned_LengthFreq.R
-* plot_horizontal_bar_shared_axis.R
-* labeler.R
+slickR::slickR(obj = paths, objLinks = links,
+               height = 300, width = '100%') + opts
+```
 
-</details> <br>
 
-### Indivisual fish files
-<details><summary><a href="./fish_plots/QL_binned_LengthFreq.R" download style="color:blue">QL_binned_LengthFreq.R</a></summary>
 
-Requires the following files to run:  
-<li>Milk</li>
-<li>Eggs</li>
-<li>Cereal</li>
-<li>Fruit</li> 
-
-</details> <br>

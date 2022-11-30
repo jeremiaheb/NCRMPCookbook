@@ -11,7 +11,7 @@
 
 
 
-<title>About this site</title>
+<title>Getting Started</title>
 
 <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -425,7 +425,7 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">About this site</h1>
+<h1 class="title toc-ignore">Getting Started</h1>
 
 </div>
 
@@ -508,9 +508,10 @@ in a zip file. <br> <br></p>
 <p>Download instructions: <br> 1. Run the following code in R</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;devtools&#39;</span>) <span class="co">#skip if devtools is already installed</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;jeremiaheb/rvc&#39;</span>)</span></code></pre></div>
-<p>There may be warnings about packages not installed necessary for
-developing packages, this can be ignored or you can install the package
-if you so choose. <br><br><br></p>
+<p>There may be warnings about packages (such as RTools) that are not
+installed and are necessary for developing packages - this can be
+ignored or you can install the package if you so choose.
+<br><br><br></p>
 </div>
 </div>
 <div id="getting-started" class="section level2">
@@ -518,6 +519,10 @@ if you so choose. <br><br><br></p>
 <p><br></p>
 <div id="load-libraries-and-scripts" class="section level3">
 <h3>Load libraries and scripts</h3>
+<button>
+<a href="https://kenzieknox.github.io/NCRMPCookbook/downloadpkgs.Rmd" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold">
+Download scripts here</a>
+</button>
 <p>Once you have downloaded/installed all relevant R scripts and
 packages, they must be loaded into R. <br> To use load installed NCRMP
 libraries, use the following: <br> Benthic:
@@ -579,11 +584,6 @@ accessed from the server. <br> Data can be accessed using the method
 <br></p>
 <p>Below are the locations where fish data is provided. The code must be
 used when getting data from the server rather than the name.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;DT&quot;</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;fish_plots/NCRMP-f-loc.csv&quot;</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(data)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">datatable</span>(df, <span class="at">class =</span> <span class="st">&#39;cell-border stripe&#39;</span>, </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">options =</span> <span class="fu">list</span>(<span class="at">ordering=</span>F), <span class="at">rownames =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <div id="htmlwidget-60574c877874750b625e" style="width:100%;height:auto;" class="datatables html-widget"></div>
 <script type="application/json" data-for="htmlwidget-60574c877874750b625e">{"x":{"filter":"none","vertical":false,"data":[["Dry Tortugas","Florida Keys","Puerto Rico","Southeast Peninsular Florida","St. Thomas/St. John","St. Croix"],["DRY TORT","FLA KEYS","PRICO","SEFCRI","STTSTJ","STX"]],"container":"<table class=\"cell-border stripe\">\n  <thead>\n    <tr>\n      <th>Name<\/th>\n      <th>Code<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"columnDefs":[],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p><br> When loading data, you can retrieve data for multiple regions
@@ -622,7 +622,7 @@ list of fish species</a></p>
 To add to the table, edit the NCRMP-f-datayrs.csv
 -->
 <div id="htmlwidget-1f5321215f3c92650b7d" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1f5321215f3c92650b7d">{"x":{"filter":"none","vertical":false,"data":[["1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021"],["X","X","","","","X","","X","","X","","X","","X","","X","","X","","X","",null,"X"],["X","X","X","X","X","X","X","X","X","X","X","X","X","X","","X","","X","","X","",null,""],["","","","","","","","","","","","","","","","","","X","","","X",null,"X"],["","","","","","","","","","","","","","","X","X","X","X","","X","",null,"X"],["","","","","","","","","","","","","","","","","","","X","","X",null,"X"],["","","","","","","","","","","","","","","","","","","X","","X",null,"X"]],"container":"<table class=\"cell-border stripe\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>DRY.TORT<\/th>\n      <th>FLA.KEYS<\/th>\n      <th>PRICO<\/th>\n      <th>SEFCRI<\/th>\n      <th>STTSTJ<\/th>\n      <th>STX<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-1f5321215f3c92650b7d">{"x":{"filter":"none","vertical":false,"data":[["1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021"],["X","X","","","","X","","X","","X","","X","","X","","X","","X","","X","",null,"X"],["X","X","X","X","X","X","X","X","X","X","X","X","X","X","","X","","X","","X","",null,""],["","","","","","","","","","","","","","","","","","X","","","X",null,"X"],["","","","","","","","","","","","","","","X","X","X","X","","X","",null,"X"],["","","","","","","","","","","","","","","","","","","X","","X",null,"X"],["","","","","","","","","","","","","","","","","","","X","","X",null,"X"]],"container":"<table class=\"cell-border stripe\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>DRY.TORT<\/th>\n      <th>FLA.KEYS<\/th>\n      <th>PRICO<\/th>\n      <th>SEFCRI<\/th>\n      <th>STTSTJ<\/th>\n      <th>STX<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"pageLength":25,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
