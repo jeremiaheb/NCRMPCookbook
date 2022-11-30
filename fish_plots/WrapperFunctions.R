@@ -1,8 +1,9 @@
-plot_domain_den_by_year <- function(dataset, species, title = NULL, print_dataframe = FALSE) {
+plot_domain_den_by_year <- function(dataset, species, length = NULL, title = NULL, print_dataframe = FALSE) {
   
-  a <-  getDomainDensity(dataset, species) %>%
+  a <-  getDomainDensity(dataset, species, length_bins = length) %>%
     mutate( SE   = sqrt(var),
-            YEAR = as_factor(YEAR))
+            YEAR = as_factor(YEAR)) %>%
+    filter(if(!is.null(length)) length_class == paste(">= ", length, sep = "") else TRUE)
   
   yupper = max(a$density + a$SE)
   
@@ -18,13 +19,14 @@ plot_domain_den_by_year <- function(dataset, species, title = NULL, print_datafr
   ifelse(isTRUE(print_dataframe), print(list(a,p)), print(p))
 }
 
-plot_domain_den_by_year_by_prot <- function(dataset, species, title = NULL, print_dataframe = FALSE) {
+plot_domain_den_by_year_by_prot <- function(dataset, species, length = NULL, title = NULL, print_dataframe = FALSE) {
   
-  a <-  getDomainDensity(dataset, species, merge_protected = F) %>%
+  a <-  getDomainDensity(dataset, species, length_bins = length, merge_protected = F) %>%
     filter(!protected_status == "all") %>%
     mutate( SE   = sqrt(var),
             YEAR = as_factor(YEAR),
-            protected_status = as_factor(protected_status))
+            protected_status = as_factor(protected_status)) %>%
+    filter(if(!is.null(length)) length_class == paste(">= ", length, sep = "") else TRUE)
   
   yupper = max(a$density + a$SE)
   
@@ -42,12 +44,13 @@ plot_domain_den_by_year_by_prot <- function(dataset, species, title = NULL, prin
   
 }
 
-plot_stratum_den_by_year <- function(dataset, species, title = NULL, print_dataframe = FALSE) {
+plot_stratum_den_by_year <- function(dataset, species, length = NULL, title = NULL, print_dataframe = FALSE) {
   
-  a <-  getStratumDensity(dataset, species) %>%
+  a <-  getStratumDensity(dataset, species, length_bins = length) %>%
     mutate( SE   = sqrt(var),
             YEAR = as_factor(YEAR),
-            PROT = as_factor(PROT))
+            PROT = as_factor(PROT)) %>%
+    filter(if(!is.null(length)) length_class == paste(">= ", length, sep = "") else TRUE)
     
   
   yupper = max(a$density + a$SE)
@@ -67,11 +70,12 @@ plot_stratum_den_by_year <- function(dataset, species, title = NULL, print_dataf
   
 }
 
-plot_domain_occ_by_year <- function(dataset, species, title = NULL, print_dataframe =FALSE) {
+plot_domain_occ_by_year <- function(dataset, species, length = NULL, title = NULL, print_dataframe =FALSE) {
   
-  a <- getDomainOccurrence(dataset, species,) %>%
+  a <- getDomainOccurrence(dataset, species, length_bins = length) %>%
     mutate(SE = sqrt(var),
-           YEAR = as_factor(YEAR))
+           YEAR = as_factor(YEAR)) %>%
+    filter(if(!is.null(length)) length_class == paste(">= ", length, sep = "") else TRUE)
   
   yupper = max(a$occurrence + a$SE)
   
@@ -87,13 +91,14 @@ plot_domain_occ_by_year <- function(dataset, species, title = NULL, print_datafr
   ifelse(isTRUE(print_dataframe), print(list(a,p)), print(p))
 }
 
-plot_domain_occ_by_year_by_prot <- function(dataset, species, title = NULL, print_dataframe = FALSE) {
+plot_domain_occ_by_year_by_prot <- function(dataset, species, length = NULL, title = NULL, print_dataframe = FALSE) {
   
-  a <-  getDomainOccurrence(dataset, species, merge_protected = F) %>%
+  a <-  getDomainOccurrence(dataset, species, length_bins = length, merge_protected = F) %>%
     filter(!protected_status == "all") %>%
     mutate( SE   = sqrt(var),
             YEAR = as_factor(YEAR),
-            protected_status = as_factor(protected_status))
+            protected_status = as_factor(protected_status)) %>%
+    filter(if(!is.null(length)) length_class == paste(">= ", length, sep = "") else TRUE)
   
   yupper = max(a$occurrence + a$SE)
   
@@ -110,12 +115,13 @@ plot_domain_occ_by_year_by_prot <- function(dataset, species, title = NULL, prin
   ifelse(isTRUE(print_dataframe), print(list(a,p)), print(p))
 }
 
-plot_stratum_occ_by_year <- function(dataset, species, title = NULL, print_dataframe = FALSE) {
+plot_stratum_occ_by_year <- function(dataset, species, length = NULL, title = NULL, print_dataframe = FALSE) {
   
-  a <-  getStratumOccurrence(dataset, species) %>%
+  a <-  getStratumOccurrence(dataset, species, length_bins = length) %>%
     mutate( SE   = sqrt(var),
             YEAR = as_factor(YEAR),
-            PROT = as_factor(PROT))
+            PROT = as_factor(PROT)) %>%
+    filter(if(!is.null(length)) length_class == paste(">= ", length, sep = "") else TRUE)
   
   
   yupper = max(a$occurrence + a$SE)
@@ -135,11 +141,12 @@ plot_stratum_occ_by_year <- function(dataset, species, title = NULL, print_dataf
   
 }
 
-plot_domain_biomass_by_year <- function(dataset, species, title = NULL, print_dataframe = FALSE) {
+plot_domain_biomass_by_year <- function(dataset, species, length = NULL, title = NULL, print_dataframe = FALSE) {
   
-  a <-  getDomainBiomass(dataset, species) %>%
+  a <-  getDomainBiomass(dataset, species, length_bins = length) %>%
     mutate( SE   = sqrt(var),
-            YEAR = as_factor(YEAR))
+            YEAR = as_factor(YEAR)) %>%
+    filter(if(!is.null(length)) length_class == paste(">= ", length, sep = "") else TRUE)
   
   yupper = max(a$biomass + a$SE)
   
@@ -179,12 +186,13 @@ plot_domain_biomass_by_year_by_prot <- function(dataset, species, title = NULL, 
   
 }
 
-plot_stratum_biomass_by_year <- function(dataset, species, title = NULL, print_dataframe = FALSE) {
+plot_stratum_biomass_by_year <- function(dataset, species, length = NULL, title = NULL, print_dataframe = FALSE) {
   
-  a <-  getStratumBiomass(dataset, species) %>%
+  a <-  getStratumBiomass(dataset, species, length_bins = length) %>%
     mutate( SE   = sqrt(var),
             YEAR = as_factor(YEAR),
-            PROT = as_factor(PROT))
+            PROT = as_factor(PROT)) %>%
+    filter(if(!is.null(length)) length_class == paste(">= ", length, sep = "") else TRUE)
   
   
   yupper = max(a$biomass + a$SE)
