@@ -75,6 +75,7 @@ When the figure is added, save the image of one of the variations to the folder 
 ```{r ddy.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
 plot_domain_den_by_year(dataset = keys11_14, 
                         species = "ocy chry", 
+                        length = NULL, #only fish >= length parameter are plotted
                         title = NULL, #add a figure title
                         print_dataframe = FALSE) #prints data used for figure
 ```
@@ -83,9 +84,10 @@ plot_domain_den_by_year(dataset = keys11_14,
 #### Alt
 ```{r ddy.a, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
 plot_domain_den_by_year(dataset = keys11_14, 
-                        species = "OCY CHRY", 
-                        title = expression(paste(italic("Ocyurus chrysurus"), #Allows scientific name to be italicized
-                                                " in the Florida Keys")), 
+                        species = "OCY CHRY",
+                        length = 30, #30cm length at capture in Florida
+                        title = expression(paste(italic("O. chrysurus"), #Allows scientific name to be italicized
+                                                " >= 30cm in the Florida Keys")), 
                         print_dataframe = TRUE) #prints data used for figure
 ```
 <br><br>
@@ -95,7 +97,8 @@ plot_domain_den_by_year(dataset = keys11_14,
 #### Defaults
 ```{r ddyp.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
 plot_domain_den_by_year_by_prot(dataset = keys11_14, 
-                        species = "ocy chry", 
+                        species = "ocy chry",
+                        length = NULL, #only fish >= length parameter are plotted
                         title = NULL, #add a figure title
                         print_dataframe = FALSE) #prints data used for figure
 ```
@@ -104,9 +107,10 @@ plot_domain_den_by_year_by_prot(dataset = keys11_14,
 #### Alt
 ```{r ddyp.a, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
 plot_domain_den_by_year_by_prot(dataset = keys11_14, 
-                        species = "OCY CHRY", 
-                        title = expression(paste(italic("Ocyurus chrysurus"), #Allows scientific name to be italicized
-                                                " in the Florida Keys")), 
+                        species = "OCY CHRY",
+                        length = 30, #30cm length at capture in Florida
+                        title = expression(paste(italic("O. chrysurus"), #Allows scientific name to be italicized
+                                                " >=30cm in the Florida Keys")), 
                         print_dataframe = TRUE) #prints data used for figure
 ```
 <br><br>
@@ -117,6 +121,7 @@ plot_domain_den_by_year_by_prot(dataset = keys11_14,
 ```{r doc.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
 plot_domain_occ_by_year(data = torts12_16, #required
                         species = "OCY CHRY", #required
+                        length = NULL, #only fish >= length parameter are plotted
                         print_dataframe = FALSE, #prints data used for figure
                         title = NULL)#add a figure title
 ```
@@ -127,8 +132,9 @@ plot_domain_occ_by_year(data = torts12_16, #required
 plot_domain_occ_by_year(data = torts12_16, #required
                         species = "ocy chry", #required
                         print_dataframe = TRUE, #prints data used for figure
-                        title = expression(paste(italic("Ocyurus chrysurus"), #Allows scientific name to be italicized
-                                                " in the Dry Tortugas")))
+                        length = 30, #30cm length at capture in Florida
+                        title = expression(paste(italic("O. chrysurus"), #Allows scientific name to be italicized
+                                                " >= 30cm in the Dry Tortugas")))
 ```
 <br><br>
 
@@ -138,6 +144,7 @@ plot_domain_occ_by_year(data = torts12_16, #required
 ```{r doyp.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
 plot_domain_occ_by_year_by_prot(data = torts12_16, #required
                         species = "ocy chry", #required
+                        length = NULL, #only fish >= length parameter are plotted
                         print_dataframe = FALSE, #prints data used for figure
                         title = NULL)#add a figure title
 ```
@@ -147,8 +154,9 @@ plot_domain_occ_by_year_by_prot(data = torts12_16, #required
 ```{r doyp.a, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
 plot_domain_occ_by_year_by_prot(data = torts12_16, #required
                         species = "OCY CHRY", #required
+                        length = NULL,
                         print_dataframe = TRUE, #prints data used for figure
-                        title = expression(paste(italic("Ocyurus chrysurus"), #Allows scientific name to be italicized
+                        title = expression(paste(italic("O. chrysurus"), #Allows scientific name to be italicized
                                                 " in the Dry Tortugas")))
 ```
 <br><br>
@@ -159,6 +167,7 @@ plot_domain_occ_by_year_by_prot(data = torts12_16, #required
 ```{r dby.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
 plot_domain_biomass_by_year(dataset = keys11_14, #required 
                             species = "ocy chry", #required
+                            length = NULL, #only fish >= length parameter are plotted
                             title = NULL, #add a figure title
                             print_dataframe = NULL) #prints data used for figure
 ```
@@ -168,7 +177,8 @@ plot_domain_biomass_by_year(dataset = keys11_14, #required
 ```{r dby.a, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
 plot_domain_biomass_by_year(dataset = keys11_14, #required 
                             species = "OCY CHRY", #required
-                            title = expression(paste(italic("Ocyurus chrysurus"), 
+                            length = NULL,
+                            title = expression(paste(italic("O. chrysurus"), 
                                                 " in the Florida Keys")),#Allows scientific name to be italicized
                             print_dataframe = TRUE) #prints data used for figure
 ```
@@ -189,7 +199,7 @@ plot_domain_biomass_by_year_by_prot(dataset = keys11_14, #required
 ```{r dbyp.a, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
 plot_domain_biomass_by_year_by_prot(dataset = keys11_14, #required 
                             species = "ocy chry", #required
-                            title = expression(paste(italic("Ocyurus chrysurus"), 
+                            title = expression(paste(italic("O. chrysurus"), 
                                                 " in the Florida Keys")),#Allows scientific name to be italicized
                             print_dataframe = TRUE) #prints data used for figure
 ```
@@ -201,6 +211,7 @@ plot_domain_biomass_by_year_by_prot(dataset = keys11_14, #required
 ```{r sdy.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
 plot_stratum_den_by_year(dataset = keys11_14, #required
                          species = "ocy chry", #required
+                         length = NULL, #only fish >= length parameter are plotted
                          title = NULL, #add a figure title
                          print_dataframe = FALSE) #prints data used for figure
 ```
@@ -210,8 +221,9 @@ plot_stratum_den_by_year(dataset = keys11_14, #required
 ```{r sdy.a, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
 plot_stratum_den_by_year(dataset = keys11_14, #required
                          species = "OCY CHRY", #required
-                         title = expression(paste(italic("Ocyurus chrysurus"), 
-                                                " in the Florida Keys")), #Allows scientific name to be italicized 
+                         length = 30, #30cm length at capture in Florida
+                         title = expression(paste(italic("O. chrysurus"), 
+                                                " >= 30cm in the Florida Keys")), #Allows scientific name to be italicized 
                          print_dataframe = TRUE) #prints data used for figure
 ```
 <br><br>
@@ -222,6 +234,7 @@ plot_stratum_den_by_year(dataset = keys11_14, #required
 ```{r soy.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
 plot_stratum_occ_by_year(dataset = torts12_16, #required
                          species = "ocy chry", #required
+                         length = NULL, #only fish >= length parameter are plotted
                          title = NULL, #add a figure title 
                          print_dataframe = FALSE)#prints data used for figure
 ```
@@ -231,7 +244,8 @@ plot_stratum_occ_by_year(dataset = torts12_16, #required
 ```{r soy.a, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
 plot_stratum_den_by_year(dataset = torts12_16, #required
                          species = "OCY CHRY", #required
-                         title = expression(paste(italic("Ocyurus chrysurus"), 
+                         length = NULL,
+                         title = expression(paste(italic("O. chrysurus"), 
                                                 " in the Dry Tortugas")), #Allows scientific name to be italicized 
                          print_dataframe = TRUE)#prints data used for figure
 ```
@@ -243,6 +257,7 @@ plot_stratum_den_by_year(dataset = torts12_16, #required
 ```{r sby.d, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
 plot_stratum_biomass_by_year(dataset = keys11_14, #required
                          species = "OCY CHRY", #required
+                         length = NULL, #only fish >= length parameter are plotted
                          title = NULL, #add a figure title 
                          print_dataframe = FALSE)#prints data used for figure
 ```
@@ -252,8 +267,9 @@ plot_stratum_biomass_by_year(dataset = keys11_14, #required
 ```{r sby.a, warning=FALSE,message=FALSE,error=FALSE,results='hide', fig.keep='all'}
 plot_stratum_biomass_by_year(dataset = keys11_14, #required
                          species = "ocy chry", #required
-                         title = expression(paste(italic("Ocyurus chrysurus"), 
-                                                " in the Florida Keys")),#Allows scientific name to be italicized 
+                         length = 30, #30cm length at capture in Florida
+                         title = expression(paste(italic("O. chrysurus"), 
+                                                " >=30cm in the Florida Keys")),#Allows scientific name to be italicized 
                          print_dataframe = TRUE)#prints data used for figure
 ```
 <br><br>
