@@ -1,5 +1,5 @@
 ---
-title: "About this site"
+title: "Getting Started"
 ---
 
 <style type="text/css">
@@ -83,7 +83,7 @@ Download instructions: <br>
 install.packages('devtools') #skip if devtools is already installed
 devtools::install_github('jeremiaheb/rvc')
 ```
-There may be warnings about packages not installed necessary for developing packages, this can be ignored or you can install the package if you so choose. 
+There may be warnings about packages (such as RTools) that are not installed and are necessary for developing packages - this can be ignored or you can install the package if you so choose. 
 <br><br><br>
 
 
@@ -92,6 +92,9 @@ There may be warnings about packages not installed necessary for developing pack
 <br>
 
 ### Load libraries and scripts
+
+<button> <a href="https://kenzieknox.github.io/NCRMPCookbook/downloadpkgs.Rmd" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold"> Download scripts here</a></button>
+<br>
 
 Once you have downloaded/installed all relevant R scripts and packages, they must be loaded into R. <br>
 To use load installed NCRMP libraries, use the following: <br>
@@ -148,7 +151,7 @@ torts12_16 = getRvcData(years = 2012:2016, regions = c("DRY TORT"))
 When data sets are added, no additional actions must be taken. <br>
 
 Below are the locations where fish data is provided. The code must be used when getting data from the server rather than the name.
-```{r fishloc, message=FALSE,warning=FALSE}
+```{r fishloc, message=FALSE,warning=FALSE, echo=FALSE}
 library("DT")
 data <- read.csv("fish_plots/NCRMP-f-loc.csv")
 df <- data.frame(data)
@@ -191,7 +194,7 @@ colnames(df) <- as.character(df[1,])
 df <- df[-1,]
 df <- data.frame(t(df))
 datatable(df, class = 'cell-border stripe', 
-          options = list(ordering=F))
+          options = list(ordering=F, pageLength = 25))
 ```
 
 
