@@ -44,9 +44,6 @@ gg1 <- ggplot_gtable(ggplot_build(g1))
 gg2 <- ggplot_gtable(ggplot_build(g2))
 gg.mid <- ggplot_gtable(ggplot_build(g.mid))
 
-ggsave(filename = paste(data$REGION[1],"_Occ_v_CV_2.jpg", sep = ""), plot = grid.arrange(gg1,gg.mid,gg2,ncol=3,widths=c(3.5/9,2/9,3.5/9)) , width = 9.8, height = 6.5, dpi = 300, units = "in", device = "jpg")
-
-
 grid.arrange(gg1,gg.mid,gg2,ncol=3,widths=c(3.5/9,2/9,3.5/9))
 
 }
