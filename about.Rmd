@@ -93,9 +93,6 @@ There may be warnings about packages (such as RTools) that are not installed and
 
 ### Load libraries and scripts
 
-<button> <a href="https://kenzieknox.github.io/NCRMPCookbook/downloadpkgs.Rmd" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold"> Download scripts here</a></button>
-<br>
-
 Once you have downloaded/installed all relevant R scripts and packages, they must be loaded into R. <br>
 To use load installed NCRMP libraries, use the following: <br>
 Benthic: **library(ncrmp.benthics.analysis)** <br>
@@ -107,6 +104,10 @@ You will want to make sure that you are working out of the same place on your co
 <br>
 
 #### How to source R files {.tabset}
+
+<button> <a href="https://kenzieknox.github.io/NCRMPCookbook/downloadpkgs.Rmd" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold"> Download scripts here</a></button>
+<br>
+
 To use the files downloaded here as .R scripts, use the following template: <br>
 **source("path/to/file.R")** <br>
 This will allow you to load the functions in the scripts for your own figures without running the code for each function individually in the console.

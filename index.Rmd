@@ -16,12 +16,9 @@ urlcolor: blue
 
 ::: {class='col-md-2'}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-enim ad minim veniam, quis nostrud exercitation ullamco laboris
-nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-nulla pariatur. <br>
+First time here or first time using R? Head to <a href="https://kenzieknox.github.io/NCRMPCookbook/about.html">GETTING STARTED</a> <br> <br>
+
+Looking for fish time series? Click <a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html">here.</a> <br> <br> 
 
 <button> <a href="https://www.coris.noaa.gov/monitoring/" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold"> NCRMP Website</a></button>
 
@@ -49,77 +46,6 @@ opts <- settings(
 slickR::slickR(obj = paths, objLinks = links,
                height = 300, width = '100%') + opts
 ```
-
-
-
-<!-- 
-The images below are hard coded.
-Any changes made to the code will not change them here.
-Any images you want to add must be downloaded and placed in the home-figs 
-folder, and coded in the following format.
--->
-     
-<!-- 
-<a href="URL TO LINK TO">
-<img alt="ALT TEXT FOR IMAGE" src=./home-figs/IMAGE-NAME style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"?
-</a>
--->
-
-<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_density_by_year">
-  <img alt="OCY CHRY Domain density by year" src=./home-figs/domdenyr-OCYCHRY-keys-11_14.jpg style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-  </a>
-  
-<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_occurrences_by_year">
-  <img alt="OCY CHRY Domain occurrence by year" src=./home-figs/domoccyr-OCYCHRY-torts-12_16.jpg style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-  </a>
-  
-<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_biomass_by_year">
-  <img alt="OCY CHRY Domain biomass by year" src=./home-figs/dombioyr-OCYCHRY-keys-11_14.jpg style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-  </a>
-  
-<!-- -->
-
-<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_density_by_year_by_protected_status">
-  <img alt="OCY CHRY Domain occurrence by year by protected status" src=./home-figs/domdenyr_prot-OCYCHRY-keys-11_14.jpg style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-  </a>
-
-<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_occurrences_by_year_by_protected_status">
-  <img alt="OCY CHRY Domain occurrence by year by protected status" src=./home-figs/domoccyr_prot-OCYCHRY-torts-12_16.jpg style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-  </a>
-  
-<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Domain_biomass_by_year_by_by_protected_status">
-  <img alt="OCY CHRY Domain biomass by year by protected status" src=./home-figs/dombioyr_prot-OCYCHRY-keys-11_14.jpg style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-  </a>
-  
-<!-- -->
-  
-<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Stratum_density_by_year">
-  <img alt="OCY CHRY Stratum density by year" src=./home-figs/stratdenyr-OCYCHRY-keys-11_14.jpg style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-  </a>
-  
-<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Stratum_occurrence_by_year">
-  <img alt="OCY CHRY Stratum occurrence by year" src=./home-figs/stratoccyr-OCYCHRY-torts-12_16.jpg style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-  </a>
-  
-<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html#Stratum_biomass_by_year">
-  <img alt="OCY CHRY Stratum biomass by year" src=./home-figs/stratbioyr-OCYCHRY-keys-11_14.jpg style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-  </a>
-
-<!-- -->
-
-<a href="https://kenzieknox.github.io/NCRMPCookbook/f-freqcomp.html#Fork_length_frequency_comparison">
-  <img alt="OCY CHRY Fork length frequency" src=./home-figs/forklenfreq-OCYCHRY-keys-11_14.jpg style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-  </a>
-  
-<a href="https://kenzieknox.github.io/NCRMPCookbook/f-singyr.html#Top_N_density">
-  <img alt="Top N density" src=./home-figs/top25-torts-12.jpg style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-  </a>
-  
-<a href="https://kenzieknox.github.io/NCRMPCookbook/f-singyr.html#Species_occurrence_vs_CV_of_Density">
-  <img alt="Species occurrence vs CV of Density" src=./home-figs/svcv-keys-11.jpg style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
-  </a>
-  
-<!-- -->
 
 
 :::
