@@ -105,7 +105,7 @@ You will want to make sure that you are working out of the same place on your co
 
 #### How to source R files {.tabset}
 
-<button> <a href="https://kenzieknox.github.io/NCRMPCookbook/downloadpkgs.Rmd" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold"> Download scripts here</a></button>
+<button> <a href="https://kenzieknox.github.io/NCRMPCookbook/downloadpkgs.html" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold"> Download scripts here</a></button>
 <br>
 
 To use the files downloaded here as .R scripts, use the following template: <br>

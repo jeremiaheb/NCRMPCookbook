@@ -18,7 +18,18 @@ urlcolor: blue
 
 First time here or first time using R? Head to <a href="https://kenzieknox.github.io/NCRMPCookbook/about.html">GETTING STARTED</a> <br> <br>
 
-Looking for fish time series? Click <a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html">here.</a> <br> <br> 
+<details><summary>Benthic plots</summary>
+<a href="https://kenzieknox.github.io/NCRMPCookbook/b-tseries.html">Time series</a>
+</details>
+Description text yada yada
+<br>
+
+<details><summary>Fish plots <br> Description text blah blah</summary>
+<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html">Time series</a><br>
+<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html">Length frequency</a><br>
+<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html">Single year plots</a>
+</details> <br>
+
 
 <button> <a href="https://www.coris.noaa.gov/monitoring/" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold"> NCRMP Website</a></button>
 
@@ -27,7 +38,7 @@ Looking for fish time series? Click <a href="https://kenzieknox.github.io/NCRMPC
 ::: {class='col-md-10'}
 
 
-
+<center>**Fish Plot Examples**</center>
 ```{r carousel, echo=FALSE, warning=FALSE, message=FALSE}
 library(slickR)
 setwd("./home-figs") #setwd() is not persistent in R Markdown and will revert after this code chunk

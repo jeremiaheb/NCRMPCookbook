@@ -65,7 +65,7 @@ Includes: <br>
 <li>QL_SubregionDensityPlot.R</li>
 <li>QL_binned_LengthFreq.</li>
 <li>plot_horizontal_bar_shared_axis.R</li>
-<li>labeler.R  
+<li>labeler.R</li>
 
 </details> <br>
 
