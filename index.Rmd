@@ -16,18 +16,17 @@ urlcolor: blue
 
 ::: {class='col-md-2'}
 
-First time here or first time using R? Head to <a href="https://kenzieknox.github.io/NCRMPCookbook/about.html">GETTING STARTED</a> <br> <br>
+First time here or first time using R? Head to <a href="about.html">GETTING STARTED</a> <br> <br>
 
-<details><summary>Benthic plots</summary>
-<a href="https://kenzieknox.github.io/NCRMPCookbook/b-tseries.html">Time series</a>
+<details><summary>Benthic plots <br> Description text yada yada</summary>
+<a href="b-tseries.html">Time series</a>
 </details>
-Description text yada yada
 <br>
 
 <details><summary>Fish plots <br> Description text blah blah</summary>
-<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html">Time series</a><br>
-<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html">Length frequency</a><br>
-<a href="https://kenzieknox.github.io/NCRMPCookbook/f-tseries.html">Single year plots</a>
+<a href="f-tseries.html">Time series</a><br>
+<a href="f-tseries.html">Length frequency</a><br>
+<a href="f-tseries.html">Single year plots</a>
 </details> <br>
 
 

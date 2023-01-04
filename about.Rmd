@@ -97,16 +97,15 @@ Once you have downloaded/installed all relevant R scripts and packages, they mus
 To use load installed NCRMP libraries, use the following: <br>
 Benthic: **library(ncrmp.benthics.analysis)** <br>
 Fish: **library(rvc)**
-<br>
+<br><br>
 
 #### Working directories
 You will want to make sure that you are working out of the same place on your computer as where you have stored all of the files downloaded from this site. If you aren't sure where your working directory is pointing, use the command **getwd()** in the console. Use **setwd()** to set a working directory [ex: **setwd("C:/Users/username/Desktop/NCRMP")**]. If you are using RStudio, you can set your working directory in the file viewer window under "More>Set As Working Directory".
-<br>
+<br><br>
 
 #### How to source R files {.tabset}
 
-<button> <a href="https://kenzieknox.github.io/NCRMPCookbook/downloadpkgs.html" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold"> Download scripts here</a></button>
-<br>
+<button> <a href="downloadpkgs.html" target="_self" style="font-size:100%;color:#2471A3;font-weight:bold"> Download scripts here</a></button>
 
 To use the files downloaded here as .R scripts, use the following template: <br>
 **source("path/to/file.R")** <br>
@@ -165,8 +164,6 @@ When loading data, you can retrieve data for multiple regions and years at once,
 <br><br>
 
 ## About the data 
-
-<br>
 
 ### Benthic {.tabset}
 
