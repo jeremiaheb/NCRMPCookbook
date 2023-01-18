@@ -1,0 +1,50 @@
+/* WHOLE SITE THEME OVERRIDE */
+
+/* Hyperlinks */
+a {
+  color: #2471A3;
+  font-weight: 900;
+}
+
+/* Buttons */
+button { 
+    color:#30566D; 
+    background-color:#DCE7EE; 
+    border:2px solid; 
+    border-radius: 6px;
+    font-size: 16px;
+    padding: 6px 6px;
+    border-color: #30566D; 
+}
+
+/* Navbar dropdown menu color */
+.navbar-default .dropdown-menu {
+  background-color: #2c3e50 ;
+}
+
+/* Navbar dropdown menu hover color */
+.navbar-default .dropdown-menu>li>a:hover {
+    background-color: #364B61;
+  }
+  
+/* Body of site */
+body {
+  font-family: "Lato", "Helvetica Neue";
+  font-size: 15px;
+  line-height: 1.42857143;
+  color: #2c3e50;
+  background-color: #ffffff;
+}
+
+/* Sets the margins of the page */
+.main-container {
+  max-width: 90% !important;
+  margin: auto;
+}
+
+/* Controls the main heading of each page */
+h1.title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
