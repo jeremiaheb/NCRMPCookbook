@@ -1,5 +1,5 @@
 ---
-title: "Time series"
+title: "&nbsp;"
 output: 
   html_document:
     toc: true
@@ -7,13 +7,92 @@ output:
     code_folding: hide
 ---
 
+# **Benthic: Single year plots**
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Packages
-[Click 'code' to view.....................................................................................................................................................]{style="float:right"}
+```{r packages, include=FALSE, message=FALSE,warning=FALSE,class.source = 'fold-show'}
+library(ncrmp.benthics.analysis)
+library(tidyverse)
+source("benthic_plots/Benthic_Wrapper_functions.R")
+#this block is invisible
+#add any sources or packages needed for figures below
+```
 
+<br>
+
+<!-- 
+All figures are made using the species ______ 
+-->
 
 ## Load data
-[Click 'code' to view.....................................................................................................................................................]{style="float:right"}
+<!--
+```{r data, message=FALSE,warning=FALSE,class.source = 'fold-show'}
+
+```
+-->
+Data in this package is already included, and so doesn't have to be called unless you choose to store it in a local variable. 
+
+<br>
+
+## Plots
+
+<!-- To add another figure set (the #s control the headers):
+### Figure type title {.tabset}
+
+#### Defaults
+```{r example, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+  #include function call here - only include required parameters
+  #be sure to list all parameters with descriptive comments
+```
+
+#### Alt
+```{r example2, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+  #include function call here - include all parameters
+  #be sure to list all parameters with descriptive comments
+```
+
+Defaults and alt are not necessarily required, but please include at least 2 variations of the figure.
+
+When the figure is added, save the image of one of the variations to the folder labeled "home-figs" and add it to the home page linking to the figure
+-->
+
+### Domain density by year {.tabset}
+
+```{r ddby, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+  #include function call here - only include required parameters
+  #be sure to list all parameters with descriptive comments
+  plot_domain_den_by_year(project = "NCRMP", 
+                          region = "STTSTJ", 
+                          species_filter = "NULL", 
+                          title = "STTSTJ domain density by year", 
+                          print_dataframe = "NULL")
+```
+
+
+
+### Stratum density by year {.tabset}
+
+```{r sdby, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+  #include function call here - only include required parameters
+  #be sure to list all parameters with descriptive comments
+  plot_stratum_den_by_year(project = "NCRMP", 
+                           region = "STTSTJ", 
+                           species_filter = "NULL", 
+                           title = "STTSTJ stratum density by year", 
+                           print_dataframe = "NULL")
+```
+
+
+
+### Domain cover by year {.tabset}
+
+```{r dcby, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+  #include function call here - only include required parameters
+  #be sure to list all parameters with descriptive comments
+  plot_domain_cvr_by_year(region = "STTSTJ", 
+                          title = "STTSTJ domain cover by year", 
+                          cover_category = "HARD CORALS", 
+                          print_dataframe = "NULL")
+```

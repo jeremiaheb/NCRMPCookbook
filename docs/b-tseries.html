@@ -11,7 +11,7 @@
 
 
 
-<title>Time series</title>
+<title> </title>
 
 <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -372,6 +372,12 @@ div.tocify {
     <li>
       <a href="b-tseries.html">Time series</a>
     </li>
+    <li>
+      <a href="b-freqcomp.html">Length frequency</a>
+    </li>
+    <li>
+      <a href="b-singyr.html">Single year plots</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -394,9 +400,6 @@ div.tocify {
     </li>
   </ul>
 </li>
-<li>
-  <a href="test.html">Test page</a>
-</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -417,20 +420,115 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Time series</h1>
+<h1 class="title toc-ignore"> </h1>
 
 </div>
 
 
-<div id="packages" class="section level2">
-<h2>Packages</h2>
-<p><span style="float:right">Click ‘code’ to
-view…………………………………………………………………………………………………………………………………..</span></p>
-</div>
+<div id="benthic-single-year-plots" class="section level1">
+<h1><strong>Benthic: Single year plots</strong></h1>
+<p><br></p>
+<!-- 
+All figures are made using the species ______ 
+-->
 <div id="load-data" class="section level2">
 <h2>Load data</h2>
-<p><span style="float:right">Click ‘code’ to
-view…………………………………………………………………………………………………………………………………..</span></p>
+<!--
+
+-->
+<p>Data in this package is already included, and so doesn’t have to be
+called unless you choose to store it in a local variable.</p>
+<p><br></p>
+</div>
+<div id="plots" class="section level2">
+<h2>Plots</h2>
+<!-- To add another figure set (the #s control the headers):
+### Figure type title {.tabset}
+
+#### Defaults
+
+```r
+  #include function call here - only include required parameters
+  #be sure to list all parameters with descriptive comments
+```
+
+#### Alt
+
+```r
+  #include function call here - include all parameters
+  #be sure to list all parameters with descriptive comments
+```
+
+Defaults and alt are not necessarily required, but please include at least 2 variations of the figure.
+
+When the figure is added, save the image of one of the variations to the folder labeled "home-figs" and add it to the home page linking to the figure
+-->
+<div id="domain-density-by-year" class="section level3 tabset">
+<h3 class="tabset">Domain density by year</h3>
+<pre class="r"><code>  #include function call here - only include required parameters
+  #be sure to list all parameters with descriptive comments
+  plot_domain_den_by_year(project = &quot;NCRMP&quot;, 
+                          region = &quot;STTSTJ&quot;, 
+                          species_filter = &quot;NULL&quot;, 
+                          title = &quot;STTSTJ domain density by year&quot;, 
+                          print_dataframe = &quot;NULL&quot;)</code></pre>
+<p><img src="b-tseries_files/figure-html/ddby-1.png" width="672" /></p>
+<pre><code>## [[1]]
+## # A tibble: 5 × 9
+##   REGION  YEAR avDen    Var    SE CV_perc n_sites n_strat ngrtot
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;  &lt;int&gt;
+## 1 STTSTJ  2013  4.27 0.0658 0.257    6.00     203      11  50200
+## 2 STTSTJ  2015  3.94 0.0916 0.303    7.68     162      12  50465
+## 3 STTSTJ  2017  3.24 0.0443 0.211    6.50     230      12  50465
+## 4 STTSTJ  2019  3.02 0.0372 0.193    6.38     221      12  50465
+## 5 STTSTJ  2021  2.50 0.0281 0.168    6.72     143      12  50465</code></pre>
+</div>
+<div id="stratum-density-by-year" class="section level3 tabset">
+<h3 class="tabset">Stratum density by year</h3>
+<pre class="r"><code>  #include function call here - only include required parameters
+  #be sure to list all parameters with descriptive comments
+  plot_stratum_den_by_year(project = &quot;NCRMP&quot;, 
+                           region = &quot;STTSTJ&quot;, 
+                           species_filter = &quot;NULL&quot;, 
+                           title = &quot;STTSTJ stratum density by year&quot;, 
+                           print_dataframe = &quot;NULL&quot;)</code></pre>
+<p><img src="b-tseries_files/figure-html/sdby-1.png" width="672" /></p>
+<pre><code>## [[1]]
+## # A tibble: 59 × 10
+##    REGION  YEAR ANALYSIS_STRATUM STRAT     PROT      n avden   Var    SE CV_perc
+##    &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;     &lt;lgl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 STTSTJ  2013 AGRF_DEEP        AGRF_DEEP NA       16  6.24 0.736 0.858    13.8
+##  2 STTSTJ  2013 AGRF_SHLW        AGRF_SHLW NA       20  5.28 0.649 0.806    15.2
+##  3 STTSTJ  2013 BDRK_DEEP        BDRK_DEEP NA        6  5.47 1.91  1.38     25.3
+##  4 STTSTJ  2013 BDRK_SHLW        BDRK_SHLW NA       27  5.43 0.651 0.807    14.8
+##  5 STTSTJ  2013 HARD_DEEP        HARD_DEEP NA       19  4.74 0.273 0.523    11.0
+##  6 STTSTJ  2013 PTRF_DEEP        PTRF_DEEP NA       10  4.03 1.29  1.13     28.1
+##  7 STTSTJ  2013 PTRF_SHLW        PTRF_SHLW NA        7  2.66 0.629 0.793    29.8
+##  8 STTSTJ  2013 PVMT_DEEP        PVMT_DEEP NA       44  3.88 0.317 0.563    14.5
+##  9 STTSTJ  2013 PVMT_SHLW        PVMT_SHLW NA       36  2.84 0.127 0.356    12.6
+## 10 STTSTJ  2013 SCR_DEEP         SCR_DEEP  NA        9  2.21 0.733 0.856    38.7
+## # … with 49 more rows</code></pre>
+</div>
+<div id="domain-cover-by-year" class="section level3 tabset">
+<h3 class="tabset">Domain cover by year</h3>
+<pre class="r"><code>  #include function call here - only include required parameters
+  #be sure to list all parameters with descriptive comments
+  plot_domain_cvr_by_year(region = &quot;STTSTJ&quot;, 
+                          title = &quot;STTSTJ domain cover by year&quot;, 
+                          cover_category = &quot;HARD CORALS&quot;, 
+                          print_dataframe = &quot;NULL&quot;)</code></pre>
+<p><img src="b-tseries_files/figure-html/dcby-1.png" width="672" /></p>
+<pre><code>## [[1]]
+## # A tibble: 5 × 10
+##   REGION  YEAR cover_group avCvr   Var    SE CV_perc n_sites n_strat ngrtot
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;  &lt;int&gt;
+## 1 STTSTJ  2013 HARD CORALS  8.25 1.09  1.05    12.7      283      11  50200
+## 2 STTSTJ  2015 HARD CORALS  7.17 0.451 0.671    9.36     255      12  50465
+## 3 STTSTJ  2017 HARD CORALS  5.37 0.267 0.517    9.64     235      12  50465
+## 4 STTSTJ  2019 HARD CORALS  4.19 0.138 0.371    8.85     239      12  50465
+## 5 STTSTJ  2021 HARD CORALS  4.27 0.211 0.459   10.8      147      12  50465</code></pre>
+</div>
+</div>
 </div>
 
 

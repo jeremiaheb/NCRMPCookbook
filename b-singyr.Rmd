@@ -1,0 +1,56 @@
+---
+title: "&nbsp;"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+---
+
+# **Benthic: Single year plots**
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r packages, include=FALSE, message=FALSE,warning=FALSE,class.source = 'fold-show'}
+library(ncrmp.benthics.analysis)
+library(tidyverse)
+source("benthic_plots/Benthic_Wrapper_functions.R")
+#this block is invisible
+#add any sources or packages needed for figures below
+```
+
+<br>
+
+<!-- 
+All figures are made using the species ______
+-->
+
+## Load data
+```{r data, message=FALSE,warning=FALSE,class.source = 'fold-show'}
+
+```
+
+<br>
+
+## Plots
+
+<!-- To add another figure set (the #s control the headers):
+### Figure type title {.tabset}
+
+#### Defaults
+```{r example, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+  #include function call here - only include required parameters
+  #be sure to list all parameters with descriptive comments
+```
+
+#### Alt
+```{r example2, warning=FALSE,message=FALSE,error=FALSE,results='hold', fig.keep='all'}
+  #include function call here - include all parameters
+  #be sure to list all parameters with descriptive comments
+```
+
+Defaults and alt are not necessarily required, but please include at least 2 variations of the figure.
+
+When the figure is added, save the image of one of the variations to the folder labeled "home-figs" and add it to the home page linking to the figure
+-->

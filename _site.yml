@@ -20,6 +20,10 @@ navbar:
       menu:
       - text: "Time series"
         href: b-tseries.html
+      - text: "Length frequency"
+        href: b-freqcomp.html
+      - text: "Single year plots"
+        href: b-singyr.html
     - text: "Fish"
       icon: fa-fish
       menu:
@@ -29,8 +33,6 @@ navbar:
         href: f-freqcomp.html
       - text: "Single year plots"
         href: f-singyr.html
-    - text: "Test page"
-      href: test.html
 output:
   html_document:
     theme: flatly

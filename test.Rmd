@@ -2,7 +2,10 @@
 title: "Test page"
 urlcolor: blue
 ---
-
+<!-- add the followinf to the _site.yml below "left" to add this test page to the nav
+    - text: "Test page"
+      href: test.html
+-->
 <center>
 <button> <a href="https://www.coris.noaa.gov/monitoring/" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold"> NCRMP Website</a></button>
 </center>

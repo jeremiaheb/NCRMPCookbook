@@ -108,6 +108,7 @@ This will allow you to load the functions in the scripts for your own figures wi
 ```{r Bsource, message=FALSE,warning=FALSE}
 library(ncrmp.benthics.analysis)
 library(tidyverse)
+source("benthic_plots/Benthic_Wrapper_functions.R")
 ```
 
 <br>
@@ -163,7 +164,7 @@ When loading data, you can retrieve data for multiple regions and years at once,
 <a href="benthic_plots/benthic_spp.txt" download style="color:blue">Download list of coral species</a>
 
 #### Regions
-BLAH BLAH
+TO BE ADDED
 <br>
 
 ### Fish {.tabset}

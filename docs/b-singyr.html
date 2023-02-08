@@ -295,12 +295,6 @@ div.tocify {
   border-radius: 0px;
 }
 
-.tocify-subheader {
-  display: inline;
-}
-.tocify-subheader .tocify-item {
-  font-size: 0.95em;
-}
 
 </style>
 
@@ -431,16 +425,14 @@ div.tocify {
 </div>
 
 
-<div id="fish-single-year-plots" class="section level1">
-<h1><strong>Fish: Single year plots</strong></h1>
+<div id="benthic-single-year-plots" class="section level1">
+<h1><strong>Benthic: Single year plots</strong></h1>
 <p><br></p>
 <!-- 
-All figures are made using the species Ocyurus chrysurus (OCY CHRY) 
+All figures are made using the species ______
 -->
 <div id="load-data" class="section level2">
 <h2>Load data</h2>
-<pre class="r fold-show"><code>keys11_14 = getRvcData(years = 2011:2014, regions = c(&quot;FLA KEYS&quot;))
-torts12_16 = getRvcData(years = 2012:2016, regions = c(&quot;DRY TORT&quot;))</code></pre>
 <p><br></p>
 </div>
 <div id="plots" class="section level2">
@@ -466,45 +458,6 @@ Defaults and alt are not necessarily required, but please include at least 2 var
 
 When the figure is added, save the image of one of the variations to the folder labeled "home-figs" and add it to the home page linking to the figure
 -->
-<div id="top-n-density-of-subregion" class="section level3 tabset">
-<h3 class="tabset">Top N density of subregion</h3>
-<div id="top-10" class="section level4">
-<h4>Top 10</h4>
-<pre class="r"><code>plotSubregionDens(df1 = keys11_14, #required
-                  yr = 2011, #required
-                  topOcc_n = 10) #required; number of spp to include</code></pre>
-<p><img src="f-singyr_files/figure-html/top10-1.png" width="672" />
-<br><br></p>
-</div>
-<div id="top-25" class="section level4">
-<h4>Top 25</h4>
-<pre class="r"><code>plotSubregionDens(df1 = torts12_16, #required
-                  yr = 2012, #required
-                  topOcc_n = 25) #required; number of spp to include</code></pre>
-<p><img src="f-singyr_files/figure-html/top25-1.png" width="672" />
-<br><br></p>
-</div>
-</div>
-<div id="species-occurrence-vs-cv-of-density"
-class="section level3 tabset">
-<h3 class="tabset">Species occurrence vs CV of Density</h3>
-<div id="florida-keys-2011" class="section level4">
-<h4>Florida Keys 2011</h4>
-<pre class="r"><code>plot_cv_vs_occurrence(df = keys11_14,
-                      yr = 2011,
-                      plotTitle = &quot;Floriday Keys, 2011&quot;)</code></pre>
-<p><img src="f-singyr_files/figure-html/svcv.fl11-1.png" width="960" />
-<br><br></p>
-</div>
-<div id="dry-tortugas-2014" class="section level4">
-<h4>Dry Tortugas 2014</h4>
-<pre class="r"><code>plot_cv_vs_occurrence(df = torts12_16,
-                      yr = 2014,
-                      plotTitle = &quot;Dry Tortugas, 2014&quot;)</code></pre>
-<p><img src="f-singyr_files/figure-html/svcv.dt14-1.png" width="960" />
-<br><br></p>
-</div>
-</div>
 </div>
 </div>
 
@@ -571,7 +524,7 @@ $(document).ready(function ()  {
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
     };
-    options.showAndHide = false;
+    options.showAndHide = true;
     options.smoothScroll = true;
 
     // tocify
