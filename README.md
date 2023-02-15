@@ -3,6 +3,8 @@ NCRMP Cookbook template
 
 https://kenzieknox.github.io/NCRMPCookbook/
 
+--> read as source blob on through RStudio to see all comments here
+
 - All links need to be kept relative for ease of transfer of site
 ex: 
     <a href="b-tseries.html">Time series</a>
