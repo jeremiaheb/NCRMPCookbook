@@ -7,11 +7,12 @@ navbar:
       href: index.html
       icon: fa-home
     - text: "Getting started"
-      href: about.html
       icon: fa-user
       menu:
+      - text: "Getting started"
+        href: about.html
       - text: "Customize your graphs"
-        href: chnages.html
+        href: changes.html
     - text: "Updates"
       href: updates.html
       icon: fa-edit
