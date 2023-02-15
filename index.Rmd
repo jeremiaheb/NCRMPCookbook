@@ -31,7 +31,7 @@ First time here or first time using R? Head to <a href="about.html">GETTING STAR
 <center>**Fish Plot Examples**</center>
 ```{r carousel, echo=FALSE, warning=FALSE, message=FALSE}
 library(slickR)
-setwd("./home-figs") #setwd() is not persistent in R Markdown and will revert after this code chunk
+setwd("./home-figs/fish") #setwd() is not persistent in R Markdown and will revert after this code chunk
 paths = list.files(".", pattern = ".jpg", all.files = TRUE)
 links = read.csv("fig-links.csv", header = FALSE)
 links = as.character(links[,1])
@@ -47,7 +47,27 @@ opts <- settings(
 slickR::slickR(obj = paths, objLinks = links,
                height = 300, width = '100%') + opts
 ```
+<br>
 
+<center>**Benthic Plot Examples**</center>
+```{r carousel2, echo=FALSE, warning=FALSE, message=FALSE}
+library(slickR)
+setwd("./home-figs/benthic") #setwd() is not persistent in R Markdown and will revert after this code chunk
+paths = list.files(".", pattern = ".jpg", all.files = TRUE)
+links = read.csv("fig-links.csv", header = FALSE)
+links = as.character(links[,1])
+
+opts <- settings(
+  dots = TRUE,
+  initialSlide = 0,
+  slidesToShow = 2, 
+  slidesToScroll = 1, 
+  focusOnSelect = TRUE,
+  autoplay = TRUE)
+
+slickR::slickR(obj = paths, objLinks = links,
+               height = 300, width = '100%') + opts
+```
 
 :::
 

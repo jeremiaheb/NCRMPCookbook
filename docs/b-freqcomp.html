@@ -339,12 +339,19 @@ div.tocify {
     Home
   </a>
 </li>
-<li>
-  <a href="about.html">
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-user"></span>
      
     Getting started
+     
+    <span class="caret"></span>
   </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="chnages.html">Customize your graphs</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="updates.html">
@@ -427,12 +434,18 @@ div.tocify {
 
 <div id="benthic-length-frequency" class="section level1">
 <h1><strong>Benthic: Length frequency</strong></h1>
+<button>
+<a href="changes.html" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold">Learn
+how to make changes to our scripts</a>
+</button>
 <p><br></p>
 <!-- 
 All figures are made using the species ______ 
 -->
-<p>&lt;! ## Load data</p>
+<div id="load-data" class="section level2">
+<h2>Load data</h2>
 <p><br></p>
+</div>
 <div id="plots" class="section level2">
 <h2>Plots</h2>
 <!-- To add another figure set (the #s control the headers):

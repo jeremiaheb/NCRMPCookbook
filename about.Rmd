@@ -6,7 +6,7 @@ title: "Getting Started"
 
 ::: {class='col-md-3'}
 
-<button> <a href="https://www.coris.noaa.gov/monitoring/" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold"> NCRMP Website</a></button>
+<center><button> <a href="https://www.coris.noaa.gov/monitoring/" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold"> NCRMP Website</a></button></center>
 
 <br>
 
@@ -33,6 +33,11 @@ title: "Getting Started"
    <label><input type="checkbox" name="source"> R scripts sourced</label><br />
    <label><input type="checkbox" name="data"> Data loaded into object in environment</label><br />
 </fieldset>
+
+##
+<br><br>
+
+<center><button> <a href="changes.html" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold">Learn how to make changes to our scripts</a></button></center>
 
 :::
 

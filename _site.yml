@@ -9,6 +9,9 @@ navbar:
     - text: "Getting started"
       href: about.html
       icon: fa-user
+      menu:
+      - text: "Customize your graphs"
+        href: chnages.html
     - text: "Updates"
       href: updates.html
       icon: fa-edit

@@ -267,12 +267,19 @@ $(document).ready(function () {
     Home
   </a>
 </li>
-<li>
-  <a href="about.html">
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     <span class="fa fa-user"></span>
      
     Getting started
+     
+    <span class="caret"></span>
   </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="chnages.html">Customize your graphs</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="updates.html">
@@ -347,10 +354,12 @@ $(document).ready(function () {
 
 <div class="fluid-row">
 <div class="col-md-3">
+<center>
 <button>
 <a href="https://www.coris.noaa.gov/monitoring/" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold">
 NCRMP Website</a>
 </button>
+</center>
 <p><br></p>
 <fieldset>
 <legend>Getting started checklist:</legend>
@@ -379,6 +388,16 @@ sourced</label><br /> <label><input type="checkbox" name="data"> Data
 loaded into object in environment</label><br />
 </fieldset>
 </div>
+</div>
+<div id="section-1" class="section level2">
+<h2></h2>
+<p><br><br></p>
+<center>
+<button>
+<a href="changes.html" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold">Learn
+how to make changes to our scripts</a>
+</button>
+</center>
 </div>
 </div>
 <div class="col-md-9">

@@ -8,13 +8,6 @@ output:
 urlcolor: blue
 ---
 
-<style type="text/css">
-.main-container {
-  max-width: 90% !important;
-  margin: auto;
-}
-</style>
-
 <!-- Don't move!! -->
 <center>**Sign up for email updates:**  
 FORM HERE  
@@ -27,18 +20,12 @@ FORM HERE
 Add headers with ### for month/year headers and #### for each individual
 update with the date in month-day-year format-->
 
-### Not October 2022
+### February 2023
 
-#### Another-future-date
-Fish files updated:  
-blah.R  
-New fish files  
-blah2.R  
-
-#### A-date-in-the-future
-Site goes live  
+#### 15-2-2023
+Site construction nearing completion
 
 ### October 2022
 
 #### 10-10-2022
-Site under construction  
+Site construction begins

@@ -8,6 +8,8 @@ output:
 ---
 
 # **Benthic: Length frequency**
+<button> <a href="changes.html" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold">Learn how to make changes to our scripts</a></button>
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -25,7 +27,7 @@ source("benthic_plots/Benthic_Wrapper_functions.R")
 <!-- 
 All figures are made using the species ______ 
 -->
-<!
+
 ## Load data
 ```{r data, message=FALSE,warning=FALSE,class.source = 'fold-show'}
 
