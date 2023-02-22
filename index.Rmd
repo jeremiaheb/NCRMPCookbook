@@ -28,6 +28,10 @@ First time here or first time using R? Head to <a href="about.html">GETTING STAR
 ::: {class='col-md-10'}
 
 
+<!-- Carousels default to target = '_blank' and I can't figure out how to change
+that to target = '_self', there doesn't seem to be a place to put the parameter
+and I can't find a solution online to prevent the links from opening a new tab-->
+
 <center>**Fish Plot Examples**</center>
 ```{r carousel, echo=FALSE, warning=FALSE, message=FALSE}
 library(slickR)
@@ -47,6 +51,7 @@ opts <- settings(
 slickR::slickR(obj = paths, objLinks = links,
                height = 300, width = '100%') + opts
 ```
+
 <br>
 
 <center>**Benthic Plot Examples**</center>
