@@ -13,7 +13,7 @@
 
 <title>Download packages and files</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -181,8 +181,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -190,16 +190,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -352,14 +345,12 @@ $(document).ready(function () {
 <h2 class="tabset">Primary packages</h2>
 <div id="benthic-package" class="section level3">
 <h3>Benthic package</h3>
-<p><a href="https://github.com/shgroves/NCRMP_benthics" target="_blank" style="color:blue">
-Benthic R Package GitHub</a></p>
+<p><a href="https://github.com/shgroves/NCRMP_benthics" target="_blank" style="color:blue"> Benthic R Package GitHub</a></p>
 <p><br><br></p>
 </div>
 <div id="fish-package" class="section level3">
 <h3>Fish package</h3>
-<p><a href="https://github.com/jeremiaheb/rvc" target="_blank" style="color:blue">
-Fish R Package GitHub</a></p>
+<p><a href="https://github.com/jeremiaheb/rvc" target="_blank" style="color:blue"> Fish R Package GitHub</a></p>
 <p><br><br><br></p>
 </div>
 </div>
@@ -378,19 +369,14 @@ NOTE: All fish files should be in the folder fish_plots, and all benthic files s
 <summary>
 If you have customized previously downloaded scripts…
 </summary>
-<p>When downloading R scripts to source, be aware that if you have
-previously downloaded scripts and edited them that you can overwrite any
-changes by downloading all files as a zip. <br> It is reccomended to
-only download files you do not already have downloaded, especially if
-you have made edits.</p>
+<p>When downloading R scripts to source, be aware that if you have previously downloaded scripts and edited them that you can overwrite any changes by downloading all files as a zip. <br> It is reccomended to only download files you do not already have downloaded, especially if you have made edits.</p>
 </details>
 <p><br></p>
 <div id="all-benthic-files" class="section level3">
 <h3>All benthic files</h3>
 <details>
 <summary>
-<a href="./benthic_plots/benthic-files.zip" download style="color:blue">Download
-all files</a>
+<a href="./benthic_plots/benthic-files.zip" download style="color:blue">Download all files</a>
 </summary>
 </div>
 <div id="individual-benthic-files" class="section level3">
@@ -410,8 +396,7 @@ NA
 <h3>All fish files</h3>
 <details>
 <summary>
-<a href="./fish_plots/fish-files.zip" download style="color:blue">Download
-all files</a>
+<a href="./fish_plots/fish-files.zip" download style="color:blue">Download all files</a>
 </summary>
 Includes: <br>
 <li>

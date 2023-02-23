@@ -13,7 +13,7 @@
 
 <title> </title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -185,8 +185,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -194,16 +194,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -444,8 +437,7 @@ div.tocify {
 <div id="fish-time-series" class="section level1">
 <h1><strong>Fish: Time series</strong></h1>
 <button>
-<a href="changes.html" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold">Learn
-how to make changes to our scripts</a>
+<a href="changes.html" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold">Learn how to make changes to our scripts</a>
 </button>
 <p><br></p>
 <!-- 
@@ -489,8 +481,7 @@ When the figure is added, save the image of one of the variations to the folder 
                         length = NULL, #only fish &gt;= length parameter are plotted
                         title = NULL, #add a figure title
                         print_dataframe = FALSE) #prints data used for figure</code></pre>
-<p><img src="f-tseries_files/figure-html/ddy.d-1.png" width="672" />
-<br><br></p>
+<p><img src="f-tseries_files/figure-html/ddy.d-1.png" width="672" /> <br><br></p>
 </div>
 <div id="alt" class="section level4">
 <h4>Alt</h4>
@@ -525,8 +516,7 @@ When the figure is added, save the image of one of the variations to the folder 
 <p><br><br></p>
 </div>
 </div>
-<div id="domain-density-by-protected-status"
-class="section level3 tabset">
+<div id="domain-density-by-protected-status" class="section level3 tabset">
 <h3 class="tabset">Domain density by protected status</h3>
 <div id="defaults-1" class="section level4">
 <h4>Defaults</h4>
@@ -535,8 +525,7 @@ class="section level3 tabset">
                         length = NULL, #only fish &gt;= length parameter are plotted
                         title = NULL, #add a figure title
                         print_dataframe = FALSE) #prints data used for figure</code></pre>
-<p><img src="f-tseries_files/figure-html/ddyp.d-1.png" width="672" />
-<br><br></p>
+<p><img src="f-tseries_files/figure-html/ddyp.d-1.png" width="672" /> <br><br></p>
 </div>
 <div id="alt-1" class="section level4">
 <h4>Alt</h4>
@@ -592,8 +581,7 @@ class="section level3 tabset">
                         length = NULL, #only fish &gt;= length parameter are plotted
                         print_dataframe = FALSE, #prints data used for figure
                         title = NULL)#add a figure title</code></pre>
-<p><img src="f-tseries_files/figure-html/doc.d-1.png" width="672" />
-<br><br></p>
+<p><img src="f-tseries_files/figure-html/doc.d-1.png" width="672" /> <br><br></p>
 </div>
 <div id="alt-2" class="section level4">
 <h4>Alt</h4>
@@ -628,8 +616,7 @@ class="section level3 tabset">
 <p><br><br></p>
 </div>
 </div>
-<div id="domain-occur.-by-protected-status"
-class="section level3 tabset">
+<div id="domain-occur.-by-protected-status" class="section level3 tabset">
 <h3 class="tabset">Domain occur. by protected status</h3>
 <div id="defaults-3" class="section level4">
 <h4>Defaults</h4>
@@ -638,8 +625,7 @@ class="section level3 tabset">
                         length = NULL, #only fish &gt;= length parameter are plotted
                         print_dataframe = FALSE, #prints data used for figure
                         title = NULL)#add a figure title</code></pre>
-<p><img src="f-tseries_files/figure-html/doyp.d-1.png" width="672" />
-<br><br></p>
+<p><img src="f-tseries_files/figure-html/doyp.d-1.png" width="672" /> <br><br></p>
 </div>
 <div id="alt-3" class="section level4">
 <h4>Alt</h4>
@@ -707,8 +693,7 @@ class="section level3 tabset">
                             length = NULL, #only fish &gt;= length parameter are plotted
                             title = NULL, #add a figure title
                             print_dataframe = NULL) #prints data used for figure</code></pre>
-<p><img src="f-tseries_files/figure-html/dby.d-1.png" width="672" />
-<br><br></p>
+<p><img src="f-tseries_files/figure-html/dby.d-1.png" width="672" /> <br><br></p>
 </div>
 <div id="alt-4" class="section level4">
 <h4>Alt</h4>
@@ -751,8 +736,7 @@ class="section level3 tabset">
                             species = &quot;OCY CHRY&quot;, #required
                             title = NULL, #add a figure title
                             print_dataframe = NULL) #prints data used for figure</code></pre>
-<p><img src="f-tseries_files/figure-html/dbyp.d-1.png" width="672" />
-<br><br></p>
+<p><img src="f-tseries_files/figure-html/dbyp.d-1.png" width="672" /> <br><br></p>
 </div>
 <div id="alt-5" class="section level4">
 <h4>Alt</h4>
@@ -807,8 +791,7 @@ class="section level3 tabset">
                          length = NULL, #only fish &gt;= length parameter are plotted
                          title = NULL, #add a figure title
                          print_dataframe = FALSE) #prints data used for figure</code></pre>
-<p><img src="f-tseries_files/figure-html/sdy.d-1.png" width="672" />
-<br><br></p>
+<p><img src="f-tseries_files/figure-html/sdy.d-1.png" width="672" /> <br><br></p>
 </div>
 <div id="alt-6" class="section level4">
 <h4>Alt</h4>
@@ -996,8 +979,7 @@ class="section level3 tabset">
                          length = NULL, #only fish &gt;= length parameter are plotted
                          title = NULL, #add a figure title 
                          print_dataframe = FALSE)#prints data used for figure</code></pre>
-<p><img src="f-tseries_files/figure-html/soy.d-1.png" width="672" />
-<br><br></p>
+<p><img src="f-tseries_files/figure-html/soy.d-1.png" width="672" /> <br><br></p>
 </div>
 <div id="alt-7" class="section level4">
 <h4>Alt</h4>
@@ -1007,8 +989,7 @@ class="section level3 tabset">
                          title = expression(paste(italic(&quot;O. chrysurus&quot;), 
                                                 &quot; in the Dry Tortugas&quot;)), #Allows scientific name to be italicized 
                          print_dataframe = TRUE)#prints data used for figure</code></pre>
-<p><img src="f-tseries_files/figure-html/soy.a-1.png" width="672" />
-<br><br></p>
+<p><img src="f-tseries_files/figure-html/soy.a-1.png" width="672" /> <br><br></p>
 </div>
 </div>
 <div id="stratum-biomass-by-year" class="section level3 tabset">
@@ -1020,8 +1001,7 @@ class="section level3 tabset">
                          length = NULL, #only fish &gt;= length parameter are plotted
                          title = NULL, #add a figure title 
                          print_dataframe = FALSE)#prints data used for figure</code></pre>
-<p><img src="f-tseries_files/figure-html/sby.d-1.png" width="672" />
-<br><br></p>
+<p><img src="f-tseries_files/figure-html/sby.d-1.png" width="672" /> <br><br></p>
 </div>
 <div id="alt-8" class="section level4">
 <h4>Alt</h4>
@@ -1031,8 +1011,7 @@ class="section level3 tabset">
                          title = expression(paste(italic(&quot;O. chrysurus&quot;), 
                                                 &quot; &gt;=30cm in the Florida Keys&quot;)),#Allows scientific name to be italicized 
                          print_dataframe = TRUE)#prints data used for figure</code></pre>
-<p><img src="f-tseries_files/figure-html/sby.a-1.png" width="672" />
-<br><br></p>
+<p><img src="f-tseries_files/figure-html/sby.a-1.png" width="672" /> <br><br></p>
 </div>
 </div>
 </div>

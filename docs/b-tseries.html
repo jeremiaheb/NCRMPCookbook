@@ -13,7 +13,7 @@
 
 <title> </title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -185,8 +185,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -194,16 +194,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -438,8 +431,7 @@ div.tocify {
 <div id="benthic-single-year-plots" class="section level1">
 <h1><strong>Benthic: Single year plots</strong></h1>
 <button>
-<a href="changes.html" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold">Learn
-how to make changes to our scripts</a>
+<a href="changes.html" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold">Learn how to make changes to our scripts</a>
 </button>
 <p><br></p>
 <!-- 
@@ -450,8 +442,7 @@ All figures are made using the species ______
 <!--
 
 -->
-<p>Data in this package is already included, and so doesn’t have to be
-called unless you choose to store it in a local variable.</p>
+<p>Data in this package is already included, and so doesn’t have to be called unless you choose to store it in a local variable.</p>
 <p><br></p>
 </div>
 <div id="plots" class="section level2">
@@ -488,9 +479,9 @@ When the figure is added, save the image of one of the variations to the folder 
                           print_dataframe = &quot;NULL&quot;)</code></pre>
 <p><img src="b-tseries_files/figure-html/ddby-1.png" width="672" /></p>
 <pre><code>## [[1]]
-## # A tibble: 5 × 9
+## # A tibble: 5 x 9
 ##   REGION  YEAR avDen    Var    SE CV_perc n_sites n_strat ngrtot
-##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;  &lt;int&gt;
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;int&gt;  &lt;int&gt;
 ## 1 STTSTJ  2013  4.27 0.0658 0.257    6.00     203      11  50200
 ## 2 STTSTJ  2015  3.94 0.0916 0.303    7.68     162      12  50465
 ## 3 STTSTJ  2017  3.24 0.0443 0.211    6.50     230      12  50465
@@ -508,9 +499,9 @@ When the figure is added, save the image of one of the variations to the folder 
                            print_dataframe = &quot;NULL&quot;)</code></pre>
 <p><img src="b-tseries_files/figure-html/sdby-1.png" width="672" /></p>
 <pre><code>## [[1]]
-## # A tibble: 59 × 10
+## # A tibble: 59 x 10
 ##    REGION  YEAR ANALYSIS_STRATUM STRAT     PROT      n avden   Var    SE CV_perc
-##    &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;     &lt;lgl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##    &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;     &lt;lgl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
 ##  1 STTSTJ  2013 AGRF_DEEP        AGRF_DEEP NA       16  6.24 0.736 0.858    13.8
 ##  2 STTSTJ  2013 AGRF_SHLW        AGRF_SHLW NA       20  5.28 0.649 0.806    15.2
 ##  3 STTSTJ  2013 BDRK_DEEP        BDRK_DEEP NA        6  5.47 1.91  1.38     25.3
@@ -521,7 +512,7 @@ When the figure is added, save the image of one of the variations to the folder 
 ##  8 STTSTJ  2013 PVMT_DEEP        PVMT_DEEP NA       44  3.88 0.317 0.563    14.5
 ##  9 STTSTJ  2013 PVMT_SHLW        PVMT_SHLW NA       36  2.84 0.127 0.356    12.6
 ## 10 STTSTJ  2013 SCR_DEEP         SCR_DEEP  NA        9  2.21 0.733 0.856    38.7
-## # … with 49 more rows</code></pre>
+## # ... with 49 more rows</code></pre>
 </div>
 <div id="domain-cover-by-year" class="section level3 tabset">
 <h3 class="tabset">Domain cover by year</h3>
@@ -533,9 +524,9 @@ When the figure is added, save the image of one of the variations to the folder 
                           print_dataframe = &quot;NULL&quot;)</code></pre>
 <p><img src="b-tseries_files/figure-html/dcby-1.png" width="672" /></p>
 <pre><code>## [[1]]
-## # A tibble: 5 × 10
+## # A tibble: 5 x 10
 ##   REGION  YEAR cover_group avCvr   Var    SE CV_perc n_sites n_strat ngrtot
-##   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;int&gt;   &lt;int&gt;  &lt;int&gt;
+##   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;int&gt;  &lt;int&gt;
 ## 1 STTSTJ  2013 HARD CORALS  8.25 1.09  1.05    12.7      283      11  50200
 ## 2 STTSTJ  2015 HARD CORALS  7.17 0.451 0.671    9.36     255      12  50465
 ## 3 STTSTJ  2017 HARD CORALS  5.37 0.267 0.517    9.64     235      12  50465

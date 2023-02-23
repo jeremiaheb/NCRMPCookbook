@@ -13,7 +13,7 @@
 
 <title> </title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -185,8 +185,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -194,16 +194,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -444,8 +437,7 @@ div.tocify {
 <div id="fish-single-year-plots" class="section level1">
 <h1><strong>Fish: Single year plots</strong></h1>
 <button>
-<a href="changes.html" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold">Learn
-how to make changes to our scripts</a>
+<a href="changes.html" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold">Learn how to make changes to our scripts</a>
 </button>
 <p><br></p>
 <!-- 
@@ -487,36 +479,31 @@ When the figure is added, save the image of one of the variations to the folder 
 <pre class="r"><code>plotSubregionDens(df1 = keys11_14, #required
                   yr = 2011, #required
                   topOcc_n = 10) #required; number of spp to include</code></pre>
-<p><img src="f-singyr_files/figure-html/top10-1.png" width="672" />
-<br><br></p>
+<p><img src="f-singyr_files/figure-html/top10-1.png" width="672" /> <br><br></p>
 </div>
 <div id="top-25" class="section level4">
 <h4>Top 25</h4>
 <pre class="r"><code>plotSubregionDens(df1 = torts12_16, #required
                   yr = 2012, #required
                   topOcc_n = 25) #required; number of spp to include</code></pre>
-<p><img src="f-singyr_files/figure-html/top25-1.png" width="672" />
-<br><br></p>
+<p><img src="f-singyr_files/figure-html/top25-1.png" width="672" /> <br><br></p>
 </div>
 </div>
-<div id="species-occurrence-vs-cv-of-density"
-class="section level3 tabset">
+<div id="species-occurrence-vs-cv-of-density" class="section level3 tabset">
 <h3 class="tabset">Species occurrence vs CV of Density</h3>
 <div id="florida-keys-2011" class="section level4">
 <h4>Florida Keys 2011</h4>
 <pre class="r"><code>plot_cv_vs_occurrence(df = keys11_14,
                       yr = 2011,
                       plotTitle = &quot;Floriday Keys, 2011&quot;)</code></pre>
-<p><img src="f-singyr_files/figure-html/svcv.fl11-1.png" width="960" />
-<br><br></p>
+<p><img src="f-singyr_files/figure-html/svcv.fl11-1.png" width="960" /> <br><br></p>
 </div>
 <div id="dry-tortugas-2014" class="section level4">
 <h4>Dry Tortugas 2014</h4>
 <pre class="r"><code>plot_cv_vs_occurrence(df = torts12_16,
                       yr = 2014,
                       plotTitle = &quot;Dry Tortugas, 2014&quot;)</code></pre>
-<p><img src="f-singyr_files/figure-html/svcv.dt14-1.png" width="960" />
-<br><br></p>
+<p><img src="f-singyr_files/figure-html/svcv.dt14-1.png" width="960" /> <br><br></p>
 </div>
 </div>
 </div>

@@ -13,7 +13,7 @@
 
 <title>Getting Started</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -32,12 +32,12 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<script src="site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="site_libs/htmlwidgets-1.6.1/htmlwidgets.js"></script>
 <link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="site_libs/datatables-binding-0.26/datatables.js"></script>
-<link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="site_libs/dt-core-1.12.1/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="site_libs/dt-core-1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="site_libs/datatables-binding-0.25/datatables.js"></script>
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="site_libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="site_libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
 <link href="site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
 <script src="site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
@@ -189,8 +189,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -198,16 +198,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -359,8 +352,7 @@ $(document).ready(function () {
 <div class="col-md-3">
 <center>
 <button>
-<a href="https://www.coris.noaa.gov/monitoring/" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold">
-NCRMP Website</a>
+<a href="https://www.coris.noaa.gov/monitoring/" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold"> NCRMP Website</a>
 </button>
 </center>
 <p><br></p>
@@ -372,23 +364,13 @@ NCRMP Website</a>
 <div id="benthic" class="section level4">
 <h4>Benthic</h4>
 <fieldset>
-<label><input type="checkbox" name="pkg"> Package downloaded and
-installed</label><br /> <label><input type="checkbox" name="load">
-Package loaded into environment</label><br />
-<label><input type="checkbox" name="source"> R scripts
-sourced</label><br /> <label><input type="checkbox" name="data"> Call
-data from package</label><br />
+<label><input type="checkbox" name="pkg"> Package downloaded and installed</label><br /> <label><input type="checkbox" name="load"> Package loaded into environment</label><br /> <label><input type="checkbox" name="source"> R scripts sourced</label><br /> <label><input type="checkbox" name="data"> Call data from package</label><br />
 </fieldset>
 </div>
 <div id="fish" class="section level4">
 <h4>Fish</h4>
 <fieldset>
-<label><input type="checkbox" name="pkg"> Package
-installed</label><br /> <label><input type="checkbox" name="load">
-Package loaded into environment</label><br />
-<label><input type="checkbox" name="source"> R scripts
-sourced</label><br /> <label><input type="checkbox" name="data"> Data
-loaded into object in environment</label><br />
+<label><input type="checkbox" name="pkg"> Package installed</label><br /> <label><input type="checkbox" name="load"> Package loaded into environment</label><br /> <label><input type="checkbox" name="source"> R scripts sourced</label><br /> <label><input type="checkbox" name="data"> Data loaded into object in environment</label><br />
 </fieldset>
 </div>
 </div>
@@ -397,8 +379,7 @@ loaded into object in environment</label><br />
 <p><br><br></p>
 <center>
 <button>
-<a href="changes.html" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold">Learn
-how to make changes to our scripts</a>
+<a href="changes.html" target="_blank" style="font-size:100%;color:#2471A3;font-weight:bold">Learn how to make changes to our scripts</a>
 </button>
 </center>
 </div>
@@ -410,37 +391,21 @@ REST OF PAGE BELOW -->
 <h2 class="tabset">What do I need to download?</h2>
 <div id="benthic-1" class="section level3">
 <h3>Benthic</h3>
-<p>The benthic R package can be accessed
-<a href="https://github.com/shgroves/NCRMP_benthics" target="_blank" style="color:blue">here.</a>
-Instructions to download and install the package are available on the
-GitHub page. <br> In addition to the R package, the files for the
-benthic figures are available under the tab “Download” individually or
-in a zip file. <br><br></p>
-<p>Download instructions: <br> 1. Download the .zip file from GitHub
-(green “Code” button, download zip) <br> 2. Open the .Rproj file inside
-the .zip in RStudio <br> 3. Run the following code</p>
+<p>The benthic R package can be accessed <a href="https://github.com/shgroves/NCRMP_benthics" target="_blank" style="color:blue">here.</a> Instructions to download and install the package are available on the GitHub page. <br> In addition to the R package, the files for the benthic figures are available under the tab “Download” individually or in a zip file. <br><br></p>
+<p>Download instructions: <br> 1. Download the .zip file from GitHub (green “Code” button, download zip) <br> 2. Open the .Rproj file inside the .zip in RStudio <br> 3. Run the following code</p>
 <pre class="r"><code>install.packages(&#39;devtools&#39;) #if devtools is not already installed
 devtools::install()</code></pre>
-<p><br> 4. Exit the .Rproj and run the following code from your own
-project or workspace</p>
+<p><br> 4. Exit the .Rproj and run the following code from your own project or workspace</p>
 <pre class="r"><code>library(ncrmp.benthics.analysis) </code></pre>
 <p><br><br><br></p>
 </div>
 <div id="fish-1" class="section level3">
 <h3>Fish</h3>
-<p>The fish R package can be accessed
-<a href="https://github.com/jeremiaheb/rvc" target="_blank" style="color:blue">here.</a>
-Instructions to download and install the package are available on the
-GitHub page. <br> In addition to the R package, the files for the
-benthic figures are available under the tab “Download” individually or
-in a zip file. <br> <br></p>
+<p>The fish R package can be accessed <a href="https://github.com/jeremiaheb/rvc" target="_blank" style="color:blue">here.</a> Instructions to download and install the package are available on the GitHub page. <br> In addition to the R package, the files for the benthic figures are available under the tab “Download” individually or in a zip file. <br> <br></p>
 <p>Download instructions: <br> 1. Run the following code in R</p>
 <pre class="r"><code>install.packages(&#39;devtools&#39;) #skip if devtools is already installed
 devtools::install_github(&#39;jeremiaheb/rvc&#39;)</code></pre>
-<p>There may be warnings about packages (such as RTools) that are not
-installed and are necessary for developing packages - this can be
-ignored or you can install the package if you so choose.
-<br><br><br></p>
+<p>There may be warnings about packages (such as RTools) that are not installed and are necessary for developing packages - this can be ignored or you can install the package if you so choose. <br><br><br></p>
 </div>
 </div>
 <div id="getting-started" class="section level2">
@@ -448,33 +413,17 @@ ignored or you can install the package if you so choose.
 <p><br></p>
 <div id="load-libraries-and-scripts" class="section level3">
 <h3>Load libraries and scripts</h3>
-<p>Once you have downloaded/installed all relevant R scripts and
-packages, they must be loaded into R. <br> To use load installed NCRMP
-libraries, use the following: <br> Benthic:
-<strong>library(ncrmp.benthics.analysis)</strong> <br> Fish:
-<strong>library(rvc)</strong> <br><br></p>
+<p>Once you have downloaded/installed all relevant R scripts and packages, they must be loaded into R. <br> To use load installed NCRMP libraries, use the following: <br> Benthic: <strong>library(ncrmp.benthics.analysis)</strong> <br> Fish: <strong>library(rvc)</strong> <br><br></p>
 <div id="working-directories" class="section level4">
 <h4>Working directories</h4>
-<p>You will want to make sure that you are working out of the same place
-on your computer as where you have stored all of the files downloaded
-from this site. If you aren’t sure where your working directory is
-pointing, use the command <strong>getwd()</strong> in the console. Use
-<strong>setwd()</strong> to set a working directory [ex:
-<strong>setwd(“C:/Users/username/Desktop/NCRMP”)</strong>]. If you are
-using RStudio, you can set your working directory in the file viewer
-window under “More&gt;Set As Working Directory”. <br><br></p>
+<p>You will want to make sure that you are working out of the same place on your computer as where you have stored all of the files downloaded from this site. If you aren’t sure where your working directory is pointing, use the command <strong>getwd()</strong> in the console. Use <strong>setwd()</strong> to set a working directory [ex: <strong>setwd(“C:/Users/username/Desktop/NCRMP”)</strong>]. If you are using RStudio, you can set your working directory in the file viewer window under “More&gt;Set As Working Directory”. <br><br></p>
 </div>
 <div id="how-to-source-r-files" class="section level4 tabset">
 <h4 class="tabset">How to source R files</h4>
 <button>
-<a href="downloadpkgs.html" target="_self" style="font-size:100%;color:#2471A3;font-weight:bold">
-Download scripts here</a>
+<a href="downloadpkgs.html" target="_self" style="font-size:100%;color:#2471A3;font-weight:bold"> Download scripts here</a>
 </button>
-<p>To use the files downloaded here as .R scripts, use the following
-template: <br> <strong>source(“path/to/file.R”)</strong> <br> This will
-allow you to load the functions in the scripts for your own figures
-without running the code for each function individually in the console.
-<br></p>
+<p>To use the files downloaded here as .R scripts, use the following template: <br> <strong>source(“path/to/file.R”)</strong> <br> This will allow you to load the functions in the scripts for your own figures without running the code for each function individually in the console. <br></p>
 <div id="benthic-files-and-libraries-example" class="section level5">
 <h5>Benthic files and libraries example</h5>
 <pre class="r"><code>library(ncrmp.benthics.analysis)
@@ -500,26 +449,18 @@ source(&quot;fish_plots/plot_horizontal_bar_shared_axis.R&quot;)</code></pre>
 <h3 class="tabset">Load data</h3>
 <div id="benthic-2" class="section level4">
 <h4>Benthic</h4>
-<p>Benthic data is downloaded with the package. <br> When data sets are
-added, the package must me re-installed. <br><br></p>
+<p>Benthic data is downloaded with the package. <br> When data sets are added, the package must me re-installed. <br><br></p>
 </div>
 <div id="fish-2" class="section level4">
 <h4>Fish</h4>
-<p>Fish data is not included in the package download, and must be
-accessed from the server. <br> Data can be accessed using the method
-<strong>getRvcData()</strong>. See example below:</p>
+<p>Fish data is not included in the package download, and must be accessed from the server. <br> Data can be accessed using the method <strong>getRvcData()</strong>. See example below:</p>
 <pre class="r"><code>keys11_14 = getRvcData(years = 2011:2014, regions = c(&quot;FLA KEYS&quot;))
 torts12_16 = getRvcData(years = 2012:2016, regions = c(&quot;DRY TORT&quot;))</code></pre>
-<p>When data sets are added, no additional actions must be taken.
-<br></p>
-<p>Below are the locations where fish data is provided. The code must be
-used when getting data from the server rather than the name.</p>
-<div id="htmlwidget-e871eea0b6e4fda02766" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e871eea0b6e4fda02766">{"x":{"filter":"none","vertical":false,"data":[["Dry Tortugas","Florida Keys","Puerto Rico","Southeast Peninsular Florida","St. Thomas/St. John","St. Croix"],["DRY TORT","FLA KEYS","PRICO","SEFCRI","STTSTJ","STX"]],"container":"<table class=\"cell-border stripe\">\n  <thead>\n    <tr>\n      <th>Name<\/th>\n      <th>Code<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"columnDefs":[],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
-<p><br> When loading data, you can retrieve data for multiple regions
-and years at once, but for many of the figures shown on this site, you
-will want to only grab data for one location at a time as shown above.
-It is much easier to work with data from one location at a time.</p>
+<p>When data sets are added, no additional actions must be taken. <br></p>
+<p>Below are the locations where fish data is provided. The code must be used when getting data from the server rather than the name.</p>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-2a5cc66ac81ea84bcc21" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2a5cc66ac81ea84bcc21">{"x":{"filter":"none","vertical":false,"data":[["Dry Tortugas","Florida Keys","Puerto Rico","Southeast Peninsular Florida","St. Thomas/St. John","St. Croix"],["DRY TORT","FLA KEYS","PRICO","SEFCRI","STTSTJ","STX"]],"container":"<table class=\"cell-border stripe\">\n  <thead>\n    <tr>\n      <th>Name<\/th>\n      <th>Code<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"columnDefs":[],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<p><br> When loading data, you can retrieve data for multiple regions and years at once, but for many of the figures shown on this site, you will want to only grab data for one location at a time as shown above. It is much easier to work with data from one location at a time.</p>
 <p><br><br></p>
 </div>
 </div>
@@ -530,8 +471,7 @@ It is much easier to work with data from one location at a time.</p>
 <h3 class="tabset">Benthic</h3>
 <div id="coral-species" class="section level4">
 <h4>Coral Species</h4>
-<p><a href="benthic_plots/benthic_spp.txt" download style="color:blue">Download
-list of coral species</a></p>
+<p><a href="benthic_plots/benthic_spp.txt" download style="color:blue">Download list of coral species</a></p>
 </div>
 <div id="regions" class="section level4">
 <h4>Regions</h4>
@@ -542,16 +482,15 @@ list of coral species</a></p>
 <h3 class="tabset">Fish</h3>
 <div id="fish-species" class="section level4">
 <h4>Fish Species</h4>
-<p><a href="fish_plots/fish_spp.txt" download style="color:blue">Download
-list of fish species</a></p>
+<p><a href="fish_plots/fish_spp.txt" download style="color:blue">Download list of fish species</a></p>
 </div>
 <div id="regions-1" class="section level4">
 <h4>Regions</h4>
 <!-- 
 To add to the table, edit the NCRMP-f-datayrs.csv
 -->
-<div id="htmlwidget-bc94ceba39b938d9c18d" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-bc94ceba39b938d9c18d">{"x":{"filter":"none","vertical":false,"data":[["1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021"],["X","X","","","","X","","X","","X","","X","","X","","X","","X","","X","",null,"X"],["X","X","X","X","X","X","X","X","X","X","X","X","X","X","","X","","X","","X","",null,""],["","","","","","","","","","","","","","","","","","X","","","X",null,"X"],["","","","","","","","","","","","","","","X","X","X","X","","X","",null,"X"],["","","","","","","","","","","","","","","","","","","X","","X",null,"X"],["","","","","","","","","","","","","","","","","","","X","","X",null,"X"]],"container":"<table class=\"cell-border stripe\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>DRY.TORT<\/th>\n      <th>FLA.KEYS<\/th>\n      <th>PRICO<\/th>\n      <th>SEFCRI<\/th>\n      <th>STTSTJ<\/th>\n      <th>STX<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"pageLength":25,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-81794cccdbe02e6f142e" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-81794cccdbe02e6f142e">{"x":{"filter":"none","vertical":false,"data":[["1999","2000","2001","2002","2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021"],["X","X","","","","X","","X","","X","","X","","X","","X","","X","","X","",null,"X"],["X","X","X","X","X","X","X","X","X","X","X","X","X","X","","X","","X","","X","",null,""],["","","","","","","","","","","","","","","","","","X","","","X",null,"X"],["","","","","","","","","","","","","","","X","X","X","X","","X","",null,"X"],["","","","","","","","","","","","","","","","","","","X","","X",null,"X"],["","","","","","","","","","","","","","","","","","","X","","X",null,"X"]],"container":"<table class=\"cell-border stripe\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>DRY.TORT<\/th>\n      <th>FLA.KEYS<\/th>\n      <th>PRICO<\/th>\n      <th>SEFCRI<\/th>\n      <th>STTSTJ<\/th>\n      <th>STX<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"ordering":false,"pageLength":25,"columnDefs":[{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </div>
